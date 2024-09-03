@@ -1,0 +1,145 @@
+/* Общие стили футера */
+.footer {
+  background-color: #f8f8f8;
+  padding: 20px 0;
+}
+
+.footerContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Стили логотипа */
+.footerLogo img {
+  height: 50px;
+  cursor: pointer;
+}
+
+/* Стили навигации */
+.footerNav .footerLinks {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+  padding: 0;
+  margin: 0;
+}
+
+.footerNav .footerLinks li a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.footerNav .footerLinks li a:hover {
+  color: #ff7f50;
+}
+
+/* Стили дополнительных элементов */
+.footerExtras {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+/* Стили переключателя языка */
+.languageSelector {
+  position: relative;
+}
+
+.languageButton {
+  background-color: transparent;
+  border: none;
+  color: #333;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px;
+}
+
+.languageButton .arrow {
+  font-size: 12px;
+  transition: transform 0.3s;
+}
+
+.languageSelector.open .arrow {
+  transform: rotate(180deg);
+}
+
+.languageDropdown {
+  position: absolute;
+  top: 30px;
+  right: 0;
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  animation: fadeIn 0.3s ease-in-out;
+  z-index: 1000;
+}
+
+.languageOption {
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.languageOption:hover {
+  background-color: #f1f1f1;
+}
+
+/* Стили кнопки Request Demo */
+.requestDemoButton {
+  background-color: #ff7f50;
+  color: #ffffff;
+  padding: 10px 25px;
+  border-radius: 64px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.requestDemoButton:hover {
+  background-color: #ff5722;
+  box-shadow: 0 4px 12px rgba(255, 87, 34, 0.3);
+}
+
+/* Анимация для выпадающего меню */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Адаптивность для мобильных устройств */
+@media (max-width: 768px) {
+  .footerContainer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+  .footerNav .footerLinks {
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+
+  .footerExtras {
+    align-self: stretch;
+    justify-content: space-between;
+    width: 100%;
+  }
+}
