@@ -1,16 +1,16 @@
 import React from "react";
-import "./Footer.css";
-import Logotype from "../main/images/Logotype.png";
+import styles from "./footer.module.css";
+import Logotype from "../../assets/images/Logotype.png";
 
-export const Footer = () => {
+ const Footer = () => {
   return (
-    <footer className="footer">
-      <div className="footer-container">
-        <div className="footer-logo">
+    <div className={styles.footer}>
+      <div className={styles.footerContainer}>
+        <div className={styles.footerLogo}>
           <img src={Logotype} alt="Company Logo" />
         </div>
-        <nav className="footer-nav">
-          <ul className="footer-links">
+        <nav className={styles.footerNav}>
+          <ul className={styles.footerLinks}>
             <li>
               <a href="/">Home</a>
             </li>
@@ -28,10 +28,11 @@ export const Footer = () => {
             </li>
           </ul>
         </nav>
-        <div className="footer-language">
+        <div className={styles.footerLanguage}>
           <span>Language: English</span>
         </div>
       </div>
-    </footer>
+    </div>
   );
 };
+export default Footer
