@@ -96,42 +96,6 @@
     z-index: 3;
 }
 
-.formContainer{
-    background-color: #F5F7FA;
-    display: flex;
-    gap: 21.1vw;
-    .form{
-        margin-top: 5vh;
-        width: 44vw;
-        .input{
-            font-size: 1.4vw;
-            padding: 1vw;
-            border: none;
-            border-bottom: 1px solid #E6E9ED;
-            background-color: #F5F7FA;
-        }
-        .input:focus{
-            outline: none;
-            border-bottom: 2px solid black;
-        }
-    }
-}
-.flexRow{
-    display: flex;
-    gap: 2vw;
-    align-items: center;
-    margin-bottom: 2vw;
-    input{
-        width: 20vw;
-    }
-}
-.flexColumn{
-    display: flex;
-    flex-direction: column;
-    gap: 2vw;
-    justify-content: center;
-    margin-bottom: 2vw;
-    input{
-        width: 42vw;
-    }
-}
+
+
+

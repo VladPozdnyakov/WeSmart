@@ -4,6 +4,8 @@ import LocomotiveScroll from "locomotive-scroll";
 import "locomotive-scroll/dist/locomotive-scroll.css";
 import Footer from "../../components/footer/Footer";
 import styles from "./Products.module.scss";
+import Form from "../../components/Form/Form";
+import TrueFooter from "../../components/TrueFooter/TrueFooter";
 
 const startPosition = 0;
 const firstSlideTopStart = startPosition;
@@ -19,7 +21,9 @@ const fifthSlideTopEnd = fifthSlideTopStart + 0.1;
 const sixSlideTopStart = fifthSlideTopEnd;
 const sixSlideTopEnd = sixSlideTopStart + 0.1;
 const formSlideTopStart = sixSlideTopEnd;
-const formSlideTopEnd = formSlideTopStart+0.1;
+const formSlideTopEnd = formSlideTopStart + 0.1;
+const footerSlideTopStart = formSlideTopEnd;
+const footerSlideTopEnd = footerSlideTopStart + 0.1;
 
 const Products = () => {
   const scrollRef = useRef(null);
@@ -52,13 +56,18 @@ const Products = () => {
     ),
     third: useTransform(
       scrollYProgress,
-      [thirdSlideTopStart, thirdSlideTopEnd],
-      ["100vh", "15vh"]
+      [
+        thirdSlideTopStart,
+        thirdSlideTopEnd,
+        fourthSlideTopStart,
+        fourthSlideTopEnd,
+      ],
+      ["100vh", "15vh", "15vh", "-64vh"]
     ),
     fourth: useTransform(
       scrollYProgress,
       [fourthSlideTopStart, fourthSlideTopEnd],
-      ["100vh", "13vh"]
+      ["100vh", "12vh"]
     ),
     fifth: useTransform(
       scrollYProgress,
@@ -71,10 +80,20 @@ const Products = () => {
       ["100vh", "15vh"]
     ),
     form: useTransform(
-        scrollYProgress,
-        [formSlideTopStart, formSlideTopEnd],
-        ["100vh", "13vh"]
-    )
+      scrollYProgress,
+      [
+        formSlideTopStart,
+        formSlideTopEnd,
+        footerSlideTopStart,
+        footerSlideTopEnd,
+      ],
+      ["100vh", "13vh", "13vh", "-44vh"]
+    ),
+    trueFooter: useTransform(
+      scrollYProgress,
+      [footerSlideTopStart, footerSlideTopEnd],
+      ["100vh", "46vh"]
+    ),
   };
 
   const screensData = [
@@ -205,46 +224,8 @@ const Products = () => {
             ></img>
           </motion.div>
         ))}
-
-        {/*вынести как компонент нижнее*/}
-
-        <motion.div
-          className={`${styles.productsScreen} ${styles.formContainer}`}
-          style={{top: transforms.form}}
-        >
-          <div className={styles.pageNum}>LET`S TALK</div>
-          <div>
-            <div className={styles.subtitle}>
-              FILL IN THE FORM
-              <span className={styles.orange}> AND WE WILL</span>
-              <br /> GET BACK TO YOU
-            </div>
-            <form className={styles.form}>
-              <div className={styles.flexRow}>
-                <input className={styles.input} type="text" name="firstName" placeholder="First name" />
-                <input className={styles.input} type="text" name="lastName" placeholder="Last name" />
-              </div>
-              <div className={styles.flexColumn}>
-              <input className={styles.input} type="text" name="company" placeholder="Company" />
-              <input className={styles.input} type="text" name="jobTitle" placeholder="Job title" />
-              <input className={styles.input} type="email" name="jobTitle" placeholder="Email" />
-              </div>
-              <div className={styles.flexRow}>
-                <div className={styles.button} style={{margin: '0'}}>Submit</div>
-                <div className={styles.pageNum}>
-                  SUBMITTED INFORMATION WILL BE USED IN ACCORDANCE
-                  <br /> WITH OUR PRIVACY POLICY
-                </div>
-              </div>
-            </form>
-          </div>
-        </motion.div>
-
-        <motion.div>
-
-        </motion.div>
-
-
+        <Form top={transforms.form} />
+        <TrueFooter top={transforms.trueFooter} />
       </div>
     </div>
   );
