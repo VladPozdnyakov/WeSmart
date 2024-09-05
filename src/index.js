@@ -4,12 +4,17 @@ import './index.css'
 import reportWebVitals from "./reportWebVitals";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Products from "./pages/Products/Products";
+import About from "./pages/About/About";
 
 
 const router = createBrowserRouter([
   {
     path: '/',
     element: <Products/>
+  },
+  {
+    path: '/about',
+    element: <About/>
   }
 ])
 
