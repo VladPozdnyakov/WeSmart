@@ -80,7 +80,7 @@ const About = () => {
       [
         thirdSlideTopStart,
         thirdSlideTopEnd,
-        fifthSlideTopStart,
+        fourthSlideTopStart,
         fifthSlideTopEnd,
       ],
       ["100vh", "0vh", "0vh", "-100vh"]
