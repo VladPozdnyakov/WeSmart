@@ -1,0 +1,94 @@
+.bigContainer {
+  width: 100%;
+  height: 2000vh;
+}
+.mainHome {
+  position: relative;
+}
+.stickyBlock {
+  position: sticky;
+  top: 0;
+  user-select: none;
+}
+.titleBlock {
+  position: absolute;
+  width: 100%;
+  top: 0vh;
+}
+.title {
+  width: 83.33%;
+  font-size: 8.6vw;
+  font-weight: 400;
+  z-index: 3;
+  position: relative;
+  margin: 11.1vh 11.1vw 9.4vh 5.9vw;
+}
+.descriptionBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1vh;
+  width: 50vw;
+  margin-left: 30vw;
+  margin-top: 20vw;
+  position: relative;
+  z-index: 3;
+}
+.subtitle {
+  font-size: 3vw;
+  color: #222222;
+  z-index: 4;
+  position: relative;
+}
+.text {
+  font-size: 1.3vw;
+  color: #434a53;
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 400;
+  z-index: 4;
+  position: relative;
+}
+.advantages {
+  display: flex; /* Flexbox для горизонтального выравнивания блоков */
+  gap: 5px; /* Зазор между блоками */
+  overflow-x: auto; /* Горизонтальная прокрутка */
+  padding: 10px;
+  margin-top: 4vw;
+  width: 100vw; /* Ширина контейнера на всю ширину экрана */
+  scroll-snap-type: x mandatory; /* Привязка блоков при прокрутке */
+  box-sizing: border-box; /* Чтобы отступы и границы не влияли на общую ширину */
+}
+
+.writtenAboutUs {
+  position: absolute;
+  display: flex;
+  gap: 18.5vw;
+  background-color: rgba(245, 247, 250, 1);
+  width: 81.4vw;
+  height: 60.6vh;
+  padding: 19.7vh 9.3vw;
+  top: 0vh;
+  left: 0vw;
+  z-index: 3;
+  .blockName {
+    color: rgba(67, 74, 83, 1);
+    font-size: 1.4vw;
+  }
+  .blockTitle {
+    font-size: 3.3vw;
+    font-weight: 400;
+    position: relative;
+    z-index: 4;
+    margin-bottom: 2vh;
+  }
+
+  .bgImage {
+    position: absolute;
+    top: 11.5vh;
+    left: 28.6vw;
+    img {
+      width: 19.2vw;
+      height: 21.4vh;
+    }
+  }
+}

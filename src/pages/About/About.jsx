@@ -10,7 +10,6 @@ const startPosition = 0;
 const firstSlideTopStart = startPosition;
 const firstSlideTopEnd = firstSlideTopStart + 0.2;
 
-
 const firstWorthAppearStart = firstSlideTopEnd - 0.105;
 const firstWorthAppearEnd = firstWorthAppearStart + 0.02;
 const secondWorthAppearStart = firstWorthAppearEnd;
@@ -21,9 +20,6 @@ const fourthWorthAppearStart = thirdWorthAppearEnd;
 const fourthWorthAppearEnd = fourthWorthAppearStart + 0.02;
 const fifthWorthAppearStart = fourthWorthAppearEnd;
 const fifthWorthAppearEnd = fifthWorthAppearStart + 0.02;
-
-
-
 
 const secondSlideTopStart = firstSlideTopEnd;
 const secondSlideTopEnd = secondSlideTopStart + 0.1;
@@ -42,7 +38,7 @@ const footerSlideTopEnd = footerSlideTopStart + 0.1;
 
 const About = () => {
   const scrollRef = useRef(null);
-    const { scrollYProgress } = useScroll();
+  const { scrollYProgress } = useScroll();
   useEffect(() => {
     const scroll = new LocomotiveScroll({
       el: scrollRef.current,
@@ -51,15 +47,14 @@ const About = () => {
       inertia: 0.8,
     });
     scrollYProgress.onChange((latest) => {
-        const scrollPercentage = latest * 100; // Преобразуем в проценты
-        console.log(`Page scrolled: ${scrollPercentage}%`);
-      });
+      const scrollPercentage = latest * 100; // Преобразуем в проценты
+      console.log(`Page scrolled: ${scrollPercentage}%`);
+    });
     return () => {
       if (scroll) scroll.destroy();
     };
   }, [scrollYProgress]);
 
-  
   const transforms = {
     first: useTransform(
       scrollYProgress,
@@ -67,31 +62,30 @@ const About = () => {
       ["0vh", "-400vh"]
     ),
 
-
     firstWorth: useTransform(
-        scrollYProgress,
-        [firstWorthAppearStart, firstWorthAppearEnd],
-        [0,1]
+      scrollYProgress,
+      [firstWorthAppearStart, firstWorthAppearEnd],
+      [0, 1]
     ),
     secondWorth: useTransform(
-        scrollYProgress,
-        [secondWorthAppearStart, secondWorthAppearEnd],
-        [0,1]
+      scrollYProgress,
+      [secondWorthAppearStart, secondWorthAppearEnd],
+      [0, 1]
     ),
     thirdWorth: useTransform(
-        scrollYProgress,
-        [thirdWorthAppearStart, thirdWorthAppearEnd],
-        [0,1]
+      scrollYProgress,
+      [thirdWorthAppearStart, thirdWorthAppearEnd],
+      [0, 1]
     ),
     fourthWorth: useTransform(
-        scrollYProgress,
-        [fourthWorthAppearStart, fourthWorthAppearEnd],
-        [0,1]
+      scrollYProgress,
+      [fourthWorthAppearStart, fourthWorthAppearEnd],
+      [0, 1]
     ),
     fifthWorth: useTransform(
-        scrollYProgress,
-        [fifthWorthAppearStart, fifthWorthAppearEnd],
-        [0,1]
+      scrollYProgress,
+      [fifthWorthAppearStart, fifthWorthAppearEnd],
+      [0, 1]
     ),
     form: useTransform(
       scrollYProgress,
@@ -176,11 +170,11 @@ const About = () => {
                 <span className={styles.orange}>THE VALUES</span> THAT LEAD US
               </div>
 
-
-
               <div className={styles.worthesContainer}>
-
-                <motion.div className={styles.worth} style={{opacity: transforms.firstWorth}}>
+                <motion.div
+                  className={styles.worth}
+                  style={{ opacity: transforms.firstWorth }}
+                >
                   <div className={styles.imageWrapper}>
                     <img src="/images/aboutWorthes0.svg" alt="no-image" />
                   </div>
@@ -192,67 +186,82 @@ const About = () => {
                       in the field of technology, and to offer
                       <br />
                       innovative solutions to its customers
-                    </div>         
+                    </div>
                   </div>
                   <div className={styles.worthTitle}>/01</div>
                 </motion.div>
 
-                <motion.div className={styles.worth} style={{opacity: transforms.secondWorth}}>
+                <motion.div
+                  className={styles.worth}
+                  style={{ opacity: transforms.secondWorth }}
+                >
                   <div className={styles.imageWrapper}>
                     <img src="/images/aboutWorthes0.svg" alt="no-image" />
                   </div>
                   <div>
                     <span className={styles.worthTitle}>QUALITY</span>
                     <div className={styles.worthText}>
-                    THE COMPANY UNDERTAKES TO OFFER<br/> 
-HIGH QUALITY PRODUCTS AND SERVICES <br/>
-THAT WILL  MEET CUSTOMER EXPECTATIONS <br/>
-AND TO  CUSTOMIZE THE PRODUCT
-                    </div>         
+                      THE COMPANY UNDERTAKES TO OFFER
+                      <br />
+                      HIGH QUALITY PRODUCTS AND SERVICES <br />
+                      THAT WILL MEET CUSTOMER EXPECTATIONS <br />
+                      AND TO CUSTOMIZE THE PRODUCT
+                    </div>
                   </div>
                   <div className={styles.worthTitle}>/02</div>
                 </motion.div>
 
-                <motion.div className={styles.worth} style={{opacity: transforms.thirdWorth}}>
+                <motion.div
+                  className={styles.worth}
+                  style={{ opacity: transforms.thirdWorth }}
+                >
                   <div className={styles.imageWrapper}>
                     <img src="/images/aboutWorthes0.svg" alt="no-image" />
                   </div>
                   <div>
                     <span className={styles.worthTitle}>RELIABILITY</span>
                     <div className={styles.worthText}>
-                    THE COMPANY MUST BE A RELIABLE  COMPANY <br/>
-                    THAT CAN BE TRUSTED
-                    </div>         
+                      THE COMPANY MUST BE A RELIABLE COMPANY <br />
+                      THAT CAN BE TRUSTED
+                    </div>
                   </div>
                   <div className={styles.worthTitle}>/03</div>
                 </motion.div>
 
-                <motion.div className={styles.worth} style={{opacity: transforms.fourthWorth}}>
+                <motion.div
+                  className={styles.worth}
+                  style={{ opacity: transforms.fourthWorth }}
+                >
                   <div className={styles.imageWrapper}>
                     <img src="/images/aboutWorthes0.svg" alt="no-image" />
                   </div>
                   <div>
                     <span className={styles.worthTitle}>SERVICE</span>
                     <div className={styles.worthText}>
-                    THE COMPANY AIMS TO PROVIDE EXCELLENT <br/>
-CUSTOMER SERVICE, WHICH WILL BE AVAILABLE  <br/>
-AND HELPFUL
-                    </div>         
+                      THE COMPANY AIMS TO PROVIDE EXCELLENT <br />
+                      CUSTOMER SERVICE, WHICH WILL BE AVAILABLE <br />
+                      AND HELPFUL
+                    </div>
                   </div>
                   <div className={styles.worthTitle}>/04</div>
                 </motion.div>
 
-                <motion.div className={styles.worth} style={{opacity: transforms.fifthWorth}}>
+                <motion.div
+                  className={styles.worth}
+                  style={{ opacity: transforms.fifthWorth }}
+                >
                   <div className={styles.imageWrapper}>
                     <img src="/images/aboutWorthes0.svg" alt="no-image" />
                   </div>
                   <div>
-                    <span className={styles.worthTitle}>Social responsibility</span>
+                    <span className={styles.worthTitle}>
+                      Social responsibility
+                    </span>
                     <div className={styles.worthText}>
-                    The company aims to give back  <br/>
-to the community, and contribute  to a better <br/>
-society by strengthening  security
-                    </div>         
+                      The company aims to give back <br />
+                      to the community, and contribute to a better <br />
+                      society by strengthening security
+                    </div>
                   </div>
                   <div className={styles.worthTitle}>/05</div>
                 </motion.div>
