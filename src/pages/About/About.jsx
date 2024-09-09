@@ -5,24 +5,17 @@ import styles from "./About.module.scss";
 import { useRef, useEffect } from "react";
 import LocomotiveScroll from "locomotive-scroll";
 import { useScroll, motion, useTransform } from "framer-motion";
+import TitleSection from "../../components/aboutPage/TitleSection/TitleSection";
+import ValueSection from "../../components/aboutPage/ValuesSection/ValuesSection";
+import BackgroundAnimation from "../../components/aboutPage/BackgroundAnimation/BackgroundAnimation";
+import TeamCarousel from "../../components/aboutPage/TeamCarousel/TeamCarousel";
 
 const startPosition = 0;
 const firstSlideTopStart = startPosition;
 const firstSlideTopEnd = firstSlideTopStart + 0.2;
 
-const firstWorthAppearStart = firstSlideTopEnd - 0.105;
-const firstWorthAppearEnd = firstWorthAppearStart + 0.02;
-const secondWorthAppearStart = firstWorthAppearEnd;
-const secondWorthAppearEnd = secondWorthAppearStart + 0.02;
-const thirdWorthAppearStart = secondWorthAppearEnd;
-const thirdWorthAppearEnd = thirdWorthAppearStart + 0.02;
-const fourthWorthAppearStart = thirdWorthAppearEnd;
-const fourthWorthAppearEnd = fourthWorthAppearStart + 0.02;
-const fifthWorthAppearStart = fourthWorthAppearEnd;
-const fifthWorthAppearEnd = fifthWorthAppearStart + 0.02;
-
-const secondSlideTopStart = firstSlideTopEnd;
-const secondSlideTopEnd = secondSlideTopStart + 0.1;
+const secondSlideTopStart = firstSlideTopStart + 0.1;
+const secondSlideTopEnd = secondSlideTopStart + 0.2;
 const thirdSlideTopStart = secondSlideTopEnd;
 const thirdSlideTopEnd = thirdSlideTopStart + 0.1;
 const fourthSlideTopStart = thirdSlideTopEnd;
@@ -35,6 +28,17 @@ const formSlideTopStart = sixSlideTopEnd;
 const formSlideTopEnd = formSlideTopStart + 0.1;
 const footerSlideTopStart = formSlideTopEnd;
 const footerSlideTopEnd = footerSlideTopStart + 0.1;
+
+const firstWorthAppearStart = secondSlideTopStart + 0.05;
+const firstWorthAppearEnd = firstWorthAppearStart + 0.04;
+const secondWorthAppearStart = firstWorthAppearEnd;
+const secondWorthAppearEnd = secondWorthAppearStart + 0.03;
+const thirdWorthAppearStart = secondWorthAppearEnd;
+const thirdWorthAppearEnd = thirdWorthAppearStart + 0.03;
+const fourthWorthAppearStart = thirdWorthAppearEnd;
+const fourthWorthAppearEnd = fourthWorthAppearStart + 0.03;
+const fifthWorthAppearStart = fourthWorthAppearEnd;
+const fifthWorthAppearEnd = fifthWorthAppearStart + 0.03;
 
 const About = () => {
   const scrollRef = useRef(null);
@@ -59,9 +63,60 @@ const About = () => {
     first: useTransform(
       scrollYProgress,
       [firstSlideTopStart, firstSlideTopEnd],
-      ["0vh", "-400vh"]
+      ["0vh", "-250vh"]
     ),
-
+    second: useTransform(
+      scrollYProgress,
+      [
+        secondSlideTopStart,
+        secondSlideTopEnd,
+        thirdSlideTopStart,
+        thirdSlideTopEnd,
+      ],
+      ["100vh", "-150vh", "-150vh", "-250vh"]
+    ),
+    third: useTransform(
+      scrollYProgress,
+      [
+        thirdSlideTopStart,
+        thirdSlideTopEnd,
+        fourthSlideTopStart,
+        fifthSlideTopEnd,
+      ],
+      ["100vh", "0vh", "0vh", "-100vh"]
+    ),
+    fourth: useTransform(
+      scrollYProgress,
+      [
+        fourthSlideTopStart,
+        fourthSlideTopEnd,
+        fifthSlideTopStart,
+        fifthSlideTopEnd,
+      ],
+      ["100vh", "-50vh", "-50vh", "-150vh"]
+    ),
+    fifth: useTransform(
+      scrollYProgress,
+      [fourthSlideTopStart, fifthSlideTopEnd],
+      ["100vh", "0vh"]
+    ),
+    six: useTransform(
+      scrollYProgress,
+      [
+        sixSlideTopStart,
+        sixSlideTopEnd,
+        formSlideTopStart,
+        formSlideTopEnd,
+        footerSlideTopStart,
+        footerSlideTopEnd,
+      ],
+      ["100vh", "0vh", "0vh", "-84vh", "-84vh", "-150vh"]
+    ),
+    backgroundOpacity: useTransform(
+      scrollYProgress,
+      [secondSlideTopStart, secondSlideTopStart + 0.02],
+      [1, 0]
+    ),
     firstWorth: useTransform(
       scrollYProgress,
       [firstWorthAppearStart, firstWorthAppearEnd],
@@ -109,183 +164,130 @@ const About = () => {
       <div className={styles.stickyBlock} data-scroll-section>
         <Footer />
         <motion.div className={styles.mainAbout}>
+          <TitleSection top={transforms.first} />
+          <ValueSection
+            top={transforms.second}
+            opacity1={transforms.firstWorth}
+            opacity2={transforms.secondWorth}
+            opacity3={transforms.thirdWorth}
+            opacity4={transforms.fourthWorth}
+            opacity5={transforms.fifthWorth}
+          />
+          <BackgroundAnimation
+            backgroundOpacity={transforms.backgroundOpacity}
+          />
           <motion.div
-            className={styles.titleBlock}
-            style={{ top: transforms.first }}
+            className={styles.writtenAboutUs}
+            style={{ top: transforms.third }}
           >
-            <div className={styles.title}>
-              WE BELIEVE THAT TECHNOLOGY
-              <br />
-              IS MEANT TO IMPROVE
-              <br />
-              <span className={styles.orange}>THE QUALITY OF LIFE</span>
-              <br />
-              AND STREAMLINE PROCESSES
-            </div>
-            <div className={styles.descriptionBlock}>
-              <div className={styles.subtitle}>ABOUT US</div>
-              <div className={styles.text}>
-                Our company, founded by experts in the
+            <div className={styles.blockName}>WRITTEN ABOUT US</div>
+            <div>
+              <div className={styles.blockTitle}>
+                WE BELIEVE THAT EVERY ORGANIZATION
                 <br />
-                field of analytics and artificial intelligence,
+                HAS UNIQUE TECHNOLOGICAL NEEDS
                 <br />
-                specializes in the development of smart
+                AND CHALLENGES. THEREFORE,
                 <br />
-                and innovative solutions that combine
+                OUR APPROACH IS FLEXIBLE AND ADAPTED <br />
+                TO EACH CLIENT PERSONALLY
                 <br />
-                different visual systems to deal
-                <br />
-                with challenges in a variety of fields.
+              </div>
+              <div className={styles.blockName}>
+                We build the solutions taking into account <br />
+                the existing infrastructures and systems.
                 <br />
                 <br />
-                We are proud to cooperate with leading
-                <br />
-                customers in the economy and provide
-                <br />
-                them with advanced tools that lead
-                <br />
-                to saving time and precious resources.
+                Our team of experts studies and deeply <br />
+                understands the specific challenges, and then <br />
+                adapts dedicated solutions to the client. <br />
+                The result is an innovative and advanced <br />
+                technology that provides an accurate answer <br />
+                to the customer's needs.
               </div>
             </div>
-            <div className={styles.videoContainer}>
-              <img src="/images/aboutVideo.svg" alt="no-image" />
-              <div className={styles.wrapper}></div>
-              <div className={styles.videoTitle}>
-                MAKING THE WORLD A SAFER, MORE RELIABLE
-                <br />
-                AND MORE EFFICIENT PLACE THROUGH INNOVATIVE
-                <br />
-                DATA-DRIVEN VIDEO TECHNOLOGY
-              </div>
-              <div className={styles.videoButton}>Explore our products</div>
-              <div className={styles.maskedMan}>
-                <div className={styles.naz}>MASKED MAN</div>
-              </div>
-              <div className={styles.gun}>
-                <div className={styles.naz}>GUN</div>
-              </div>
-            </div>
-            <div className={styles.theValues}>
-              <div className={styles.title}>
-                <span className={styles.orange}>THE VALUES</span> THAT LEAD US
-              </div>
-
-              <div className={styles.worthesContainer}>
-                <motion.div
-                  className={styles.worth}
-                  style={{ opacity: transforms.firstWorth }}
-                >
-                  <div className={styles.imageWrapper}>
-                    <img src="/images/aboutWorthes0.svg" alt="no-image" />
-                  </div>
-                  <div>
-                    <span className={styles.worthTitle}>INNOVATION</span>
-                    <div className={styles.worthText}>
-                      The company aims to be a leader
-                      <br />
-                      in the field of technology, and to offer
-                      <br />
-                      innovative solutions to its customers
-                    </div>
-                  </div>
-                  <div className={styles.worthTitle}>/01</div>
-                </motion.div>
-
-                <motion.div
-                  className={styles.worth}
-                  style={{ opacity: transforms.secondWorth }}
-                >
-                  <div className={styles.imageWrapper}>
-                    <img src="/images/aboutWorthes0.svg" alt="no-image" />
-                  </div>
-                  <div>
-                    <span className={styles.worthTitle}>QUALITY</span>
-                    <div className={styles.worthText}>
-                      THE COMPANY UNDERTAKES TO OFFER
-                      <br />
-                      HIGH QUALITY PRODUCTS AND SERVICES <br />
-                      THAT WILL MEET CUSTOMER EXPECTATIONS <br />
-                      AND TO CUSTOMIZE THE PRODUCT
-                    </div>
-                  </div>
-                  <div className={styles.worthTitle}>/02</div>
-                </motion.div>
-
-                <motion.div
-                  className={styles.worth}
-                  style={{ opacity: transforms.thirdWorth }}
-                >
-                  <div className={styles.imageWrapper}>
-                    <img src="/images/aboutWorthes0.svg" alt="no-image" />
-                  </div>
-                  <div>
-                    <span className={styles.worthTitle}>RELIABILITY</span>
-                    <div className={styles.worthText}>
-                      THE COMPANY MUST BE A RELIABLE COMPANY <br />
-                      THAT CAN BE TRUSTED
-                    </div>
-                  </div>
-                  <div className={styles.worthTitle}>/03</div>
-                </motion.div>
-
-                <motion.div
-                  className={styles.worth}
-                  style={{ opacity: transforms.fourthWorth }}
-                >
-                  <div className={styles.imageWrapper}>
-                    <img src="/images/aboutWorthes0.svg" alt="no-image" />
-                  </div>
-                  <div>
-                    <span className={styles.worthTitle}>SERVICE</span>
-                    <div className={styles.worthText}>
-                      THE COMPANY AIMS TO PROVIDE EXCELLENT <br />
-                      CUSTOMER SERVICE, WHICH WILL BE AVAILABLE <br />
-                      AND HELPFUL
-                    </div>
-                  </div>
-                  <div className={styles.worthTitle}>/04</div>
-                </motion.div>
-
-                <motion.div
-                  className={styles.worth}
-                  style={{ opacity: transforms.fifthWorth }}
-                >
-                  <div className={styles.imageWrapper}>
-                    <img src="/images/aboutWorthes0.svg" alt="no-image" />
-                  </div>
-                  <div>
-                    <span className={styles.worthTitle}>
-                      Social responsibility
-                    </span>
-                    <div className={styles.worthText}>
-                      The company aims to give back <br />
-                      to the community, and contribute to a better <br />
-                      society by strengthening security
-                    </div>
-                  </div>
-                  <div className={styles.worthTitle}>/05</div>
-                </motion.div>
-              </div>
+            <div className={styles.bgImage}>
+              <img src="/images/aboutWrittenAboutUs.svg" alt="no-image" />
             </div>
           </motion.div>
-          <div className={styles.littleCircle} />
-          <div className={styles.midCircle} />
-          <div className={styles.bigCircle} />
           <motion.div
-            className={styles.littleStar}
-            animate={{ scale: [1, 0, 1] }}
-            transition={{ repeat: Infinity, duration: 10, ease: "easeInOut" }}
+            className={styles.ourTeam}
+            style={{ top: transforms.fourth }}
           >
-            <img src="/images/aboutStar.svg" alt="no-image" />
+            <div className={styles.blockName}>OUR TEAM</div>
+            <div>
+              <div className={styles.blockTitle}>
+                WE BELIEVE THAT THE MOST
+                <br />
+                IMPORTANT ASSET IS HUMAN CAPITAL,
+                <br />
+                THE PROFESSIONAL TEAM THAT LEADS
+                <br />
+                TECHNOLOGICAL INNOVATION
+                <br />
+                IN THE ORGANIZATION
+              </div>
+              <TeamCarousel />
+            </div>
           </motion.div>
-
           <motion.div
-            className={styles.bigStar}
-            animate={{ scale: [1, 0.12, 1] }}
-            transition={{ repeat: Infinity, duration: 15, ease: "easeInOut" }}
+            className={styles.learnMore}
+            style={{ top: transforms.fifth }}
           >
-            <img src="/images/aboutStar.svg" alt="no-image" />
+            <div className={styles.textContainer}>
+              <div className={styles.textTitle}>
+                <span className={styles.orange}>LEARN MORE </span>
+                <br />
+                ABOUT OUR PRODUCTS <br />
+                AND SERVICES
+              </div>
+              <div className={styles.textContent}>
+                WeSmart's advanced technologies are already
+                <br />
+                successfully implemented by hundreds <br />
+                of customers around the world and contribute <br />
+                real value to businesses in a variety of fields. <br />
+                <br />
+                If you are interested in learning more about <br />
+                the unique products and solutions we offer <br />
+                and how they can help you, contact us
+                <br />
+              </div>
+              <div className={styles.button}>EXPLORE OUR PRODUCTS</div>
+            </div>
+            <div className={styles.bgImage}>
+              <img src="/images/aboutLearnMoreBG.svg" alt="no-image" />
+            </div>
           </motion.div>
+        </motion.div>
+        <motion.div className={styles.weInvite} style={{ top: transforms.six }}>
+          <div className={styles.textBlock}>
+            <div className={styles.textTitle}>
+              WE INVITE YOU
+              <br /> TO TALK TO US!
+            </div>
+            <div className={styles.textContent}>
+              At WeSmart we are always available to answer
+              <br />
+              your questions and help realize your technological
+              <br />
+              vision. If you are interested in learning how our
+              <br />
+              advanced video analytics solutions can accelerate
+              <br />
+              your organization's growth, contact us today.
+              <br />
+              <br />
+              Our team of experts is here for you — to listen,
+              <br />
+              understand your unique challenges and provide
+              <br />
+              customized technological solutions.
+              <br />
+              <br />
+              Together we will lead the digital revolution!
+            </div>
+          </div>
         </motion.div>
         <Form top={transforms.form} />
         <TrueFooter top={transforms.trueFooter} />
