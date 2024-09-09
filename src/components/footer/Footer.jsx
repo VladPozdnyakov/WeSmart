@@ -1,10 +1,10 @@
 import React from "react";
-import styles from "./footer.module.css";
+import styles from "./footer.module.scss";
 import Logotype from "../../assets/images/Logotype.png";
 
- const Footer = () => {
+const Footer = ({ transparent }) => {
   return (
-    <div className={styles.footer}>
+    <div className={transparent ? styles.footerTransparent : styles.footer}>
       <div className={styles.footerContainer}>
         <div className={styles.footerLogo}>
           <img src={Logotype} alt="Company Logo" />
@@ -35,4 +35,5 @@ import Logotype from "../../assets/images/Logotype.png";
     </div>
   );
 };
-export default Footer
+
+export default Footer;

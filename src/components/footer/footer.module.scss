@@ -1,3 +1,18 @@
+.footerTransparent{
+  background-color: none;
+  padding: 20px 0;
+  z-index: 3;
+  color: white;
+  position: relative;
+  .footerNav .footerLinks li a{
+    text-decoration: none;
+  color: white;
+  font-weight: 500;
+  transition: color 0.3s;
+  }
+}
+
+
 
 /* Общие стили футера */
 .footer {

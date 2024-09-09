@@ -200,7 +200,10 @@
 .videoContainer:hover .gun {
   opacity: 1; /* Показываем блоки при наведении */
 }
-
+.theValues{
+    position: absolute;
+    width: 100%;
+}
 .worthesContainer{
     position: relative;
     z-index: 3;
@@ -221,9 +224,131 @@
     }
     .worthText{
         font-size: 2.5vw;
+        width: 34.5vw;
     }
     .imageWrapper img{
         width: 3.8vw;
         height: 3.8vw;
+    }
+}
+
+.writtenAboutUs{
+    position: absolute;
+    display: flex;
+    gap: 18.5vw;
+    background-color: rgba(245, 247, 250, 1);
+    width: 81.4vw;
+    height: 60.6vh;
+    padding: 19.7vh 9.3vw;
+    top: 0vh;
+    left: 0vw;
+    z-index: 3;
+    .blockName{
+        color: rgba(67, 74, 83, 1);
+        font-size: 1.4vw;
+    }
+    .blockTitle{
+        font-size: 3.3vw;
+        font-weight: 400;
+        position: relative;
+        z-index: 4;
+        margin-bottom: 2vh;
+    }
+
+    .bgImage{
+        position: absolute;
+        top: 11.5vh;
+        left: 28.6vw;
+        img{
+           width: 19.2vw;
+           height: 21.4vh;
+
+        }
+    }
+}
+
+.ourTeam{
+    position: absolute;
+    display: flex;
+    gap: 18.5vw;
+    background-color: white;
+    width: 80vw;
+    height: 95vh;
+    padding: 19.7vh 9.3vw;
+    top:-60vh;
+    left: 0.7vw;
+    z-index: 3;
+    border-radius: 3vw;
+    box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    z-index: 4;
+    .blockName{
+        color: rgba(67, 74, 83, 1);
+        font-size: 1.4vw;
+    }
+    .blockTitle{
+        font-size: 3.3vw;
+        font-weight: 400;
+        position: relative;
+        z-index: 4;
+        margin-bottom: 2vh;
+    }
+}
+
+.learnMore{
+    position: absolute;
+    display: flex;
+    gap: 18.5vw;
+    background-color: rgba(245, 247, 250, 1);
+    width: 81.4vw;
+    height: 70.6vh;
+    padding: 14.7vh 9.3vw;
+    top: 0vh;
+    left: 0vw;
+    z-index: 3;
+    .textContainer{
+        display: flex;
+        flex-direction: column;
+        gap: 2.7vh;
+        position: relative;
+        z-index: 4;
+    }
+    .textContent{
+        font-size: 1.4vw;
+    }
+    .textTitle{
+        font-size: 4.4vw;
+    }
+    img{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.weInvite{
+    position: absolute;
+    left: 0;
+    width: 100vw;
+    height: 79.2vh;
+    background-color: #F5F7FA;
+    border-radius: 3vw 3vw 0 0;
+    box-shadow: 0px -5px 5px -5px rgba(0, 0, 0, 0.6);
+    padding: 10.4vh 0;
+    z-index: 5;
+    .textBlock{
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        gap: 2.7vh;
+    }
+    .textTitle{
+        font-size: 6.6vw;
+    }
+    .textContent{
+        font-size: 1.4vw;
+        color: rgba(67, 74, 83, 1);
     }
 }
