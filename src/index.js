@@ -7,6 +7,7 @@ import Products from "./pages/Products/Products";
 import About from "./pages/About/About";
 import Home from "./pages/Home/Home";
 import Careers from "./pages/Careers/Careers";
+import Product from "./pages/Product/Product";
 
 const router = createBrowserRouter([
   {
@@ -25,6 +26,10 @@ const router = createBrowserRouter([
     path: "/careers",
     element: <Careers />,
   },
+  {
+    path: 'product',
+    element: <Product/>
+  }
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
