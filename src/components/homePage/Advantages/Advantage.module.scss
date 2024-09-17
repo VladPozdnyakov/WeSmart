@@ -1,0 +1,49 @@
+.block {
+  flex: 0 0 45%;
+  height: 50vh;
+  background-color: #f5f7fa;
+  border-radius: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  scroll-snap-align: start;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.descriptionAdvantage {
+  position: absolute;
+  font-style: normal;
+  font-weight: 400;
+  left: 2.5vw;
+  right: 7vw;
+  top: 2vw;
+  font-size: 18px;
+  font-family: "Open Sans", sans-serif;
+  color: #434a53;
+  line-height: normal;
+}
+
+.titleAdvantage {
+  color: #222;
+  font-family: "Bebas Neue Cyrillic", sans-serif;
+  font-size: 2vw;
+  font-style: normal;
+  font-weight: 400;
+  position: absolute;
+  bottom: 2vw;
+  left: 2.5vw;
+}
+
+.circle {
+  width: 3vw;
+  height: 3vw;
+  background-color: #f77f1e;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  bottom: 2vw;
+  right: 2vw;
+}

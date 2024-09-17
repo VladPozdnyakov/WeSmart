@@ -102,7 +102,14 @@ const About = () => {
     ),
     six: useTransform(
       scrollYProgress,
-      [sixSlideTopStart, sixSlideTopEnd, formSlideTopStart, formSlideTopEnd, footerSlideTopStart, footerSlideTopEnd],
+      [
+        sixSlideTopStart,
+        sixSlideTopEnd,
+        formSlideTopStart,
+        formSlideTopEnd,
+        footerSlideTopStart,
+        footerSlideTopEnd,
+      ],
       ["100vh", "0vh", "0vh", "-84vh", "-84vh", "-150vh"]
     ),
     backgroundOpacity: useTransform(
@@ -253,25 +260,35 @@ const About = () => {
             </div>
           </motion.div>
         </motion.div>
-        <motion.div
-            className={styles.weInvite}
-            style={{ top: transforms.six }}
-          >
-            <div className={styles.textBlock}>
-              <div className={styles.textTitle}>WE INVITE YOU<br/> TO TALK TO US!</div>
-              <div className={styles.textContent}>At WeSmart we are always available to answer<br/>
-              your questions and help realize your technological<br/>
-              vision. If you are interested in learning how our<br/>
-              advanced video analytics solutions can accelerate<br/>
-              your organization's growth, contact us today.<br/>
-              <br/>
-              Our team of experts is here for you — to listen,<br/>
-              understand your unique challenges and provide<br/>
-              customized technological solutions.<br/>
-              <br/>
-              Together we will lead the digital revolution!</div>
+        <motion.div className={styles.weInvite} style={{ top: transforms.six }}>
+          <div className={styles.textBlock}>
+            <div className={styles.textTitle}>
+              WE INVITE YOU
+              <br /> TO TALK TO US!
             </div>
-          </motion.div>
+            <div className={styles.textContent}>
+              At WeSmart we are always available to answer
+              <br />
+              your questions and help realize your technological
+              <br />
+              vision. If you are interested in learning how our
+              <br />
+              advanced video analytics solutions can accelerate
+              <br />
+              your organization's growth, contact us today.
+              <br />
+              <br />
+              Our team of experts is here for you — to listen,
+              <br />
+              understand your unique challenges and provide
+              <br />
+              customized technological solutions.
+              <br />
+              <br />
+              Together we will lead the digital revolution!
+            </div>
+          </div>
+        </motion.div>
         <Form top={transforms.form} />
         <TrueFooter top={transforms.trueFooter} />
       </div>

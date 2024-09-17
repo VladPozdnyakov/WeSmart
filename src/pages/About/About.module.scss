@@ -1,197 +1,197 @@
-.bigContainer{
-    width: 100%;
-    height: 2000vh;
+.bigContainer {
+  width: 100%;
+  height: 2000vh;
 }
-.stickyBlock{
-    position: sticky;
+.stickyBlock {
+  position: sticky;
+  top: 0;
+  user-select: none;
+}
+.mainAbout {
+  position: relative;
+}
+.title {
+  width: 83.33%;
+  font-size: 8.6vw;
+  font-weight: 400;
+  z-index: 3;
+  position: relative;
+  margin: 11.1vh 11.1vw 9.4vh 5.9vw;
+}
+.subtitle {
+  font-size: 3vw;
+  color: #222222;
+  z-index: 4;
+  position: relative;
+}
+.text {
+  font-size: 1.3vw;
+  color: #222222;
+  z-index: 4;
+  position: relative;
+}
+.orange {
+  color: #f77f1e;
+}
+.littleCircle {
+  width: 25vw;
+  height: 25vw;
+  position: absolute;
+  top: 20vh;
+  right: 30vw;
+  border: 1px solid rgba(253, 224, 201, 1);
+  border-radius: 50%;
+  z-index: 1;
+}
+.midCircle {
+  width: 50vw;
+  height: 50vw;
+  position: absolute;
+  top: 0vh;
+  right: 18vw;
+  border: 1px solid rgba(253, 224, 201, 1);
+  border-radius: 50%;
+  z-index: 1;
+}
+.bigCircle {
+  width: 75vw;
+  height: 75vw;
+  position: absolute;
+  top: -20vh;
+  right: 5vw;
+  border: 1px solid rgba(253, 224, 201, 1);
+  border-radius: 50%;
+  z-index: 1;
+}
+.littleStar {
+  width: 14.6vw;
+  height: 14.6vw;
+  position: absolute;
+  top: 7vh;
+  left: 37vw;
+  z-index: 1;
+  img {
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+  }
+}
+.bigStar {
+  width: 35.6vw;
+  height: 35.6vw;
+  position: absolute;
+  top: 18vh;
+  left: 35vw;
+  z-index: 1;
+  img {
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+  }
+}
+.descriptionBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1vh;
+  width: 27.7vw;
+  margin: auto;
+  position: relative;
+  z-index: 3;
+}
+.titleBlock {
+  position: absolute;
+  width: 100%;
+  top: 0vh;
+}
+
+.videoContainer {
+  width: 98%;
+  margin: 9.4vh 1% 0 1%;
+  height: 88vh;
+  border-radius: 5vw;
+  z-index: 3;
+  position: relative;
+  overflow: hidden;
+  object-fit: cover;
+  img {
+    width: 100%;
+    height: 130%;
+  }
+  .wrapper {
+    position: absolute;
     top: 0;
-    user-select: none;
-}
-.mainAbout{
-    position: relative;
-
-}
-.title{
-    width: 83.33%;
-    font-size: 8.6vw;
-    font-weight: 400;
-    z-index: 3;
-    position: relative;
-    margin: 11.1vh 11.1vw 9.4vh 5.9vw;
-}   
-.subtitle{
-    font-size: 3vw;
-    color: #222222;
-    z-index: 4;
-    position: relative;
-}
-.text{
-    font-size: 1.3vw;
-    color: #222222;
-    z-index: 4;
-    position: relative;
-}
-.orange{
-    color: #F77F1E;
-}
-.littleCircle{
-    width: 25vw;
-    height: 25vw;
-    position: absolute;
-    top: 20vh;
-    right: 30vw;
-    border: 1px solid rgba(253, 224, 201, 1);
-    border-radius: 50%;
-    z-index: 1;
-}
-.midCircle{
-    width: 50vw;
-    height: 50vw;
-    position: absolute;
-    top: 0vh;
-    right: 18vw;
-    border: 1px solid rgba(253, 224, 201, 1);
-    border-radius: 50%;
-    z-index: 1;
-}
-.bigCircle{
-    width: 75vw;
-    height: 75vw;
-    position: absolute;
-    top: -20vh;
-    right: 5vw;
-    border: 1px solid rgba(253, 224, 201, 1);
-    border-radius: 50%;
-    z-index: 1;
-}
-.littleStar{
-    width: 14.6vw;
-    height: 14.6vw;
-    position: absolute;
-    top: 7vh;
-    left: 37vw;
-    z-index: 1;
-    img{
-        width: 100%;
-        height: 100%;
-        z-index: 1;
-    }
-}
-.bigStar{
-    width: 35.6vw;
-    height: 35.6vw;
-    position: absolute;
-    top: 18vh;
-    left: 35vw;
-    z-index: 1;
-    img{
-        width: 100%;
-        height: 100%;
-        z-index: 1;
-    }
-}   
-.descriptionBlock{
-    display: flex;
-    flex-direction: column;
-    gap: 1.1vh;
-    width: 27.7vw;
-    margin: auto;
-    position: relative;
-    z-index: 3;
-}
-.titleBlock{
-    position: absolute;
+    left: 0;
     width: 100%;
-    top: 0vh;
-}
-
-.videoContainer{
-    width: 98%;
-    margin: 9.4vh 1% 0 1%;
-    height: 88vh;
-    border-radius: 5vw;
+    height: 100%;
+    background: linear-gradient(180deg, rgba(34, 34, 34, 0) 0%, #222222 100%);
+  }
+  .videoButton {
+    width: 16vw;
+    height: 2.3vh;
+    color: white;
+    background-color: #f77f1e;
+    border-radius: 4.4vw;
+    padding: 2vh 0;
+    text-align: center;
+    cursor: pointer;
+    position: absolute;
+    top: 74vh;
+    left: 40vw;
+    box-shadow: 2.7vw 0.3vw 7vw 4.1vw rgba(255, 107, 0, 0.3);
+    font-size: 1.3vw;
+  }
+  .videoTitle {
+    color: white;
+    font-size: 3vw;
+    font-weight: 400;
+    position: absolute;
     z-index: 3;
-    position: relative;
-    overflow: hidden;
-    object-fit: cover;
-    img{
-        width: 100%;
-        height: 130%;
+    top: 52vh;
+    left: 40vw;
+  }
+  .maskedMan {
+    width: 3.7vw;
+    height: 15.2vh;
+    position: absolute;
+    top: 31vh;
+    left: 58vw;
+    border: 3px solid rgba(235, 87, 235, 1);
+    border-radius: 0.7vw;
+    .naz {
+      color: white;
+      background-color: rgba(235, 87, 235, 1);
+      position: absolute;
+      border-radius: 0.7vw;
+      width: 8.1vw;
+      text-align: center;
+      padding: 0.5vw 0;
+      top: -0.5vh;
+      left: -0.3vw;
     }
-    .wrapper{
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(180deg, rgba(34, 34, 34, 0) 0%, #222222 100%);
+  }
+  .gun {
+    width: 3.4vw;
+    height: 9.7vh;
+    position: absolute;
+    top: 38vh;
+    left: 56vw;
+    border: 3px solid rgba(255, 50, 49, 1);
+    border-radius: 0.7vw;
+    .naz {
+      color: white;
+      background-color: rgba(255, 50, 49, 1);
+      position: absolute;
+      border-radius: 0.7vw;
+      width: 4vw;
+      text-align: center;
+      padding: 0.5vw 0;
+      top: -1.5vh;
+      left: -0.3vw;
     }
-    .videoButton{
-        width: 16vw;
-        height: 2.3vh;
-        color: white;
-        background-color: #F77F1E;
-        border-radius: 4.4vw;
-        padding: 2vh 0;
-        text-align: center;
-        cursor: pointer;
-        position: absolute;
-        top: 74vh;
-        left: 40vw;
-        box-shadow: 2.7vw 0.3vw 7vw 4.1vw rgba(255, 107, 0, 0.3);
-        font-size: 1.3vw;
-    }
-    .videoTitle{
-        color: white;
-        font-size: 3vw;
-        font-weight: 400;
-        position: absolute;
-        z-index: 3;
-        top: 52vh;
-        left: 40vw;
-    }
-    .maskedMan{
-        width: 3.7vw;
-        height: 15.2vh;
-        position: absolute;
-        top: 31vh;
-        left: 58vw;
-        border: 3px solid rgba(235, 87, 235, 1);
-        border-radius: 0.7vw;
-        .naz{
-            color: white;
-            background-color: rgba(235, 87, 235, 1);
-            position: absolute;
-            border-radius: 0.7vw;
-            width: 8.1vw;
-            text-align: center;
-            padding: 0.5vw 0;
-            top: -0.5vh;
-            left: -0.3vw;
-        }
-    }
-    .gun{
-        width: 3.4vw;
-        height: 9.7vh;
-        position: absolute;
-        top: 38vh;
-        left: 56vw;
-        border: 3px solid rgba(255, 50, 49, 1);
-        border-radius: 0.7vw;
-        .naz{
-            color: white;
-            background-color: rgba(255, 50, 49, 1);
-            position: absolute;
-            border-radius: 0.7vw;
-            width: 4vw;
-            text-align: center;
-            padding: 0.5vw 0;
-            top: -1.5vh;
-            left: -0.3vw;
-        }
-    }
+  }
 }
-.maskedMan, .gun {
+.maskedMan,
+.gun {
   opacity: 0; /* Изначально скрыто */
   transition: opacity 0.5s ease; /* Плавный переход для opacity */
 }
@@ -200,155 +200,155 @@
 .videoContainer:hover .gun {
   opacity: 1; /* Показываем блоки при наведении */
 }
-.theValues{
-    position: absolute;
-    width: 100%;
+.theValues {
+  position: absolute;
+  width: 100%;
 }
-.worthesContainer{
+.worthesContainer {
+  position: relative;
+  z-index: 3;
+  width: 98%;
+  margin: 0 2%;
+  display: flex;
+  flex-direction: column;
+  .worth {
+    display: flex;
+    padding: 10vh 6vw;
+    gap: 22.2vw;
+    border-bottom: 1px solid rgba(230, 233, 237, 1);
+    width: 84vw;
+  }
+  .worthTitle {
+    color: rgba(67, 74, 83, 1);
+    font-size: 1.1vw;
+  }
+  .worthText {
+    font-size: 2.5vw;
+    width: 34.5vw;
+  }
+  .imageWrapper img {
+    width: 3.8vw;
+    height: 3.8vw;
+  }
+}
+
+.writtenAboutUs {
+  position: absolute;
+  display: flex;
+  gap: 18.5vw;
+  background-color: rgba(245, 247, 250, 1);
+  width: 81.4vw;
+  height: 60.6vh;
+  padding: 19.7vh 9.3vw;
+  top: 0vh;
+  left: 0vw;
+  z-index: 3;
+  .blockName {
+    color: rgba(67, 74, 83, 1);
+    font-size: 1.4vw;
+  }
+  .blockTitle {
+    font-size: 3.3vw;
+    font-weight: 400;
     position: relative;
-    z-index: 3;
-    width: 98%;
-    margin: 0 2%;
+    z-index: 4;
+    margin-bottom: 2vh;
+  }
+
+  .bgImage {
+    position: absolute;
+    top: 11.5vh;
+    left: 28.6vw;
+    img {
+      width: 19.2vw;
+      height: 21.4vh;
+    }
+  }
+}
+
+.ourTeam {
+  position: absolute;
+  display: flex;
+  gap: 18.5vw;
+  background-color: white;
+  width: 80vw;
+  height: 95vh;
+  padding: 19.7vh 9.3vw;
+  top: -60vh;
+  left: 0.7vw;
+  z-index: 3;
+  border-radius: 3vw;
+  box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  z-index: 4;
+
+  .blockName {
+    color: rgba(67, 74, 83, 1);
+    font-size: 1.4vw;
+  }
+  .blockTitle {
+    font-size: 3.3vw;
+    font-weight: 400;
+    position: relative;
+    z-index: 4;
+    margin-bottom: 2vh;
+  }
+}
+
+.learnMore {
+  position: absolute;
+  display: flex;
+  gap: 18.5vw;
+  background-color: rgba(245, 247, 250, 1);
+  width: 81.4vw;
+  height: 70.6vh;
+  padding: 14.7vh 9.3vw;
+  top: 0vh;
+  left: 0vw;
+  z-index: 3;
+  .textContainer {
     display: flex;
     flex-direction: column;
-    .worth{
-        display: flex;
-        padding: 10vh 6vw;
-        gap: 22.2vw;
-        border-bottom: 1px solid rgba(230, 233, 237, 1);
-        width: 84vw;
-    }
-    .worthTitle{
-        color:rgba(67, 74, 83, 1);
-        font-size: 1.1vw;
-    }
-    .worthText{
-        font-size: 2.5vw;
-        width: 34.5vw;
-    }
-    .imageWrapper img{
-        width: 3.8vw;
-        height: 3.8vw;
-    }
-}
-
-.writtenAboutUs{
-    position: absolute;
-    display: flex;
-    gap: 18.5vw;
-    background-color: rgba(245, 247, 250, 1);
-    width: 81.4vw;
-    height: 60.6vh;
-    padding: 19.7vh 9.3vw;
-    top: 0vh;
-    left: 0vw;
-    z-index: 3;
-    .blockName{
-        color: rgba(67, 74, 83, 1);
-        font-size: 1.4vw;
-    }
-    .blockTitle{
-        font-size: 3.3vw;
-        font-weight: 400;
-        position: relative;
-        z-index: 4;
-        margin-bottom: 2vh;
-    }
-
-    .bgImage{
-        position: absolute;
-        top: 11.5vh;
-        left: 28.6vw;
-        img{
-           width: 19.2vw;
-           height: 21.4vh;
-
-        }
-    }
-}
-
-.ourTeam{
-    position: absolute;
-    display: flex;
-    gap: 18.5vw;
-    background-color: white;
-    width: 80vw;
-    height: 95vh;
-    padding: 19.7vh 9.3vw;
-    top:-60vh;
-    left: 0.7vw;
-    z-index: 3;
-    border-radius: 3vw;
-    box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.2);
-    overflow: hidden;
+    gap: 2.7vh;
+    position: relative;
     z-index: 4;
-    .blockName{
-        color: rgba(67, 74, 83, 1);
-        font-size: 1.4vw;
-    }
-    .blockTitle{
-        font-size: 3.3vw;
-        font-weight: 400;
-        position: relative;
-        z-index: 4;
-        margin-bottom: 2vh;
-    }
-}
-
-.learnMore{
+  }
+  .textContent {
+    font-size: 1.4vw;
+  }
+  .textTitle {
+    font-size: 4.4vw;
+  }
+  img {
     position: absolute;
-    display: flex;
-    gap: 18.5vw;
-    background-color: rgba(245, 247, 250, 1);
-    width: 81.4vw;
-    height: 70.6vh;
-    padding: 14.7vh 9.3vw;
-    top: 0vh;
-    left: 0vw;
-    z-index: 3;
-    .textContainer{
-        display: flex;
-        flex-direction: column;
-        gap: 2.7vh;
-        position: relative;
-        z-index: 4;
-    }
-    .textContent{
-        font-size: 1.4vw;
-    }
-    .textTitle{
-        font-size: 4.4vw;
-    }
-    img{
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-    }
-}
-
-.weInvite{
-    position: absolute;
+    top: 0;
     left: 0;
-    width: 100vw;
-    height: 79.2vh;
-    background-color: #F5F7FA;
-    border-radius: 3vw 3vw 0 0;
-    box-shadow: 0px -5px 5px -5px rgba(0, 0, 0, 0.6);
-    padding: 10.4vh 0;
-    z-index: 5;
-    .textBlock{
-        align-items: center;
-        display: flex;
-        flex-direction: column;
-        gap: 2.7vh;
-    }
-    .textTitle{
-        font-size: 6.6vw;
-    }
-    .textContent{
-        font-size: 1.4vw;
-        color: rgba(67, 74, 83, 1);
-    }
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.weInvite {
+  position: absolute;
+  left: 0;
+  width: 100vw;
+  height: 79.2vh;
+  background-color: #f5f7fa;
+  border-radius: 3vw 3vw 0 0;
+  box-shadow: 0px -5px 5px -5px rgba(0, 0, 0, 0.6);
+  padding: 10.4vh 0;
+  z-index: 5;
+  .textBlock {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 2.7vh;
+  }
+  .textTitle {
+    font-size: 6.6vw;
+  }
+  .textContent {
+    font-size: 1.4vw;
+    color: rgba(67, 74, 83, 1);
+  }
 }
