@@ -3,9 +3,14 @@ import React from "react";
 import { motion } from "framer-motion";
 import styles from "./Form.module.scss"; // Путь к вашим стилям
 
-const Form = ({ top }) => {
+const Form = ({ top, isShadow = true }) => {
   return (
-    <motion.div className={styles.formContainer} style={{ top }}>
+    <motion.div
+      className={
+        isShadow ? styles.formContainerWithShadow : styles.formContainer
+      }
+      style={{ top }}
+    >
       <div className={styles.pageNum}>LET'S TALK</div>
       <div>
         <div className={styles.subtitle}>

@@ -6,7 +6,9 @@ import styles from "./Home.module.scss";
 import { useRef, useEffect } from "react";
 import { useScroll, motion, useTransform } from "framer-motion";
 import LocomotiveScroll from "locomotive-scroll";
-import AdvantageBlock from "../../components/Advantages/Advantage";
+import AdvantageBlock from "../../components/homePage/Advantages/Advantage";
+import Title from "../../components/homePage/Title/Title";
+import Customers from "../../components/homePage/Customers/Customers";
 
 export default function Home() {
   const startPosition = 0;
@@ -19,6 +21,8 @@ export default function Home() {
   const thirdSlideTopEnd = thirdSlideTopStart + 0.1;
   const fourthSlideTopStart = thirdSlideTopEnd;
   const fourthSlideTopEnd = fourthSlideTopStart + 0.1;
+  const fifthSlideTopStart = thirdSlideTopEnd;
+  const fifthSlideTopEnd = fourthSlideTopStart + 0.1;
 
   const formSlideTopStart = thirdSlideTopEnd;
   const formSlideTopEnd = formSlideTopStart + 0.1;
@@ -47,17 +51,38 @@ export default function Home() {
     first: useTransform(
       scrollYProgress,
       [firstSlideTopStart, firstSlideTopEnd],
-      ["0vh", "-250vh"]
+      ["0vh", "-100vh"]
     ),
     second: useTransform(
       scrollYProgress,
-      [secondSlideTopStart, secondSlideTopEnd],
-      ["0vh", "-250vh"]
+      [
+        secondSlideTopStart,
+        secondSlideTopEnd,
+        thirdSlideTopStart,
+        thirdSlideTopEnd,
+      ],
+      ["100vh", "-150vh", "-150vh", "-250vh"]
     ),
     third: useTransform(
       scrollYProgress,
-      [thirdSlideTopStart, thirdSlideTopEnd],
-      ["0vh", "-250vh"]
+      [
+        thirdSlideTopStart,
+        thirdSlideTopEnd,
+        fourthSlideTopStart,
+        fourthSlideTopEnd,
+      ],
+      ["100vh", "0vh", "0vh", "-100vh"]
+    ),
+
+    four: useTransform(
+      scrollYProgress,
+      [
+        fourthSlideTopStart,
+        fourthSlideTopEnd,
+        fifthSlideTopStart,
+        fifthSlideTopEnd,
+      ],
+      ["100vh", "-50vh", "-50vh", "-150vh"]
     ),
 
     trueFooter: useTransform(
@@ -78,98 +103,59 @@ export default function Home() {
   };
 
   return (
-    <div className={styles.bigContainer} data-scroll-container ref={scrollRef}>
-      <div className={styles.stickyBlock} data-scroll-container>
-        <Footer />
-        <motion.div className={styles.mainHome}>
-          <motion.div
-            className={styles.titleBlock}
-            style={{ top: transforms.first }}
-          >
-            <div className={styles.title}>
-              Step into a magical world,
+    <div>
+      <Footer />
+      <div className={styles.mainHome}>
+        <Title />
+        <div className={styles.advantages}>
+          <AdvantageBlock
+            description="We understand that in times of uncertainty, a sense of security is a vital necessity"
+            title="SECURITY"
+          />
+          <AdvantageBlock
+            description="The solutions include alarm systems, security cameras, access control and more"
+            title="SAFETY"
+          />
+          <AdvantageBlock
+            description="We provide smart security solutions based on data analysis and artificial intelligence, suitable for cities and towns of all sizes"
+            title="SMART CITIES"
+          />
+          <AdvantageBlock
+            description="Ai-solutions provide our customers  with strategic insights and real-time monitoring of critical logistics data"
+            title="LOGISTICS AND INDUSTRIES"
+          />
+        </div>
+        <Customers />
+        <div
+          className={styles.writtenAboutUs}
+          style={{ top: transforms.third }}
+        >
+          <div className={styles.blockName}>WRITTEN ABOUT US</div>
+          <div>
+            <div className={styles.blockTitle}>
+              WORKING WITH THE WESMART TEAM LED
               <br />
-              where cameras
+              BY OR WAS A SMOOTH, ENJOYABLE, AND PRODUCTIVE
               <br />
-              see beyond the visible
+              PROCESS. OR IS A PROFESSIONAL WITH EXTENSIVE
+              <br />
+              EXPERIENCE IN THE FIELD OF SECURITY, WHO HAS
+              <br />
+              IMPROVED THE SECURITY OF THE SETTLEMENT.
+              <br />
             </div>
-            <div className={styles.descriptionBlock}>
-              <div className={styles.subtitle}>
-                WESMART IS LEADING A QUIET REVOLUTION
-                <br />
-                IN THE FIELD OF ARTIFICIAL INTELLIGENCE, GIVING
-                <br />
-                ORDINARY CAMERAS AND SENSORS ADVANCED ANALYSIS,
-                <br />
-                UNDERSTANDING AND INSIGHT CAPABILITIES.
-              </div>
-              <div className={styles.text}>
-                We provide customized solutions in the fields
-                <br />
-                of security, safety, logistics, industry and smart
-                <br />
-                cities, enabling our customers to get the most
-                <br />
-                out of their video data.
-              </div>
+            <div className={styles.blockName}>
+              The availability was around the clock,
+              <br />
+              and their system solved many problems
+              <br />
+              for us without false alarms.
             </div>
-          </motion.div>
-          <motion.div
-            className={styles.advantages}
-            style={{ top: transforms.second }}
-          >
-            <AdvantageBlock
-              description="We understand that in times of uncertainty, a sense of security is a vital necessity"
-              title="SECURITY"
-            />
-            <AdvantageBlock
-              description="The solutions include alarm systems, security cameras, access control and more"
-              title="SAFETY"
-            />
-            <AdvantageBlock
-              description="We provide smart security solutions based on data analysis and artificial intelligence, suitable for cities and towns of all sizes"
-              title="SMART CITIES"
-            />
-            <AdvantageBlock
-              description="Ai-solutions provide our customers  with strategic insights and real-time monitoring of critical logistics data"
-              title="LOGISTICS AND INDUSTRIES"
-            />
-          </motion.div>
-          <motion.div
-            className={styles.writtenAboutUs}
-            style={{ top: transforms.third }}
-          >
-            <div className={styles.blockName}>WRITTEN ABOUT US</div>
-            <div>
-              <div className={styles.blockTitle}>
-                WE BELIEVE THAT EVERY ORGANIZATION
-                <br />
-                HAS UNIQUE TECHNOLOGICAL NEEDS
-                <br />
-                AND CHALLENGES. THEREFORE,
-                <br />
-                OUR APPROACH IS FLEXIBLE AND ADAPTED <br />
-                TO EACH CLIENT PERSONALLY
-                <br />
-              </div>
-              <div className={styles.blockName}>
-                We build the solutions taking into account <br />
-                the existing infrastructures and systems.
-                <br />
-                <br />
-                Our team of experts studies and deeply <br />
-                understands the specific challenges, and then <br />
-                adapts dedicated solutions to the client. <br />
-                The result is an innovative and advanced <br />
-                technology that provides an accurate answer <br />
-                to the customer's needs.
-              </div>
-            </div>
-          </motion.div>
-        </motion.div>
-        <Form top={transforms.form} />
-        <TrueFooter top={transforms.trueFooter} />
+          </div>
+        </div>
       </div>
+      <Form />
+      {/* <TrueFooter top={transforms.trueFooter} /> */}
     </div>
   );
 }

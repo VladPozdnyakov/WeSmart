@@ -11,7 +11,6 @@
   user-select: none;
 }
 .titleBlock {
-  position: absolute;
   width: 100%;
   top: 0vh;
 }
@@ -28,7 +27,7 @@
   flex-direction: column;
   gap: 1.1vh;
   width: 50vw;
-  margin-left: 30vw;
+  margin-left: 35vw;
   margin-top: 20vw;
   position: relative;
   z-index: 3;
@@ -49,18 +48,17 @@
   position: relative;
 }
 .advantages {
-  display: flex; /* Flexbox для горизонтального выравнивания блоков */
-  gap: 5px; /* Зазор между блоками */
-  overflow-x: auto; /* Горизонтальная прокрутка */
+  display: flex;
+  gap: 5px;
+  overflow-x: auto;
   padding: 10px;
   margin-top: 4vw;
-  width: 100vw; /* Ширина контейнера на всю ширину экрана */
-  scroll-snap-type: x mandatory; /* Привязка блоков при прокрутке */
-  box-sizing: border-box; /* Чтобы отступы и границы не влияли на общую ширину */
+  width: 100vw;
+  scroll-snap-type: x mandatory;
+  box-sizing: border-box;
 }
 
 .writtenAboutUs {
-  position: absolute;
   display: flex;
   gap: 18.5vw;
   background-color: rgba(245, 247, 250, 1);
@@ -81,14 +79,14 @@
     z-index: 4;
     margin-bottom: 2vh;
   }
+}
 
-  .bgImage {
-    position: absolute;
-    top: 11.5vh;
-    left: 28.6vw;
-    img {
-      width: 19.2vw;
-      height: 21.4vh;
-    }
+.bgImage {
+  position: absolute;
+  top: -10vh;
+
+  img {
+    width: 85vw;
+    height: 85vh;
   }
 }
