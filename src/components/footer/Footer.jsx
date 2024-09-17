@@ -12,24 +12,32 @@ const Footer = ({ transparent }) => {
         <nav className={styles.footerNav}>
           <ul className={styles.footerLinks}>
             <li>
-              <a href="/">Home</a>
+              <a href="/" className={styles.footerLinksA}>
+                Home
+              </a>
             </li>
             <li>
-              <a href="/about">About</a>
+              <a href="/about" className={styles.footerLinksA}>
+                About
+              </a>
             </li>
             <li>
-              <a href="/products">Products</a>
+              <a href="/products" className={styles.footerLinksA}>
+                Products
+              </a>
             </li>
             <li>
-              <a href="/contacts">Contacts</a>
-            </li>
-            <li>
-              <a href="/request-demo">Request Demo</a>
+              <a href="/contacts" className={styles.footerLinksA}>
+                Contacts
+              </a>
             </li>
           </ul>
         </nav>
-        <div className={styles.footerLanguage}>
-          <span>Language: English</span>
+
+        <div className={styles.requestDemoButtonContainer}>
+          <a href="/request-demo" className={styles.requestDemoButton}>
+            Request Demo
+          </a>
         </div>
       </div>
     </div>
