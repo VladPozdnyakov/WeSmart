@@ -13,6 +13,7 @@
 }
 
 .title {
+  color: #363b61;
   font-size: 3vw;
   font-family: "Bebas Neue", sans-serif;
   font-weight: 600;
@@ -39,6 +40,7 @@
   font-weight: bold;
   font-size: 1.6vw;
   padding-left: 0.5vw;
+  color: #363b61;
 }
 
 .buttonContainer {
@@ -67,7 +69,7 @@
   font-family: "Bebas Neue", sans-serif;
   font-weight: 700;
   font-size: 3.5vw;
-  color: #222222;
+  color: #363b61;
 }
 
 .networkContainer img {
@@ -86,6 +88,13 @@
 
 .addressContainer {
   margin-top: -2vw;
+}
+
+.addressText {
+  font-family: "Bebas Neue", sans-serif;
+  font-weight: bold;
+  font-size: 1.6vw;
+  color: #363b61;
 }
 
 .mapImage {

@@ -180,7 +180,7 @@ const About = () => {
             className={styles.writtenAboutUs}
             style={{ top: transforms.third }}
           >
-            <div className={styles.blockName}>WRITTEN ABOUT US</div>
+            <div className={styles.blockName}>Customized solutions</div>
             <div>
               <div className={styles.blockTitle}>
                 WE BELIEVE THAT EVERY ORGANIZATION

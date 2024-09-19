@@ -1,8 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import styles from "../../../pages/Home/Home.module.scss";
+import Modal from "../ModalForm/ModalForm";
 
 const TitleSection = ({ top }) => {
+  const [isModalVisible, setIsModalVisible] = useState(false);
+
+  const handleModalOpen = () => {
+    console.log("Click");
+    setIsModalVisible(true);
+  };
+
+  const handleModalClose = () => {
+    setIsModalVisible(false);
+  };
+
   return (
     <div className={styles.titleBlock}>
       <div>
@@ -13,9 +25,20 @@ const TitleSection = ({ top }) => {
           <br />
           see beyond the visible
         </div>
-        <div className={styles.bgImage}>
-          <img src="/images/back_Home.png" alt="no-image" />
+        <div className={styles.textTitle}>
+          <div>Discover the true power of WeSmart's video analytics</div>
         </div>
+        <div
+          className={styles.button}
+          onClick={handleModalOpen}
+          onClose={handleModalClose}
+        >
+          <p className={styles.buttonText}>Learn more</p>
+        </div>
+
+        {/* <div className={styles.bgImage}>
+          <img src="/images/back_Home.png" alt="no-image" />
+        </div> */}
       </div>
       <div className={styles.descriptionBlock}>
         <div className={styles.subtitle}>
@@ -37,6 +60,7 @@ const TitleSection = ({ top }) => {
           out of their video data.
         </div>
       </div>
+      <Modal isVisible={isModalVisible} onClose={handleModalClose} />
     </div>
   );
 };

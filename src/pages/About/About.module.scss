@@ -17,16 +17,17 @@
   z-index: 3;
   position: relative;
   margin: 11.1vh 11.1vw 9.4vh 5.9vw;
+  color: #363b61;
 }
 .subtitle {
   font-size: 3vw;
-  color: #222222;
+  color: #363b61;
   z-index: 4;
   position: relative;
 }
 .text {
   font-size: 1.3vw;
-  color: #222222;
+  color: #363b61;
   z-index: 4;
   position: relative;
 }
@@ -219,10 +220,11 @@
     width: 84vw;
   }
   .worthTitle {
-    color: rgba(67, 74, 83, 1);
+    color: #363b61;
     font-size: 1.1vw;
   }
   .worthText {
+    color: #363b61;
     font-size: 2.5vw;
     width: 34.5vw;
   }
@@ -244,7 +246,7 @@
   left: 0vw;
   z-index: 3;
   .blockName {
-    color: rgba(67, 74, 83, 1);
+    color: #363b61;
     font-size: 1.4vw;
   }
   .blockTitle {
@@ -253,6 +255,7 @@
     position: relative;
     z-index: 4;
     margin-bottom: 2vh;
+    color: #363b61;
   }
 
   .bgImage {
@@ -283,7 +286,7 @@
   z-index: 4;
 
   .blockName {
-    color: rgba(67, 74, 83, 1);
+    color: #363b61;
     font-size: 1.4vw;
   }
   .blockTitle {
@@ -292,6 +295,7 @@
     position: relative;
     z-index: 4;
     margin-bottom: 2vh;
+    color: #363b61;
   }
 }
 
@@ -306,6 +310,7 @@
   top: 0vh;
   left: 0vw;
   z-index: 3;
+  color: #363b61;
   .textContainer {
     display: flex;
     flex-direction: column;
@@ -329,11 +334,12 @@
 }
 
 .weInvite {
+  color: #363b61;
   position: absolute;
   left: 0;
   width: 100vw;
   height: 79.2vh;
-  background-color: #f5f7fa;
+  background-color: #ffffff;
   border-radius: 3vw 3vw 0 0;
   box-shadow: 0px -5px 5px -5px rgba(0, 0, 0, 0.6);
   padding: 10.4vh 0;
@@ -343,12 +349,14 @@
     display: flex;
     flex-direction: column;
     gap: 2.7vh;
+    color: #363b61;
   }
   .textTitle {
     font-size: 6.6vw;
+    color: #363b61;
   }
   .textContent {
     font-size: 1.4vw;
-    color: rgba(67, 74, 83, 1);
+    color: #363b61;
   }
 }
