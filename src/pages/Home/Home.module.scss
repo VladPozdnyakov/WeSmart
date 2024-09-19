@@ -20,7 +20,9 @@
   font-weight: 400;
   z-index: 3;
   position: relative;
-  margin: 11.1vh 11.1vw 9.4vh 5.9vw;
+  margin-top: 9vw;
+  margin-left: 5.9vw;
+  color: #363b61;
 }
 .descriptionBlock {
   display: flex;
@@ -34,7 +36,7 @@
 }
 .subtitle {
   font-size: 3vw;
-  color: #222222;
+  color: #363b61;
   z-index: 4;
   position: relative;
 }
@@ -73,6 +75,8 @@
     font-size: 1.4vw;
   }
   .blockTitle {
+    color: #363b61;
+    border: solid green;
     font-size: 3.3vw;
     font-weight: 400;
     position: relative;
@@ -89,4 +93,34 @@
     width: 85vw;
     height: 85vh;
   }
+}
+
+.textTitle {
+  font-size: 1.3vw;
+  color: #434a53;
+  font-family: "Open Sans";
+  font-weight: 100;
+  margin-left: 5.9vw;
+  margin-top: 0.7vw;
+}
+
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 10vw;
+  height: 2.3vh;
+  margin-left: 5.6vw;
+  margin-top: 2vw;
+  background-color: #f77f1e;
+  border-radius: 4.4vw;
+  padding: 1.5vw 1.2vw;
+  cursor: pointer;
+}
+
+.buttonText {
+  font-size: 1.3vw;
+  color: #ffffff;
+  font-family: "Open Sans";
+  font-weight: 100;
 }

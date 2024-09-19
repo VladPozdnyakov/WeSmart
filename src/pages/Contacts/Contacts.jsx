@@ -48,7 +48,9 @@ export default function Contacts() {
       <div className={styles.addressContainer}>
         <div className={styles.streetContainer}>
           <div className={styles.topicTitle}>ADDRESS</div>
-          <div className={styles.emailText}>Gazit 10 St, Karmiel. 2165379</div>
+          <div className={styles.addressText}>
+            Gazit 10 St, Karmiel. 2165379
+          </div>
         </div>
         <div className={styles.mapImage}>
           <img src="/images/map.png" alt="no-image" />
