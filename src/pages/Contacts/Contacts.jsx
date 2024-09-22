@@ -7,6 +7,13 @@ import { IoCopy } from "react-icons/io5";
 import styles from "./Contacts.module.scss";
 
 export default function Contacts() {
+  const copyToClipboard = () => {
+    const emailText = document.getElementById("email").textContent;
+    navigator.clipboard.writeText(emailText).catch((err) => {
+      console.error("Ошибка при копировании текста: ", err);
+    });
+  };
+
   return (
     <div className={styles.mainContainer}>
       <Footer />
@@ -25,7 +32,7 @@ export default function Contacts() {
             <span className={styles.emailText} id="email">
               Info@wesmart.co.il
             </span>
-            <button className={styles.copyButton}>
+            <button className={styles.copyButton} onClick={copyToClipboard}>
               <IoCopy />
             </button>
           </div>

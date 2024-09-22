@@ -8,7 +8,7 @@ import Form from "../../components/Form/Form";
 import TrueFooter from "../../components/TrueFooter/TrueFooter";
 
 const startPosition = 0;
-const firstSlideTopStart = startPosition;
+const firstSlideTopStart = startPosition + 0.1;
 const firstSlideTopEnd = firstSlideTopStart + 0.1;
 const secondSlideTopStart = firstSlideTopEnd;
 const secondSlideTopEnd = secondSlideTopStart + 0.1;
@@ -44,17 +44,37 @@ const Products = () => {
   const { scrollYProgress } = useScroll();
 
   const transforms = {
+    zero: useTransform(
+      scrollYProgress,
+      [firstSlideTopEnd, firstSlideTopEnd + 0.0001],
+      ["block", "none"]
+    ),
     first: useTransform(
       scrollYProgress,
       [firstSlideTopStart, firstSlideTopEnd],
       ["100vh", "15vh"]
     ),
+    firstOpacity: useTransform(
+      scrollYProgress,
+      [secondSlideTopStart, secondSlideTopEnd],
+      [1, 0]
+    ),
+    secondOpacity: useTransform(
+      scrollYProgress,
+      [
+        secondSlideTopStart,
+        secondSlideTopEnd,
+        thirdSlideTopStart,
+        thirdSlideTopEnd,
+      ],
+      [0, 1, 1, 0]
+    ),
     second: useTransform(
       scrollYProgress,
       [secondSlideTopStart, secondSlideTopEnd],
-      ["100vh", "15vh"]
+      ["30vh", "15vh"]
     ),
-    third: useTransform(
+    thirdOpacity: useTransform(
       scrollYProgress,
       [
         thirdSlideTopStart,
@@ -62,22 +82,47 @@ const Products = () => {
         fourthSlideTopStart,
         fourthSlideTopEnd,
       ],
-      ["100vh", "15vh", "15vh", "-64vh"]
+      [0, 1, 1, 0]
+    ),
+    third: useTransform(
+      scrollYProgress,
+      [thirdSlideTopStart, thirdSlideTopEnd],
+      ["30vh", "15vh"]
+    ),
+    fourthOpacity: useTransform(
+      scrollYProgress,
+      [
+        fourthSlideTopStart,
+        fourthSlideTopEnd,
+        fifthSlideTopStart,
+        fifthSlideTopEnd,
+      ],
+      [0, 1, 1, 0]
     ),
     fourth: useTransform(
       scrollYProgress,
       [fourthSlideTopStart, fourthSlideTopEnd],
-      ["100vh", "12vh"]
+      ["30vh", "13vh"]
+    ),
+    fifthOpacity: useTransform(
+      scrollYProgress,
+      [fifthSlideTopStart, fifthSlideTopEnd, sixSlideTopStart, sixSlideTopEnd],
+      [0, 1, 1, 0]
     ),
     fifth: useTransform(
       scrollYProgress,
       [fifthSlideTopStart, fifthSlideTopEnd],
-      ["100vh", "15vh"]
+      ["30vh", "15vh"]
+    ),
+    sixthOpacity: useTransform(
+      scrollYProgress,
+      [sixSlideTopStart, sixSlideTopEnd],
+      [0, 1]
     ),
     sixth: useTransform(
       scrollYProgress,
       [sixSlideTopStart, sixSlideTopEnd],
-      ["100vh", "15vh"]
+      ["30vh", "15vh"]
     ),
     form: useTransform(
       scrollYProgress,
@@ -102,35 +147,40 @@ const Products = () => {
       subtitle: "SECURITY",
       text: `We understand that in times of uncertainty,\n a sense of security is a vital necessity`,
       img: "products2.svg",
-      style: transforms.first,
+      styleTop: transforms.first,
+      styleOpacity: transforms.firstOpacity,
     },
     {
       id: 2,
       subtitle: "SAFETY",
       text: `The solutions include alarm systems, security\n cameras, access control and more`,
       img: "products3.svg",
-      style: transforms.second,
+      styleTop: transforms.second,
+      styleOpacity: transforms.secondOpacity,
     },
     {
       id: 3,
       subtitle: "SMART CITIES",
       text: `We provide smart security solutions\n based on data analysis and artificial intelligence,\n suitable for cities and towns of all sizes`,
       img: "products4.svg",
-      style: transforms.third,
+      styleTop: transforms.third,
+      styleOpacity: transforms.thirdOpacity,
     },
     {
       id: 5,
       subtitle: "LOGISTICS AND INDUSTRY",
       text: `AI-solutions provide our customers with\n strategic insights and real-time monitoring\n of critical logistics data`,
       img: "products6.svg",
-      style: transforms.fifth,
+      styleTop: transforms.fifth,
+      styleOpacity: transforms.fifthOpacity,
     },
     {
       id: 6,
       subtitle: "PUBLIC TRANSPORTATION",
       text: `The WeSmart system monitors bus and train\n traffic in real time, provides accurate predictions\n of arrival times and analyzes usage patterns`,
       img: "products7.svg",
-      style: transforms.sixth,
+      styleTop: transforms.sixth,
+      styleOpacity: transforms.sixthOpacity,
     },
   ];
 
@@ -138,8 +188,10 @@ const Products = () => {
     <div className={styles.bigContainer} data-scroll-container ref={scrollRef}>
       <div className={styles.stickyBlock} data-scroll-section>
         <Footer />
-
-        <div className={styles.productsScreenFirst}>
+        <motion.div
+          className={styles.productsScreenFirst}
+          style={{ display: transforms.zero }}
+        >
           <div className={styles.titleText}>
             EMPOWER YOURSELF TO FOCUS
             <br />
@@ -150,78 +202,113 @@ const Products = () => {
             your unique needs and bring you peace of mind
           </div>
           <div className={styles.imgBackgroundFirst}></div>
-        </div>
-
-        {screensData.slice(0, 3).map((screen) => (
-          <motion.div
-            key={screen.id}
-            className={styles.productsScreen}
-            style={{ top: screen.style }}
-          >
+        </motion.div>
+        <motion.div
+          className={styles.productsScreen}
+          style={{ top: transforms.first, opacity: transforms.firstOpacity }}
+        >
+          <motion.div className={styles.wrapper}>
             <div className={styles.cardContent}>
-              <div className={styles.pageNum}> /0{screen.id}</div>
-              <div className={styles.subtitle}>{screen.subtitle}</div>
+              <div className={styles.pageNum}> /01</div>
+              <div className={styles.subtitle}>SECURITY</div>
               <div className={styles.defaultText}>
-                {screen.text.split("\n").map((line, index) => (
-                  <React.Fragment key={index}>
-                    {line}
-                    <br />
-                  </React.Fragment>
-                ))}
+                We understand that in times of uncertainty,
+                <br /> a sense of security is a vital necessity
               </div>
               <div className={styles.button}>Learn more</div>
             </div>
             <img
               className={styles.imgBackground}
-              src={`images/${screen.img}`}
+              src={`images/products2.svg`}
               alt="no-image"
             ></img>
+          </motion.div>
+        </motion.div>
+        {screensData.slice(1, 3).map((screen) => (
+          <motion.div
+            key={screen.id}
+            className={styles.productsScreen}
+            style={{ top: "15vh", opacity: screen.styleOpacity }}
+          >
+            <motion.div
+              className={styles.wrapper}
+              style={{ top: screen.styleTop }}
+            >
+              <div className={styles.cardContent}>
+                <div className={styles.pageNum}> /0{screen.id}</div>
+                <div className={styles.subtitle}>{screen.subtitle}</div>
+                <div className={styles.defaultText}>
+                  {screen.text.split("\n").map((line, index) => (
+                    <React.Fragment key={index}>
+                      {line}
+                      <br />
+                    </React.Fragment>
+                  ))}
+                </div>
+                <div className={styles.button}>Learn more</div>
+              </div>
+              <img
+                className={styles.imgBackground}
+                src={`images/${screen.img}`}
+                alt="no-image"
+              ></img>
+            </motion.div>
           </motion.div>
         ))}
 
         <motion.div
           className={styles.productsScreenFirst}
-          style={{ top: transforms.fourth }}
+          style={{ top: "13vh", opacity: transforms.fourthOpacity }}
         >
-          <div className={styles.cardContent}>
-            <div className={styles.subtitle}>FULL CONTROL</div>
-            <div className={styles.defaultText}>
-              We understand that in times of uncertainty,
-              <br /> a sense of security is a vital necessity
+          <motion.div
+            className={styles.wrapper}
+            style={{ top: transforms.fourth }}
+          >
+            <div className={styles.cardContent}>
+              <div className={styles.subtitle}>FULL CONTROL</div>
+              <div className={styles.defaultText}>
+                We understand that in times of uncertainty,
+                <br /> a sense of security is a vital necessity
+              </div>
+              <div className={styles.button}>Request a demo</div>
             </div>
-            <div className={styles.button}>Request a demo</div>
-          </div>
-          <img
-            className={styles.imgBackground}
-            src="images/products5.svg"
-            alt="no-image"
-          ></img>
+            <img
+              className={styles.imgBackground}
+              src="images/products5.svg"
+              alt="no-image"
+            ></img>
+          </motion.div>
         </motion.div>
 
         {screensData.slice(3).map((screen) => (
           <motion.div
             key={screen.id}
             className={styles.productsScreen}
-            style={{ top: screen.style }}
+            style={{ top: "15vh", opacity: screen.styleOpacity }}
           >
-            <div className={styles.cardContent}>
-              <div className={styles.pageNum}> /0{screen.id}</div>
-              <div className={styles.subtitle}>{screen.subtitle}</div>
-              <div className={styles.defaultText}>
-                {screen.text.split("\n").map((line, index) => (
-                  <React.Fragment key={index}>
-                    {line}
-                    <br />
-                  </React.Fragment>
-                ))}
+            <motion.div
+              className={styles.wrapper}
+              style={{ top: screen.styleTop }}
+            >
+              <div className={styles.cardContent}>
+                <div className={styles.pageNum}> /0{screen.id}</div>
+                <div className={styles.subtitle}>{screen.subtitle}</div>
+                <div className={styles.defaultText}>
+                  {screen.text.split("\n").map((line, index) => (
+                    <React.Fragment key={index}>
+                      {line}
+                      <br />
+                    </React.Fragment>
+                  ))}
+                </div>
+                <div className={styles.button}>Learn more</div>
               </div>
-              <div className={styles.button}>Learn more</div>
-            </div>
-            <img
-              className={styles.imgBackground}
-              src={`images/${screen.img}`}
-              alt="no-image"
-            ></img>
+              <img
+                className={styles.imgBackground}
+                src={`images/${screen.img}`}
+                alt="no-image"
+              ></img>
+            </motion.div>
           </motion.div>
         ))}
         <Form top={transforms.form} />

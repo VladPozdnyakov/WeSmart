@@ -33,12 +33,7 @@ const Footer = ({ transparent }) => {
             </li>
           </ul>
         </nav>
-
-        <div className={styles.requestDemoButtonContainer}>
-          <a href="/request-demo" className={styles.requestDemoButton}>
-            Request Demo
-          </a>
-        </div>
+        <div className={styles.button}>Request a demo</div>
       </div>
     </div>
   );

@@ -60,6 +60,19 @@
   transition: background-color 0.3s, box-shadow 0.3s;
 }
 
+.button {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400;
+  width: 12vw;
+  color: white;
+  margin-top: 1.5vh;
+  background-color: #f77f1e;
+  border-radius: 4.4vw;
+  padding: 2vh 1vh;
+  text-align: center;
+  cursor: pointer;
+}
+
 /* Адаптивность для мобильных устройств */
 @media (max-width: 768px) {
   .footerContainer {
