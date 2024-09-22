@@ -154,8 +154,8 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <Form />
-      {/* <TrueFooter top={transforms.trueFooter} /> */}
+      <Form isShadow={false} />
+      <TrueFooter />
     </div>
   );
 }

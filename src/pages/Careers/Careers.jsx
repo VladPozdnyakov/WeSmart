@@ -5,16 +5,16 @@ import LocomotiveScroll from "locomotive-scroll";
 import Footer from "../../components/footer/Footer";
 import TrueFooter from "../../components/TrueFooter/TrueFooter";
 
-
 const startPosition = 0;
 const ourMissionStart = startPosition;
 const ourMissionEnd = ourMissionStart + 0.5;
 const openPositionsStart = ourMissionEnd;
 const openPositionsEnd = openPositionsStart + 0.5;
 
-
-
 const Careers = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   const scrollRef = useRef(null);
   const { scrollYProgress } = useScroll();
   useEffect(() => {
@@ -33,25 +33,23 @@ const Careers = () => {
     };
   }, [scrollYProgress]);
 
-
   const transforms = {
     ourMission: useTransform(
-        scrollYProgress,
-        [ourMissionStart, ourMissionEnd],
-        ["100vh", "-68vh"]
+      scrollYProgress,
+      [ourMissionStart, ourMissionEnd],
+      ["100vh", "-68vh"]
     ),
     openPositions: useTransform(
-        scrollYProgress,
-        [openPositionsStart, openPositionsEnd],
-        ["100vh", "-6vh"]
+      scrollYProgress,
+      [openPositionsStart, openPositionsEnd],
+      ["100vh", "-6vh"]
     ),
     footer: useTransform(
-        scrollYProgress,
-        [openPositionsStart, openPositionsEnd],
-        ["157vh", "48.1vh"]
-    )
-  }
-
+      scrollYProgress,
+      [openPositionsStart, openPositionsEnd],
+      ["157vh", "48.1vh"]
+    ),
+  };
 
   return (
     <div className={styles.bigContainer} data-scroll-container ref={scrollRef}>
@@ -72,7 +70,10 @@ const Careers = () => {
           <img src="/images/careersBG.svg" alt="no-image" />
           <div className={styles.wrapper}></div>
         </div>
-        <motion.div className={styles.contentBlock} style={{top: transforms.ourMission}}>
+        <motion.div
+          className={styles.contentBlock}
+          style={{ top: transforms.ourMission }}
+        >
           <div className={styles.ourMission}>
             <div className={styles.descText}>OUR MISSION</div>
             <div>
@@ -103,10 +104,14 @@ const Careers = () => {
           <div className={styles.separator}></div>
           <div className={styles.benefits}>
             <div className={styles.textBlock}>
-                <div className={styles.title}>BENEFITS</div>
-                <div className={styles.textContent}>Join a culture of innovation, team up with<br/>
-                forward-thinkers, and enjoy benefits designed<br/>
-                to support your health and wellbeing.</div>
+              <div className={styles.title}>BENEFITS</div>
+              <div className={styles.textContent}>
+                Join a culture of innovation, team up with
+                <br />
+                forward-thinkers, and enjoy benefits designed
+                <br />
+                to support your health and wellbeing.
+              </div>
             </div>
             <div className={styles.flexRow}>
               <div className={styles.flexCol}>
@@ -127,8 +132,8 @@ const Careers = () => {
                 <div className={styles.textBlock}>
                   <div className={styles.subtitle}>WORK FROM HOME</div>
                   <div className={styles.textContent}>
-                    Do your best work, whether that’s<br/> at home, in-office, or
-                    hybrid.
+                    Do your best work, whether that’s
+                    <br /> at home, in-office, or hybrid.
                   </div>
                 </div>
               </div>
@@ -151,16 +156,53 @@ const Careers = () => {
             </div>
           </div>
         </motion.div>
-        <motion.div className={styles.openPositions} style={{top: transforms.openPositions}}>
-            <img className={styles.bgImg} src="/images/careerCube.svg" alt="no-image"/>
-            <div className={styles.content}>
-                <div className={styles.title}>OPEN POSITIONS</div>
-                <div className={styles.text}>Stay connected with us on LinkedIn for the<br/> 
-                latest job opportunities.</div>
-                <div className={styles.button}>Follow us on LinkedIn<img className={styles.icon} src="/images/careerIcon.svg" alt="no-image"/></div>
+        <motion.div
+          className={styles.openPositions}
+          style={{ top: transforms.openPositions }}
+        >
+          <img
+            className={styles.bgImg}
+            src="/images/careerCube.svg"
+            alt="no-image"
+          />
+          <div className={styles.content}>
+            <div className={styles.title}>OPEN POSITIONS</div>
+            <div className={styles.text}>
+              Stay connected with us on LinkedIn for the
+              <br />
+              latest job opportunities.
             </div>
+            {/* <div className={styles.button}>
+              Follow us on LinkedIn
+              <img
+                className={styles.icon}
+                src="/images/careerIcon.svg"
+                alt="no-image"
+              />
+            </div> */}
+            <motion.button
+              className={styles.animatedButton}
+              whileHover="hover"
+              initial="initial"
+            >
+              <motion.div
+                className={styles.buttonBackground}
+                variants={{
+                  initial: { x: "-100%", opacity: 0.2 },
+                  hover: { x: 0, opacity: 1 },
+                }}
+                transition={{ duration: 0.4 }}
+              />
+              <span className={styles.buttonText}>Follow us on LinkedIn</span>
+              <img
+                className={styles.icon}
+                src="/images/careerIcon.svg"
+                alt="no-image"
+              />
+            </motion.button>
+          </div>
         </motion.div>
-        <TrueFooter top={transforms.footer}/>
+        <TrueFooter top={transforms.footer} />
       </div>
     </div>
   );

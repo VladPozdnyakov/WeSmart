@@ -1,16 +1,25 @@
 // TrueFooter.jsx
 import React from "react";
 import { motion } from "framer-motion";
-import styles from "./TrueFooter.module.scss"; // Путь к вашим стилям
+import { useNavigate } from "react-router-dom";
+import styles from "./TrueFooter.module.scss";
 
 const TrueFooter = ({ top }) => {
+  const navigate = useNavigate();
+
+  const handleClickCareers = () => {
+    navigate("/careers");
+  };
+
   return (
     <motion.div className={styles.trueFooter} style={{ top }}>
       <div className={styles.row1}>
         <div className={styles.column}>
           <span className={styles.categoryTitle}>COMPANY</span>
           <span className={styles.categoryText}>About us</span>
-          <span className={styles.categoryText}>Careers</span>
+          <span className={styles.categoryText} onClick={handleClickCareers}>
+            Careers
+          </span>
         </div>
         <div className={styles.column}>
           <span className={styles.categoryTitle}>PRODUCTS</span>
