@@ -1,0 +1,55 @@
+.mapContainer {
+    position: relative;
+    top: 59vh;
+    z-index: 4;
+    background-color: white;
+  }
+  
+  .mapImage {
+    width: 100vw;
+    height: auto;
+  }
+  
+  /* Стили для точек */
+  .point {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: #f77f1e;
+    border-radius: 50%;
+  }
+  
+  .pointLabel {
+    color: #f77f1e;
+    font-size: 1.5vw;
+    font-family: "Bebas Neue Cyrillic", sans-serif;
+    font-weight: 400;
+    margin-left: 15px;
+  }
+  
+  /* Стили для списка стран */
+  .countryList {
+    position: absolute;
+    transform: translateX(-50%);
+    padding: 10px;
+    background-color: white;
+    border: 1px solid #2222221f;
+    border-radius: 16px 0px 16px 0px;
+  }
+  
+  .country {
+    margin: 0;
+    font-size: 1.2vw;
+    color: #363b61;
+  }
+  
+  /* Линия для Европы */
+  .line {
+    position: absolute;
+    top: 18%;
+    left: 55.3%;
+    width: 1px;
+    height: 3.5vw;
+    background-color: #f77f1e;
+  }
+  

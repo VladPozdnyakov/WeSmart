@@ -1,0 +1,33 @@
+.sliderContainer {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    top: 66vh;
+    z-index: 5;
+    background-color: white;
+  }
+  
+  .sliderWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    cursor: grab;
+    width: 100%;
+  }
+  
+  .slides {
+    display: flex;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .slide {
+    min-width: 33vw;
+    box-sizing: border-box;
+    padding: 20px;
+    margin: 0 15px; // Добавьте горизонтальные отступы между слайдами
+  }
+  
+  .sliderWrapper:active {
+    cursor: grabbing;
+  }
+  

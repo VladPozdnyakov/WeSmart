@@ -1,12 +1,8 @@
 .container {
   width: 100%;
-  height: 70.6vh; /* Высота контейнера */
   display: flex;
   flex-direction: column;
-  margin-top: 3vw;
-  padding-left: 3vw;
-  padding-right: 3vw;
-  padding-bottom: 3vw;
+  padding: 3vw;
 }
 
 .textContainer {
@@ -25,48 +21,54 @@
   font-size: 18px;
   font-family: "Open Sans", sans-serif;
   color: #434a53;
+  margin-bottom: 3vw;
 }
 
 .titlePartner {
-  margin-top: 7vw;
+  margin-top: 5vw;
   font-size: 2vw;
   color: #222222;
   z-index: 4;
   position: relative;
 }
 
-.logosContainer {
-  margin-top: 8vw;
+/* Customers logos */
+.logoContainer {
   display: flex;
-  flex-direction: row;
-  justify-content: space-between; /* Равномерное распределение пространства между элементами */
-  align-items: center; /* Выравнивание элементов по вертикали */
-  width: 100%; /* Ширина контейнера на всю доступную ширину */
-  height: 10vw;
-}
-
-.logoContainerPartner {
+  align-items: center;
   margin-top: 3vw;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between; /* Равномерное распределение пространства между элементами */
-  align-items: center; /* Выравнивание элементов по вертикали */
-  width: 100%; /* Ширина контейнера на всю доступную ширину */
-  height: 10vw;
 }
 
 .logo {
+  width: 12.5vw;
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: 1vw;
 }
 
 .logo img {
-  max-width: 70%; /* Устанавливаем максимальную ширину логотипа в 80% от родительского контейнера */
+  max-width: 70%;
+
   display: block;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Partners logos */
+.logoContainerPartner {
+  display: flex;
+
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 3vw;
 }
 
 .orange {
   color: #f77f1e;
-  margin-left: 10px; /* Отступ слева для создания пробела */
+  margin-left: 10px;
+}
+.logoRow {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2vw;
 }

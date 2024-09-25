@@ -10,11 +10,50 @@
 .memberCard {
   padding: 10px;
 
+  .imageDiv{
+    width: 16.6vw;
+    height: 16.6vw;
+    border-radius: 50%;
+    position: relative;
+    overflow: hidden;
+  }
   .image {
     width: 16.6vw;
     height: 16.6vw;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    clip-path: circle(0% at 50% 50%); /* Изначально clip-path установлен на 0 */
+    transition: clip-path 1s ease-in-out; /* Анимация clip-path */
   }
-
+  .load{
+    width: 16.6vw;
+    height: 16.6vw;
+    transition: transform 1s ease-in-out 0.5s; /* Анимация вращения */
+  }
+  .imageDiv:hover .load {
+    transform: rotate(360deg); /* Вращаем первую картинку на 360 градусов */
+    transition-delay: 0s; /* Вращение сразу при наведении */
+  }
+  
+  .imageDiv:hover .image {
+    clip-path: circle(100% at 50% 50%); /* Плавное отображение второй картинки */
+    transition-delay: 0.5s; /* Задержка отображения второй картинки на 0.5s */
+  }
+  
+  /* Анимация при убирании курсора */
+  .imageDiv:not(:hover) .image {
+    clip-path: circle(0% at 50% 50%); /* Сначала скрывается вторая картинка */
+    transition-delay: 0s; /* Без задержки для скрытия */
+  }
+  
+  .imageDiv:not(:hover) .load {
+    transform: rotate(0deg); /* Возвращаем первую картинку в исходное состояние */
+    transition-delay: 0.5s; /* Задержка вращения при убирании курсора */
+  }
   .name {
     font-size: 2.5vw;
     font-weight: 400;

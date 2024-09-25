@@ -7,17 +7,21 @@ import Footer from "../../components/footer/Footer";
 import styles from "./HomeV2.module.scss";
 import Form from "../../components/Form/Form";
 import TrueFooter from "../../components/TrueFooter/TrueFooter";
-import { GoArrowLeft } from "react-icons/go";
-import AdvantageBlock from "../../components/homePage/Advantages/Advantage";
+
 import Customers from "../../components/homePage/Customers/Customers";
 import Modal from "../../components/homePage/ModalForm/ModalForm";
+import Map from "../../components/Map/Map";
+import AdvantagesSlider from "../../components/homePage/AdvantagesSlider/AdvantagesSlider";
+import AboutUsSlider from "../../components/homePage/AboutUsSlider/AboutUsSlider";
 
 const startPosition = 0;
+const rotateStart = startPosition;
+const rotateEnd = rotateStart + 0.11;
 const endPosition = 1;
 
 const HomeV2 = () => {
   const [isModalVisible, setIsModalVisible] = useState(false);
-
+  const [color, setColor] = useState("white");
   const handleModalOpen = () => {
     console.log("Click");
     setIsModalVisible(true);
@@ -57,15 +61,68 @@ const HomeV2 = () => {
 
   const anim = useTransform(
     scrollYProgress,
-    [startPosition, endPosition],
+    [rotateEnd + 0.02, endPosition],
     ["100vh", "-444vh"]
+  );
+
+  const rotate = useTransform(
+    scrollYProgress,
+    [rotateStart, rotateEnd],
+    [0, 360]
+  );
+  const circleOpacity = useTransform(scrollYProgress, [0.09, 0.11], [1, 0]);
+
+  const clipPath = useTransform(
+    scrollYProgress,
+    [0, 0.2],
+    ["circle(0% at 62.5% 34%)", "circle(150% at 62.5% 34%)"]
   );
 
   return (
     <div className={styles.bigContainer} data-scroll-container ref={scrollRef}>
       <div className={styles.stickyBlock} data-scroll-section>
-        <Footer transparent={true} />
-        <div className={styles.headSection}>
+        <Footer transparent={true} color={color} />
+        <div className={styles.headSection} style={{ zIndex: 1 }}>
+          <div className={styles.bigCircle} />
+          <div className={styles.midCircle}>
+            <motion.img
+              style={{ rotate }}
+              className={styles.midCircleImage}
+              src="/images/loader.svg"
+              alt="no-image"
+            />
+          </div>
+          <div className={styles.smallCircle} />
+          <div
+            className={styles.textTitle}
+            style={{ color: "rgba(54, 59, 97, 1)" }}
+          >
+            Step into a magical world,
+            <br />
+            where cameras
+            <br />
+            see beyond the visible
+          </div>
+          <div
+            className={styles.textContent}
+            style={{ color: "rgba(54, 59, 97, 1)" }}
+          >
+            Discover the true power of WeSmart's video analytics
+          </div>
+        </div>
+
+        <motion.div
+          className={styles.headSection}
+          style={{ zIndex: 2, clipPath }}
+        >
+          <div className={styles.whiteCircle}>
+            <motion.img
+              style={{ rotate, opacity: circleOpacity }}
+              className={styles.midCircleImage}
+              src="/images/loader.svg"
+              alt="no-image"
+            />
+          </div>
           <div className={styles.textTitle}>
             Step into a magical world,
             <br />
@@ -76,17 +133,22 @@ const HomeV2 = () => {
           <div className={styles.textContent}>
             Discover the true power of WeSmart's video analytics
           </div>
+
           <div
             className={styles.button}
             onClick={handleModalOpen}
             onClose={handleModalClose}
           >
-            Learn more
+            <span className={styles.buttonText}>Learn more</span>
           </div>
-
-          <img src="/images/homeBG.svg" alt="no-image" />
+          <img
+            className={styles.homeBG}
+            src="/images/homeBG.svg"
+            alt="no-image"
+          />
           <div className={styles.wrapper}></div>
-        </div>
+        </motion.div>
+
         <motion.div className={styles.pageContainer} style={{ top: anim }}>
           <motion.div className={styles.contentBlock}>
             <div className={styles.ourMission}>
@@ -112,285 +174,19 @@ const HomeV2 = () => {
               </div>
             </div>
           </motion.div>
-          <motion.div
-            className={styles.advantagesBlock}
-            style={{ top: "66vh" }}
-          >
-            <div className={styles.advantages}>
-              <AdvantageBlock
-                description="We understand that in times of uncertainty, a sense of security is a vital necessity"
-                title="SECURITY"
-              />
-              <AdvantageBlock
-                description="The solutions include alarm systems, security cameras, access control and more"
-                title="SAFETY"
-              />
-              <AdvantageBlock
-                description="We provide smart security solutions based on data analysis and artificial intelligence, suitable for cities and towns of all sizes"
-                title="SMART CITIES"
-              />
-              <AdvantageBlock
-                description="Ai-solutions provide our customers  with strategic insights and real-time monitoring of critical logistics data"
-                title="LOGISTICS AND INDUSTRIES"
-              />
-            </div>
-          </motion.div>
-          <motion.div className={styles.mapContainer} style={{ top: "129vh" }}>
-            <img src="/images/mapHome.png" alt="no-image" width="auto" />
-            {/* ОФК это все должно отрефакториться в отденые компоненты без дублирвония */}
-            {/* Точка для Америки */}
-            <div
-              style={{
-                position: "absolute",
-                top: "35%",
-                left: "17%",
-                width: "10px",
-                height: "10px",
-                backgroundColor: "#F77F1E",
-                borderRadius: "50%",
-              }}
-            >
-              <span
-                style={{
-                  color: "#F77F1E",
-                  fontSize: "1.5vw",
-                  fontFamily: "Bebas Neue Cyrillic",
-                  fontWeight: "400",
-                  marginLeft: "15px",
-                }}
-              >
-                USA
-              </span>
-            </div>
 
-            {/* Точка для Европы */}
-            <div
-              style={{
-                position: "absolute",
-                top: "25%",
-                left: "55%",
-                width: "10px",
-                height: "10px",
-                backgroundColor: "#F77F1E",
-                borderRadius: "50%",
-              }}
-            >
-              <span
-                style={{
-                  color: "#F77F1E",
-                  fontSize: "1.5vw",
-                  fontFamily: "Bebas Neue Cyrillic",
-                  fontWeight: "400",
-                  marginLeft: "15px",
-                }}
-              >
-                EUROPE
-              </span>
-            </div>
-
-            {/* Точка для Азии */}
-            <div
-              style={{
-                position: "absolute",
-                top: "35%",
-                left: "73%",
-                width: "10px",
-                height: "10px",
-                backgroundColor: "#F77F1E",
-                borderRadius: "50%",
-              }}
-            >
-              <span
-                style={{
-                  color: "#F77F1E",
-                  fontSize: "1.5vw",
-                  fontFamily: "Bebas Neue Cyrillic",
-                  fontWeight: "400",
-                  marginLeft: "15px",
-                }}
-              >
-                ASIA
-              </span>
-            </div>
-            <div
-              style={{
-                position: "absolute",
-                top: "47%",
-                left: "55%",
-                width: "10px",
-                height: "10px",
-                backgroundColor: "#F77F1E",
-                borderRadius: "50%",
-              }}
-            >
-              <span
-                style={{
-                  color: "#F77F1E",
-                  fontSize: "1.5vw",
-                  fontFamily: "Bebas Neue Cyrillic",
-                  fontWeight: "400",
-                  marginLeft: "15px",
-                }}
-              >
-                ISRAEL
-              </span>
-            </div>
-
-            {/* Точка для Африки */}
-            <div
-              style={{
-                position: "absolute",
-                top: "58%",
-                left: "53%",
-                width: "10px",
-                height: "10px",
-                backgroundColor: "#F77F1E",
-                borderRadius: "50%",
-              }}
-            >
-              <span
-                style={{
-                  color: "#F77F1E",
-                  fontSize: "1.5vw",
-                  fontFamily: "Bebas Neue Cyrillic",
-                  fontWeight: "400",
-                  marginLeft: "15px",
-                }}
-              >
-                AFRICA
-              </span>
-            </div>
-
-            <div
-              style={{
-                position: "absolute",
-                top: "10%",
-                left: "55%",
-                transform: "translateX(-50%)",
-                padding: "10px",
-                backgroundColor: "white",
-                border: "1px solid #2222221F",
-                borderRadius: "16px 0px 16px 0px",
-              }}
-            >
-              <p style={{ margin: 0, fontSize: "1.2vw", color: "#363B61" }}>
-                Germany
-              </p>
-              <p style={{ margin: 0, fontSize: "1.2vw", color: "#363B61" }}>
-                Portugal
-              </p>
-            </div>
-            <div
-              style={{
-                position: "absolute",
-                top: "20%",
-                left: "73%",
-                transform: "translateX(-50%)",
-                padding: "10px",
-                backgroundColor: "white",
-                border: "1px solid #2222221F",
-                borderRadius: "16px 0px 16px 0px",
-              }}
-            >
-              <p style={{ margin: 0, fontSize: "1.2vw", color: "#363B61" }}>
-                Vietnam
-              </p>
-              <p style={{ margin: 0, fontSize: "1.2vw", color: "#363B61" }}>
-                Cambodia
-              </p>
-            </div>
-            <div
-              style={{
-                position: "absolute",
-                top: "18%",
-                left: "18%",
-                transform: "translateX(-50%)",
-                padding: "10px",
-                backgroundColor: "white",
-                border: "1px solid #2222221F",
-                borderRadius: "16px 0px 16px 0px",
-              }}
-            >
-              <p style={{ margin: 0, fontSize: "1.2vw", color: "#363B61" }}>
-                New york
-              </p>
-              <p style={{ margin: 0, fontSize: "1.2vw", color: "#363B61" }}>
-                Los angeles
-              </p>
-              <p style={{ margin: 0, fontSize: "1.2vw", color: "#363B61" }}>
-                Florida
-              </p>
-              <p style={{ margin: 0, fontSize: "1.2vw", color: "#363B61" }}>
-                California
-              </p>
-            </div>
-            <div
-              style={{
-                position: "absolute",
-                top: "65%",
-                left: "55%",
-                transform: "translateX(-50%)",
-                padding: "10px",
-                backgroundColor: "white",
-                border: "1px solid #2222221F",
-                borderRadius: "16px 0px 16px 0px",
-              }}
-            >
-              <p style={{ margin: 0, fontSize: "1.2vw", color: "#363B61" }}>
-                Senegal
-              </p>
-              <p style={{ margin: 0, fontSize: "1.2vw", color: "#363B61" }}>
-                Congo
-              </p>
-            </div>
-            <div
-              style={{
-                position: "absolute",
-                top: "18%",
-                left: "55.3%",
-                width: "1px",
-                height: "3.5vw",
-                backgroundColor: "#F77F1E",
-              }}
-            ></div>
-          </motion.div>
+          <AdvantagesSlider />
+          <Map />
           <motion.div
             className={styles.safety}
             style={{ backgroundColor: "rgba(255, 255, 255, 1)", top: "222vh" }}
           >
             <Customers />
           </motion.div>
-          <motion.div
-            className={styles.aboutUsContainer}
-            style={{ top: "314vh" }}
-          >
-            <div className={styles.contentContainer}>
-              <div className={styles.blockName}>Written About Us</div>
-              <div>
-                <div className={styles.blockTitle}>
-                  WORKING WITH THE WESMART TEAM LED
-                  <br />
-                  BY OR WAS A SMOOTH, ENJOYABLE, AND PRODUCTIVE
-                  <br />
-                  PROCESS. OR IS A PROFESSIONAL WITH EXTENSIVE
-                  <br />
-                  EXPERIENCE IN THE FIELD OF SECURITY, WHO HAS
-                  <br />
-                  IMPROVED THE SECURITY OF THE SETTLEMENT.
-                  <br />
-                </div>
-                <div className={styles.blockName}>
-                  The availability was around the clock,
-                  <br />
-                  and their system solved many problems
-                  <br />
-                  for us without false alarms.
-                </div>
-              </div>
-            </div>
-          </motion.div>
-          <Form top={"402vh"} />
-          <TrueFooter top={"490vh"} />
+          <AboutUsSlider />
+
+          <Form top={"408vh"} />
+          <TrueFooter top={"496vh"} />
         </motion.div>
       </div>
       <Modal isVisible={isModalVisible} onClose={handleModalClose} />

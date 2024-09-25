@@ -46,18 +46,23 @@ const Products = () => {
   const transforms = {
     zero: useTransform(
       scrollYProgress,
-      [firstSlideTopEnd, firstSlideTopEnd + 0.0001],
-      ["block", "none"]
+      [firstSlideTopStart, firstSlideTopEnd],
+      [1, 0]
+    ),
+    zeroDisplay: useTransform(
+      scrollYProgress,
+      [firstSlideTopStart, firstSlideTopEnd-0.05],
+      ['block', 'none']
     ),
     first: useTransform(
       scrollYProgress,
       [firstSlideTopStart, firstSlideTopEnd],
-      ["100vh", "15vh"]
+      ["30vh", "15vh"]
     ),
     firstOpacity: useTransform(
       scrollYProgress,
-      [secondSlideTopStart, secondSlideTopEnd],
-      [1, 0]
+      [firstSlideTopStart, firstSlideTopEnd, secondSlideTopStart, secondSlideTopEnd],
+      [0,1,1, 0]
     ),
     secondOpacity: useTransform(
       scrollYProgress,
@@ -190,7 +195,7 @@ const Products = () => {
         <Footer />
         <motion.div
           className={styles.productsScreenFirst}
-          style={{ display: transforms.zero }}
+          style={{ opacity: transforms.zero }}
         >
           <div className={styles.titleText}>
             EMPOWER YOURSELF TO FOCUS
@@ -205,9 +210,9 @@ const Products = () => {
         </motion.div>
         <motion.div
           className={styles.productsScreen}
-          style={{ top: transforms.first, opacity: transforms.firstOpacity }}
+          style={{top: '15vh',  opacity: transforms.firstOpacity }}
         >
-          <motion.div className={styles.wrapper}>
+          <motion.div className={styles.wrapper} style={{top: transforms.first}}>
             <div className={styles.cardContent}>
               <div className={styles.pageNum}> /01</div>
               <div className={styles.subtitle}>SECURITY</div>

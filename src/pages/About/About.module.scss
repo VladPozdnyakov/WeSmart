@@ -154,8 +154,8 @@
     width: 3.7vw;
     height: 15.2vh;
     position: absolute;
-    top: 31vh;
-    left: 58vw;
+    top: 36%;
+    left: 59%;
     border: 3px solid rgba(235, 87, 235, 1);
     border-radius: 0.7vw;
     .naz {
@@ -174,8 +174,8 @@
     width: 3.4vw;
     height: 9.7vh;
     position: absolute;
-    top: 38vh;
-    left: 56vw;
+    top: 49%;
+    left: 58%;
     border: 3px solid rgba(255, 50, 49, 1);
     border-radius: 0.7vw;
     .naz {
@@ -215,7 +215,7 @@
   .worth {
     display: flex;
     padding: 10vh 6vw;
-    gap: 22.2vw;
+    gap: 18.2vw;
     border-bottom: 1px solid rgba(230, 233, 237, 1);
     width: 84vw;
   }
@@ -228,9 +228,39 @@
     font-size: 2.5vw;
     width: 34.5vw;
   }
-  .imageWrapper img {
+  .imageWrapper{
+    position: relative;
+    border-radius: 50%;
+    border-width: 1px;
+    border-style: solid;
+    border-color: transparent;
+    width: 11vw;
+    height: 11vw;
+  }
+  .imageWrapper:hover{
+    border-color: rgba(54, 59, 97, 1);
+  }
+  
+  .triangle{
+    width: 7vw;
+    height: 7vw;
+
+  }
+  .load{
     width: 3.8vw;
     height: 3.8vw;
+    opacity: 1;
+
+  }
+  
+  .imageWrapper img {
+    
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
   }
 }
 
@@ -267,7 +297,7 @@
       height: 21.4vh;
     }
   }
-}
+} 
 
 .ourTeam {
   position: absolute;

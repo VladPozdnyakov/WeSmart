@@ -9,27 +9,32 @@ const teamMembers = [
   {
     name: "EHUD LAVIE",
     description: "Former deputy head\n of the Mossad and\n board member\n of several companies",
-    image: "/images/aboutCarousel.svg" 
+    image: "/images/ava.jpg",
+    load: "/images/aboutCarousel.svg" 
   },
   {
     name: "DANNY COHEN",
     description: "CEO of Leumi Card\n and former VP of Bank\n Leumi, an expert\n in banking investments\n in Israel and around\n the world",
-    image: "/images/aboutCarousel.svg"
+    image: "/images/aboutCarousel.svg",
+    load: "/images/aboutCarousel.svg" 
   },
   {
     name: "OR LABAN",
     description: "VP and entrepreneur\n with impressive\n achievements in the\n field of innovation\n and strategy",
-    image: "/images/aboutCarousel.svg"
+    image: "/images/aboutCarousel.svg",
+    load: "/images/aboutCarousel.svg" 
   },
   {
     name: "LIOR EINAV",
     description: "VP of Technology and\n an expert in AI and data\n analysis",
-    image: "/images/aboutCarousel.svg"
+    image: "/images/aboutCarousel.svg",
+    load: "/images/aboutCarousel.svg" 
   },
   {
     name: "EHUD LAVIE",
     description: "Former deputy head\n of the Mossad and\n board member\n of several companies",
-    image: "/images/aboutCarousel.svg" 
+    image: "/images/aboutCarousel.svg",
+    load: "/images/aboutCarousel.svg"  
   },
 ];
 
@@ -118,7 +123,10 @@ const TeamCarousel = () => {
       <Slider {...settings}>
         {teamMembers.map((member, index) => (
           <div key={index} className={styles.memberCard}>
-            <img src={member.image} alt={member.name} className={styles.image} />
+            <div className={styles.imageDiv}>
+            <img src={member.load} alt={member.name} className={styles.load} />
+            <img src = {member.image} alt={member.name} className={styles.image}/>
+            </div>
             <div className={styles.name}>{member.name}</div>
             <div className={styles.description}>
                 {member.description.split("\n").map((line, index) => (
