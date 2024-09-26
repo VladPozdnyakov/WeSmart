@@ -29,6 +29,21 @@ const CountryList = ({ top, left, countries, delay }) => (
   </motion.div>
 );
 
+const NewOffice = ({top, left, places, delay}) =>(
+  <motion.div
+  className={styles.newOffice}
+  style={{ top, left }}
+  initial={{ opacity: 0, translateY: 20 }}
+  animate={{ opacity: 1, translateY: 0 }}
+  transition={{ delay, duration: 0.5, ease: "easeOut" }}
+  >
+    <p className={styles.soon}>SOON</p>
+      {places.map((country, index) => (
+      <p key={index} className={styles.place}>{country}</p>
+    ))}
+  </motion.div>
+)
+
 const Map = () => {
   // Используем Intersection Observer, чтобы отслеживать видимость карты
   const { ref, inView } = useInView({
@@ -57,6 +72,9 @@ const Map = () => {
           <CountryList top="20%" left="73%" countries={['Vietnam', 'Cambodia']} delay={1.7} />
           <CountryList top="18%" left="18%" countries={['New York', 'Los Angeles', 'Florida', 'California']} delay={1.9} />
           <CountryList top="65%" left="55%" countries={['Senegal', 'Congo']} delay={2.1} />
+
+          <NewOffice top='40%' left='50%' places={['CYPRUS', 'GREECE']} delay={2.3}/>
+          <div className={styles.button}><span className={styles.buttonText}>Request a demo</span></div>
         </>
       )}
     </motion.div>

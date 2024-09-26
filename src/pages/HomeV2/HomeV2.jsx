@@ -81,7 +81,7 @@ const HomeV2 = () => {
   return (
     <div className={styles.bigContainer} data-scroll-container ref={scrollRef}>
       <div className={styles.stickyBlock} data-scroll-section>
-        <Footer transparent={true} color={color} />
+        <Footer transparent={false}  />
         <div className={styles.headSection} style={{ zIndex: 1 }}>
           <div className={styles.bigCircle} />
           <div className={styles.midCircle}>

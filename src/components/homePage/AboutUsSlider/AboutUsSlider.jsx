@@ -22,7 +22,7 @@ const AboutUsSlider = () => {
       ),
       logoAuthor: (
         <div className={styles.logoAuthor}>
-          <img src="/images/homeWrittenAboutUsLogo1.svg" alt="no-images" />
+          <img src="/images/homeWrittenAboutUs1.png" alt="no-images" />
           <span>Maariv</span>
         </div>
       ),
@@ -41,7 +41,7 @@ const AboutUsSlider = () => {
       ),
       logoAuthor: (
         <div className={styles.logoAuthor}>
-          <img src="/images/homeWrittenAboutUsLogo2.svg" alt="no-images" />
+          <img src="/images/homeWrittenAboutUs2.png" alt="no-images" />
           <span>Metzuda Magazine</span>
         </div>
       ),
@@ -61,7 +61,7 @@ const AboutUsSlider = () => {
       ),
       logoAuthor: (
         <div className={styles.logoAuthor}>
-          <img src="/images/homeWrittenAboutUsLogo3.svg" alt="no-images" />
+          <img src="/images/homeWrittenAboutUs3.png" alt="no-images" style={{width: '5vw'}} />
           <span>TechCrunch</span>
         </div>
       ),
