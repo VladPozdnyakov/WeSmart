@@ -1,7 +1,7 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
-import styles from './Map.module.scss';
+import React from "react";
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+import styles from "./Map.module.scss";
 
 const MapPoint = ({ top, left, name, delay }) => (
   <motion.div
@@ -24,25 +24,29 @@ const CountryList = ({ top, left, countries, delay }) => (
     transition={{ delay, duration: 0.5, ease: "easeOut" }}
   >
     {countries.map((country, index) => (
-      <p key={index} className={styles.country}>{country}</p>
+      <p key={index} className={styles.country}>
+        {country}
+      </p>
     ))}
   </motion.div>
 );
 
-const NewOffice = ({top, left, places, delay}) =>(
+const NewOffice = ({ top, left, places, delay }) => (
   <motion.div
-  className={styles.newOffice}
-  style={{ top, left }}
-  initial={{ opacity: 0, translateY: 20 }}
-  animate={{ opacity: 1, translateY: 0 }}
-  transition={{ delay, duration: 0.5, ease: "easeOut" }}
+    className={styles.newOffice}
+    style={{ top, left }}
+    initial={{ opacity: 0, translateY: 20 }}
+    animate={{ opacity: 1, translateY: 0 }}
+    transition={{ delay, duration: 0.5, ease: "easeOut" }}
   >
     <p className={styles.soon}>SOON</p>
-      {places.map((country, index) => (
-      <p key={index} className={styles.place}>{country}</p>
+    {places.map((country, index) => (
+      <p key={index} className={styles.place}>
+        {country}
+      </p>
     ))}
   </motion.div>
-)
+);
 
 const Map = () => {
   // Используем Intersection Observer, чтобы отслеживать видимость карты
@@ -52,10 +56,7 @@ const Map = () => {
   });
 
   return (
-    <motion.div
-      className={styles.mapContainer}
-      ref={ref}
-    >
+    <motion.div className={styles.mapContainer} ref={ref}>
       <img src="/images/mapHome.png" alt="Map" className={styles.mapImage} />
 
       {/* Точки появляются с задержкой после карты */}
@@ -68,13 +69,40 @@ const Map = () => {
           <MapPoint top="58%" left="53%" name="AFRICA" delay={1.3} />
 
           {/* Списки стран появляются после точек */}
-          <CountryList top="10%" left="55%" countries={['Germany', 'Portugal']} delay={1.5} />
-          <CountryList top="20%" left="73%" countries={['Vietnam', 'Cambodia']} delay={1.7} />
-          <CountryList top="18%" left="18%" countries={['New York', 'Los Angeles', 'Florida', 'California']} delay={1.9} />
-          <CountryList top="65%" left="55%" countries={['Senegal', 'Congo']} delay={2.1} />
+          <CountryList
+            top="10%"
+            left="55%"
+            countries={["Germany", "Portugal"]}
+            delay={1.5}
+          />
+          <CountryList
+            top="20%"
+            left="73%"
+            countries={["Vietnam", "Cambodia"]}
+            delay={1.7}
+          />
+          <CountryList
+            top="18%"
+            left="18%"
+            countries={["New York", "Florida", "California"]}
+            delay={1.9}
+          />
+          <CountryList
+            top="65%"
+            left="55%"
+            countries={["Senegal", "Congo"]}
+            delay={2.1}
+          />
 
-          <NewOffice top='40%' left='50%' places={['CYPRUS', 'GREECE']} delay={2.3}/>
-          <div className={styles.button}><span className={styles.buttonText}>Request a demo</span></div>
+          <NewOffice
+            top="40%"
+            left="50%"
+            places={["CYPRUS", "GREECE"]}
+            delay={2.3}
+          />
+          <div className={styles.button}>
+            <span className={styles.buttonText}>Request a demo</span>
+          </div>
         </>
       )}
     </motion.div>

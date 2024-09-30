@@ -190,7 +190,7 @@ const About = () => {
                 AND CHALLENGES. THEREFORE,
                 <br />
                 OUR APPROACH IS FLEXIBLE AND ADAPTED <br />
-                TO EACH CLIENT PERSONALLY 
+                TO EACH CLIENT PERSONALLY
                 <br />
               </div>
               <div className={styles.blockName}>

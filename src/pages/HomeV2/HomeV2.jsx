@@ -7,6 +7,7 @@ import Footer from "../../components/footer/Footer";
 import styles from "./HomeV2.module.scss";
 import Form from "../../components/Form/Form";
 import TrueFooter from "../../components/TrueFooter/TrueFooter";
+import { GoArrowDown } from "react-icons/go";
 
 import Customers from "../../components/homePage/Customers/Customers";
 import Modal from "../../components/homePage/ModalForm/ModalForm";
@@ -31,9 +32,9 @@ const HomeV2 = () => {
     setIsModalVisible(false);
   };
 
-  //   useEffect(() => {
-  //     window.scrollTo(0, 0);
-  //   }, []);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const navigate = useNavigate();
 
@@ -81,7 +82,7 @@ const HomeV2 = () => {
   return (
     <div className={styles.bigContainer} data-scroll-container ref={scrollRef}>
       <div className={styles.stickyBlock} data-scroll-section>
-        <Footer transparent={false}  />
+        <Footer transparent={false} />
         <div className={styles.headSection} style={{ zIndex: 1 }}>
           <div className={styles.bigCircle} />
           <div className={styles.midCircle}>
@@ -109,6 +110,16 @@ const HomeV2 = () => {
           >
             Discover the true power of WeSmart's video analytics
           </div>
+          <div
+            className={styles.button}
+            onClick={handleModalOpen}
+            onClose={handleModalClose}
+          >
+            <span className={styles.buttonText}>Learn more</span>
+          </div>
+          <div className={styles.arrow}>
+            <GoArrowDown style={{ color: "#363B61" }} size={20} />
+          </div>
         </div>
 
         <motion.div
@@ -133,7 +144,6 @@ const HomeV2 = () => {
           <div className={styles.textContent}>
             Discover the true power of WeSmart's video analytics
           </div>
-
           <div
             className={styles.button}
             onClick={handleModalOpen}
@@ -141,6 +151,7 @@ const HomeV2 = () => {
           >
             <span className={styles.buttonText}>Learn more</span>
           </div>
+
           <img
             className={styles.homeBG}
             src="/images/homeBG.svg"

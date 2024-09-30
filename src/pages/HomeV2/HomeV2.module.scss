@@ -20,6 +20,7 @@
   flex-direction: column;
   background-color: white;
   gap: 2vh;
+
   .textTitle {
     position: relative;
     z-index: 3;
@@ -50,25 +51,25 @@
     z-index: 3;
     transition: all 0.3s ease-in-out;
   }
-  
+
   /* Первый фон (фон ближе к тексту) */
   .button::before {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     left: -100%; /* Начальная позиция за кнопкой */
     width: 100%;
     height: 100%;
     border-radius: 4.4vw;
-    background-color: rgb(253,140,48); /* Первый фон (темный) */
+    background-color: rgb(253, 140, 48); /* Первый фон (темный) */
     z-index: 1;
     transition: all 0.5s ease-in-out; /* Плавная анимация для первого фона */
     transition-delay: 0s; /* Задержка при возврате фона */
   }
-  
+
   /* Второй фон (фон дальше от текста) */
   .button::after {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     border-radius: 4.4vw;
@@ -79,37 +80,36 @@
     z-index: 1; /* Он находится под первым фоном */
     transition: all 0.5s ease-in-out; /* Плавная анимация для второго фона */
   }
-  
+
   /* Анимация при наведении */
   .button:hover::before {
     left: 0; /* Первый фон перемещается быстрее */
     transition-delay: 0s; /* Убираем задержку при наведении */
   }
-  
+
   .button:hover::after {
     left: 0; /* Второй фон перемещается медленнее */
     transition-delay: 0.1s; /* Добавляем задержку для плавности */
   }
-  
+
   /* Возврат анимации при убирании курсора */
   .button::before {
     transition-delay: 0.1s; /* Задержка при возврате для первого фона */
   }
-  
+
   .button::after {
     transition-delay: 0s; /* Без задержки для второго фона при возврате */
   }
-  
+
   /* Дополнительный эффект масштабирования */
   .button:hover {
     scale: 1.05;
   }
-  
+
   .buttonText {
     position: relative;
     z-index: 2; /* Текст остается на переднем плане */
   }
-  
 
   .wrapper {
     position: absolute;
@@ -266,12 +266,12 @@
       height: 21.4vh;
     }
   }
-  .logoAuthor{
+  .logoAuthor {
     display: flex;
     align-items: center;
     margin-top: 5vh;
     gap: 30vw;
-    img{
+    img {
       max-width: 14.4vw;
     }
   }
@@ -282,9 +282,9 @@
   position: absolute;
   margin: auto;
   bottom: 9vh;
-    z-index: 5;
-    left: 0;
-    right: 0;
+  z-index: 5;
+  left: 0;
+  right: 0;
 }
 
 .dot {
@@ -300,34 +300,33 @@
   background-color: rgba(247, 127, 30, 1); /* Активная точка будет черной */
 }
 
-
-.bigCircle{
+.bigCircle {
   width: 75vw;
-    height: 75vw;
-    position: absolute;
-    top: -28vh;
-    left: 24vw;
+  height: 75vw;
+  position: absolute;
+  top: -28vh;
+  left: 24vw;
   border-radius: 50%;
   border: 1px solid rgba(247, 127, 30, 1);
 }
-.midCircle{
+.midCircle {
   width: 50vw;
-    height: 50vw;
-    position: absolute;
-    top: -4vh;
-    left: 37vw;
+  height: 50vw;
+  position: absolute;
+  top: -4vh;
+  left: 37vw;
   border-radius: 50%;
   border: 1px solid rgba(247, 127, 30, 1);
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.whiteCircle{
+.whiteCircle {
   width: 50vw;
-    height: 50vw;
-    position: absolute;
-    top: -20vh;
-    left: 29vw;
+  height: 50vw;
+  position: absolute;
+  top: -20vh;
+  left: 29vw;
   border-radius: 50%;
   border: 8vw solid transparent;
   display: flex;
@@ -335,38 +334,41 @@
   justify-content: center;
   z-index: 3;
 }
-.midCircleImage{
+.midCircleImage {
   width: 120%;
   height: 120%;
-  
 }
-.smallCircle{
+.smallCircle {
   width: 25vw;
-    height: 25vw;
-    position: absolute;
-    top: 21vh;
-    left: 50vw;
+  height: 25vw;
+  position: absolute;
+  top: 21vh;
+  left: 50vw;
   border-radius: 50%;
   border: 1px solid rgba(247, 127, 30, 1);
 }
 
-
-.headSection1{
+.headSection1 {
   position: absolute;
 
   width: 35vw;
-    height: 34vw;
-    margin: 0;
-    padding: 0;
+  height: 34vw;
+  margin: 0;
+  padding: 0;
 
-    border: 400px solid red; /* Граница */
-    border-radius: 50%;
-    background-color: transparent;
-    left: 0;
-    top: 0;
+  border: 400px solid red; /* Граница */
+  border-radius: 50%;
+  background-color: transparent;
+  left: 0;
+  top: 0;
   z-index: 2;
 
   display: flex;
   flex-direction: column;
   gap: 2vh;
+}
+
+.arrow {
+  margin-top: 1vw;
+  margin-left: 6vw;
 }

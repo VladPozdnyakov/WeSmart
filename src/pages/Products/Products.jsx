@@ -51,8 +51,8 @@ const Products = () => {
     ),
     zeroDisplay: useTransform(
       scrollYProgress,
-      [firstSlideTopStart, firstSlideTopEnd-0.05],
-      ['block', 'none']
+      [firstSlideTopStart, firstSlideTopEnd - 0.05],
+      ["block", "none"]
     ),
     first: useTransform(
       scrollYProgress,
@@ -61,8 +61,13 @@ const Products = () => {
     ),
     firstOpacity: useTransform(
       scrollYProgress,
-      [firstSlideTopStart, firstSlideTopEnd, secondSlideTopStart, secondSlideTopEnd],
-      [0,1,1, 0]
+      [
+        firstSlideTopStart,
+        firstSlideTopEnd,
+        secondSlideTopStart,
+        secondSlideTopEnd,
+      ],
+      [0, 1, 1, 0]
     ),
     secondOpacity: useTransform(
       scrollYProgress,
@@ -172,18 +177,26 @@ const Products = () => {
       styleOpacity: transforms.thirdOpacity,
     },
     {
-      id: 5,
+      id: 4,
       subtitle: "LOGISTICS AND INDUSTRY",
       text: `AI-solutions provide our customers with\n strategic insights and real-time monitoring\n of critical logistics data`,
       img: "products6.svg",
+      styleTop: transforms.fourth,
+      styleOpacity: transforms.fourthOpacity,
+    },
+    {
+      id: 5,
+      subtitle: "PUBLIC TRANSPORTATION",
+      text: `The WeSmart system monitors bus and train\n traffic in real time, provides accurate predictions\n of arrival times and analyzes usage patterns`,
+      img: "products7.svg",
       styleTop: transforms.fifth,
       styleOpacity: transforms.fifthOpacity,
     },
     {
       id: 6,
-      subtitle: "PUBLIC TRANSPORTATION",
-      text: `The WeSmart system monitors bus and train\n traffic in real time, provides accurate predictions\n of arrival times and analyzes usage patterns`,
-      img: "products7.svg",
+      subtitle: "FULL CONTROL",
+      text: ` We understand that in times of uncertainty, \n a sense of security is a vital necessity`,
+      img: "products5.svg",
       styleTop: transforms.sixth,
       styleOpacity: transforms.sixthOpacity,
     },
@@ -210,9 +223,12 @@ const Products = () => {
         </motion.div>
         <motion.div
           className={styles.productsScreen}
-          style={{top: '15vh',  opacity: transforms.firstOpacity }}
+          style={{ top: "15vh", opacity: transforms.firstOpacity }}
         >
-          <motion.div className={styles.wrapper} style={{top: transforms.first}}>
+          <motion.div
+            className={styles.wrapper}
+            style={{ top: transforms.first }}
+          >
             <div className={styles.cardContent}>
               <div className={styles.pageNum}> /01</div>
               <div className={styles.subtitle}>SECURITY</div>
@@ -260,30 +276,6 @@ const Products = () => {
             </motion.div>
           </motion.div>
         ))}
-
-        <motion.div
-          className={styles.productsScreenFirst}
-          style={{ top: "13vh", opacity: transforms.fourthOpacity }}
-        >
-          <motion.div
-            className={styles.wrapper}
-            style={{ top: transforms.fourth }}
-          >
-            <div className={styles.cardContent}>
-              <div className={styles.subtitle}>FULL CONTROL</div>
-              <div className={styles.defaultText}>
-                We understand that in times of uncertainty,
-                <br /> a sense of security is a vital necessity
-              </div>
-              <div className={styles.button}>Request a demo</div>
-            </div>
-            <img
-              className={styles.imgBackground}
-              src="images/products5.svg"
-              alt="no-image"
-            ></img>
-          </motion.div>
-        </motion.div>
 
         {screensData.slice(3).map((screen) => (
           <motion.div
