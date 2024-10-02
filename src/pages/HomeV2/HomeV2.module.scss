@@ -275,6 +275,17 @@
       max-width: 14.4vw;
     }
   }
+
+  .rightArrow {
+    position: absolute;
+    margin-left: 85vw;
+    margin-top: 15vw;
+  }
+  .leftArrow {
+    position: absolute;
+    margin-left: -6vw;
+    margin-top: 15vw;
+  }
 }
 .dotsContainer {
   display: flex;
@@ -371,4 +382,11 @@
 .arrow {
   margin-top: 1vw;
   margin-left: 6vw;
+}
+
+.contentContainer {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  border: solid green;
 }

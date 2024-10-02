@@ -58,11 +58,6 @@ const Products = () => {
   }, []);
 
   const { scrollYProgress } = useScroll();
-
-  const console1 = (text) => {
-    console.log(text);
-  };
-
   const transforms = {
     zero: useTransform(
       scrollYProgress,

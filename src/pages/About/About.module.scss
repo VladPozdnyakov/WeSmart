@@ -228,7 +228,7 @@
     font-size: 2.5vw;
     width: 34.5vw;
   }
-  .imageWrapper{
+  .imageWrapper {
     position: relative;
     border-radius: 50%;
     border-width: 1px;
@@ -237,24 +237,21 @@
     width: 11vw;
     height: 11vw;
   }
-  .imageWrapper:hover{
+  .imageWrapper:hover {
     border-color: rgba(54, 59, 97, 1);
   }
-  
-  .triangle{
+
+  .triangle {
     width: 7vw;
     height: 7vw;
-
   }
-  .load{
+  .load {
     width: 3.8vw;
     height: 3.8vw;
     opacity: 1;
-
   }
-  
+
   .imageWrapper img {
-    
     position: absolute;
     top: 0;
     left: 0;
@@ -297,7 +294,7 @@
       height: 21.4vh;
     }
   }
-} 
+}
 
 .ourTeam {
   position: absolute;
