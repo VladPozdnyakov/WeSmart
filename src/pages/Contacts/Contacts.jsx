@@ -26,6 +26,7 @@ export default function Contacts() {
       smoothMobile: true,
       inertia: 0.6,
     });
+    window.scrollTo(0, 0);
     scrollYProgress.onChange((latest) => {
       const scrollPercentage = latest * 100;
       console.log(`Page scrolled: ${scrollPercentage}%`);

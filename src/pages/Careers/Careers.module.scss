@@ -73,7 +73,7 @@
 
 .contentBlock {
   width: 88vw;
-  height: 150vh;
+  height: 266vh;
   border-radius: 3.3vw 3.3vw 0 0;
   background-color: white;
   position: absolute;
@@ -99,7 +99,7 @@
     font-family: "Bebas Neue", sans-serif;
     font-weight: 400;
     font-size: 3.3vw;
-    color: rgba(34, 34, 34, 1);
+    color: #363b61;
   }
   .textContent {
     font-family: "Open Sans", sans-serif;
@@ -108,6 +108,29 @@
     font-size: 1.3vw;
     color: #434a53;
   }
+
+  .textBlock {
+    display: flex;
+    flex-direction: row;
+    gap: 0.8vw;
+  }
+
+  .circle {
+    width: 12px;
+    height: 12px;
+    background-color: #f77f1e;
+    border-radius: 50%;
+    margin-top: 1.6vw;
+  }
+
+  .circleSecondPage {
+    width: 12px;
+    height: 12px;
+    background-color: #363b61;
+    border-radius: 50%;
+    margin-top: 1.6vw;
+  }
+
   .separator {
     background-color: rgba(230, 233, 237, 1);
     width: 88.2vw;
@@ -115,11 +138,15 @@
     border: 1px solid rgba(230, 233, 237, 1);
     margin: 0 auto;
   }
+  .benefitsFirst {
+    display: flex;
+    flex-direction: row;
+    gap: 30.5vh;
+  }
   .benefits {
+    padding-left: 30.5vw;
     display: flex;
     flex-direction: column;
-    gap: 7.1vh;
-    margin-left: 30vw;
   }
   .title {
     font-weight: 400;
@@ -133,11 +160,22 @@
     font-size: 2.5vw;
     color: #363b61;
   }
+  .flexRowFirstPage {
+    display: flex;
+    gap: 5.7vw;
+    margin-top: -1vw;
+  }
   .flexRow {
     display: flex;
     gap: 5.7vw;
   }
   .flexCol {
+    display: flex;
+    flex-direction: column;
+    gap: 7.1vh;
+  }
+  .flexColSecondSlide {
+    margin-top: 3vw;
     display: flex;
     flex-direction: column;
     gap: 7.1vh;

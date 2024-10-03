@@ -50,6 +50,7 @@ const About = () => {
       smoothMobile: true,
       inertia: 0.8,
     });
+    window.scrollTo(0, 0);
     scrollYProgress.onChange((latest) => {
       const scrollPercentage = latest * 100; // Преобразуем в проценты
       console.log(`Page scrolled: ${scrollPercentage}%`);

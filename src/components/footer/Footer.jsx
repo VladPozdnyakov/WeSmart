@@ -1,39 +1,46 @@
 import React from "react";
+import { Link } from "react-router-dom"; // Импортируем Link из react-router-dom
 import styles from "./footer.module.scss";
 import Logotype from "../../assets/images/Logotype.png";
 
-const Footer = ({ transparent, color  }) => {
+const Footer = ({ transparent, color }) => {
   return (
     <div className={transparent ? styles.footerTransparent : styles.footer}>
       <div className={styles.footerContainer}>
         <div className={styles.footerLogo}>
-          {transparent ? (<img src='/images/logoBlueBG.svg' alt="Company Logo" />) : (<img src={Logotype} alt="Company Logo" />) }
+          {transparent ? (
+            <img src='/images/logoBlueBG.svg' alt="Company Logo" />
+          ) : (
+            <img src={Logotype} alt="Company Logo" />
+          )}
         </div>
         <nav className={styles.footerNav}>
           <ul className={styles.footerLinks}>
             <li>
-              <a href="/" className={styles.footerLinksA} style={{color: color}}>
+              <Link to="/" className={styles.footerLinksA} style={{ color: color }}>
                 Home
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="/about" className={styles.footerLinksA} style={{color: color}}>
+              <Link to="/about" className={styles.footerLinksA} style={{ color: color }}>
                 About
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="/products" className={styles.footerLinksA} style={{color: color}}>
+              <Link to="/products" className={styles.footerLinksA} style={{ color: color }}>
                 Products
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="/contacts" className={styles.footerLinksA} style={{color: color}}>
+              <Link to="/contacts" className={styles.footerLinksA} style={{ color: color }}>
                 Contacts
-              </a>
+              </Link>
             </li>
           </ul>
         </nav>
-        <div className={styles.button}><span className={styles.buttonText}>Request a demo</span></div>
+        <div className={styles.button}>
+          <span className={styles.buttonText}>Request a demo</span>
+        </div>
       </div>
     </div>
   );

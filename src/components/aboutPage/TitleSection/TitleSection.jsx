@@ -1,8 +1,14 @@
 import React from "react";
 import { motion } from "framer-motion";
 import styles from "../../../pages/About/About.module.scss";
+import { useNavigate } from "react-router-dom";
 
 const TitleSection = ({ top }) => {
+  const navigate = useNavigate();
+
+  const handleClickAllProducts = () => {
+    navigate("/products");
+  };
   return (
     <motion.div className={styles.titleBlock} style={{ top: top }}>
       <div className={styles.title}>
@@ -49,7 +55,12 @@ const TitleSection = ({ top }) => {
           <br />
           DATA-DRIVEN VIDEO TECHNOLOGY
         </div>
-        <div className={styles.videoButton}>Explore our products</div>
+        <div
+          className={styles.videoButton}
+          onClick={handleClickAllProducts}
+        >
+          Explore our products
+        </div>
         <div className={styles.maskedMan}>
           <div className={styles.naz}>MASKED MAN</div>
         </div>

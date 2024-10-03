@@ -37,7 +37,7 @@ const Careers = () => {
     ourMission: useTransform(
       scrollYProgress,
       [ourMissionStart, ourMissionEnd],
-      ["100vh", "-68vh"]
+      ["100vh", "-185vh"]
     ),
     openPositions: useTransform(
       scrollYProgress,
@@ -57,14 +57,12 @@ const Careers = () => {
         <Footer transparent={true} />
         <div className={styles.headSection}>
           <div className={styles.textTitle}>
-            EMPOWER THE WORLD
+            Leading the Future
             <br />
-            WITH AI PHYSICAL SECURITY
-            <br />
-            AND SAFETY
+            with AI-Powered Solutions
           </div>
           <div className={styles.textContent}>
-            Let's make the world a better place with cutting-edge AI solutions
+            Let's make the world a better place with cutting-edge solutions
           </div>
           <div className={styles.button}>Explore all jobs</div>
           <img src="/images/careersBG.svg" alt="no-image" />
@@ -78,79 +76,195 @@ const Careers = () => {
             <div className={styles.descText}>OUR MISSION</div>
             <div>
               <div className={styles.titleText}>
-                EMPOWER ORGANIZATIONS
+                WeSmart provides advanced
                 <br />
-                BY UNLOCKING THE VALUE OF THEIR
+                analytics solutions using artificial
                 <br />
-                VISUAL DATA TO ENHANCE SECURITY
+                intelligence, allowing organizations
                 <br />
-                AND SAFETY, STREAMLINE OPERATIONS,
+                to utilize their visual data more
                 <br />
-                AND ENABLE IMMEDIATE RESPONSE
-                <br />
-                WHEN IT MATTERS MOST
+                intelligently and efficiently.
               </div>
               <div className={styles.textContent}>
-                Empower organizations by unlocking the value
+                Through innovative technology, we help improve security,
                 <br />
-                of their visual data to enhance security and safety,
+                enhance operational performance, and empower quick,
                 <br />
-                streamline operations, and enable immediate
-                <br />
-                response when it matters most.
+                informed responses to critical situations.
+              </div>
+            </div>
+          </div>
+          <div className={styles.separator}></div>
+          <div className={styles.benefitsFirst}>
+            <div className={styles.descText}>WHY CHOOSE WESMART?</div>
+            <div className={styles.flexRowFirstPage}>
+              <div className={styles.flexCol}>
+                <div className={styles.textBlock}>
+                  <div className={styles.circle}></div>
+                  <div className={styles.textContent}>
+                    Simple and User-Friendly Integration
+                  </div>
+                </div>
+                <div className={styles.textBlock}>
+                  <div className={styles.circle}></div>
+                  <div className={styles.textContent}>
+                    Our systems easily integrate with
+                    <br />
+                    existing infrastructures, delivering
+                    <br />
+                    accurate, real-time results without
+                    <br />
+                    the need for replacing current
+                    <br />
+                    equipment
+                  </div>
+                </div>
+                <div className={styles.textBlock}>
+                  <div className={styles.circle}></div>
+                  <div className={styles.textContent}>
+                    Advanced AI Technology
+                  </div>
+                </div>
+                <div className={styles.textBlock}>
+                  <div className={styles.circle}></div>
+                  <div className={styles.textContent}>
+                    We provide real-time analysis of vast
+                    <br />
+                    amounts of data, identifying
+                    <br />
+                    patterns and critical events tailored
+                    <br />
+                    to the specific needs of each
+                    <br />
+                    organization
+                  </div>
+                </div>
+              </div>
+              <div className={styles.flexCol}>
+                <div className={styles.textBlock}>
+                  <div className={styles.circle}></div>
+                  <div className={styles.textContent}>
+                    Customizable Solutions
+                  </div>
+                </div>
+                <div className={styles.textBlock}>
+                  <div className={styles.circle}></div>
+                  <div className={styles.textContent}>
+                    We adapt our solutions based on the
+                    <br />
+                    unique requirements of each client,
+                    <br />
+                    whether it's enhancing operational
+                    <br />
+                    processes, security, or optimizing
+                    <br />
+                    business performance
+                  </div>
+                </div>
+                <div className={styles.textBlock}>
+                  <div className={styles.circle}></div>
+                  <div className={styles.textContent}>
+                    Comprehensive Support
+                  </div>
+                </div>
+                <div className={styles.textBlock}>
+                  <div className={styles.circle}></div>
+                  <div className={styles.textContent}>
+                    From implementation to ongoing
+                    <br />
+                    maintenance, we provide full
+                    <br />
+                    support to ensure the system
+                    <br />
+                    operates optimally and delivers
+                    <br />
+                    maximum value to our clients
+                  </div>
+                </div>
               </div>
             </div>
           </div>
           <div className={styles.separator}></div>
           <div className={styles.benefits}>
-            <div className={styles.textBlock}>
-              <div className={styles.title}>BENEFITS</div>
-              <div className={styles.textContent}>
-                Join a culture of innovation, team up with
-                <br />
-                forward-thinkers, and enjoy benefits designed
-                <br />
-                to support your health and wellbeing.
-              </div>
+            <div className={styles.title}>Employee Benefits at WeSmart</div>
+            <div className={styles.textContent}>
+              At WeSmart, we foster a culture of innovation
+              <br />
+              and forward-thinking, providing our
+              <br />
+              employees with benefits designed to support
+              <br />
+              both personal and professional well-being
             </div>
             <div className={styles.flexRow}>
-              <div className={styles.flexCol}>
+              <div className={styles.flexColSecondSlide}>
                 <div className={styles.textBlock}>
-                  <div className={styles.subtitle}>HEALTH COVERAGE</div>
+                  <div className={styles.circleSecondPage}></div>
                   <div className={styles.textContent}>
-                    Full benefits coverage for medical,
-                    <br /> dental, and vision.
+                    Comprehensive Health Coverage
                   </div>
                 </div>
                 <div className={styles.textBlock}>
-                  <div className={styles.subtitle}>STOCK OPTIONS</div>
+                  <div className={styles.circleSecondPage}></div>
                   <div className={styles.textContent}>
-                    Own part of the company, and when
-                    <br /> the company succeeds, you do as wel
+                    Full medical, dental, and vision
+                    <br />
+                    coverage to provide peace of mind
+                    <br />
+                    for employees and their families
                   </div>
                 </div>
                 <div className={styles.textBlock}>
-                  <div className={styles.subtitle}>WORK FROM HOME</div>
+                  <div className={styles.circleSecondPage}></div>
                   <div className={styles.textContent}>
-                    Do your best work, whether that’s
-                    <br /> at home, in-office, or hybrid.
+                    Flexible Vacation Policies
+                  </div>
+                </div>
+                <div className={styles.textBlock}>
+                  <div className={styles.circleSecondPage}></div>
+                  <div className={styles.textContent}>
+                    Generous vacation days that allow
+                    <br /> for a healthy work-life balance
+                  </div>
+                </div>
+                <div className={styles.textBlock}>
+                  <div className={styles.circleSecondPage}></div>
+                  <div className={styles.textContent}>
+                    Options to work from the office,
+                    <br /> remotely, or in a hybrid model, based
+                    <br /> on personal preferences and needs
                   </div>
                 </div>
               </div>
-              <div className={styles.flexCol}>
+              <div className={styles.flexColSecondSlide}>
                 <div className={styles.textBlock}>
-                  <div className={styles.subtitle}>FLEXIBLE PTO</div>
+                  <div className={styles.circleSecondPage}></div>
+                  <div className={styles.textContent}>Retirement Savings</div>
+                </div>
+                <div className={styles.textBlock}>
+                  <div className={styles.circleSecondPage}></div>
                   <div className={styles.textContent}>
-                    Recharge when you need it with
-                    <br /> generous vacation days
+                    401k plans with company matching
+                    <br /> contributions to help you save for
+                    <br /> the future
                   </div>
                 </div>
                 <div className={styles.textBlock}>
-                  <div className={styles.subtitle}>401K</div>
+                  <div className={styles.circleSecondPage}></div>
+                  <div className={styles.textContent}>Work Flexibility</div>
+                </div>
+                <div className={styles.textBlock}>
+                  <div className={styles.circleSecondPage}></div>
                   <div className={styles.textContent}>
-                    Easily save for retirement with 401k
-                    <br /> plans with generous company match
+                    Opportunity to share in the company’s
+                    <br />
+                    success through stock options
                   </div>
+                </div>
+                <div className={styles.textBlock}>
+                  <div className={styles.circleSecondPage}></div>
+                  <div className={styles.textContent}>Stock Options</div>
                 </div>
               </div>
             </div>
@@ -172,14 +286,6 @@ const Careers = () => {
               <br />
               latest job opportunities.
             </div>
-            {/* <div className={styles.button}>
-              Follow us on LinkedIn
-              <img
-                className={styles.icon}
-                src="/images/careerIcon.svg"
-                alt="no-image"
-              />
-            </div> */}
             <motion.button
               className={styles.animatedButton}
               whileHover="hover"

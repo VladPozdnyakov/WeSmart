@@ -1,15 +1,10 @@
 import React from "react";
-import Slider from "react-slick";
 import styles from "./AdvantagesSlider.module.scss";
 import AdvantageBlock from "../Advantages/Advantage";
+import { motion } from "framer-motion";
 
-const AdvantagesSlider = () => {
+const AdvantagesSlider = ({ left }) => {
   const slides = [
-    {
-        title: "",
-        description: "",
-      },
-      
     {
       title: "SECURITY",
       description: "We understand that in times of uncertainty, a sense of security is a vital necessity",
@@ -34,46 +29,22 @@ const AdvantagesSlider = () => {
       title: "PUBLIC TRANSPORTATION",
       description: "The WeSmart system monitors bus and train traffic in real time, provides accurate predictions of arrival times and analyzes usage patterns",
       image: '/images/publickTransportationSliderBG.svg'
-    },
-    {
-      title: "",
-      description: "",
-      image: ''
-    },
-    {
-        title: "",
-        description: "",
-        image: ''
-      },
+    }
   ];
 
-  const settings = {
-    dots: true,
-    infinite: false,
-    speed: 200,
-    slidesToShow: 3, // Показываем 3 слайда
-    
-    autoplay: false,
-    autoplaySpeed: 1500,
-    draggable: true, // Свободное листание мышкой
-    swipeToSlide: true, // Возможность перелистывать несколько слайдов
-  };
-
   return (
-    <div className={styles.sliderContainer}>
-      <Slider {...settings}>
+    <div className={styles.sliderContainer} >
+      <motion.div className={styles.sliderWrapper} style={{ left }}>
         {slides.map((slide, index) => (
-          <div className={styles.slide} key={index} style={{ width: '33vw' }}>
-            {slide.title === "" && slide.description === "" ? (
-              <div className={styles.emptySlide} style={{ width: '100%', height: '100%', backgroundColor: 'lightgray' }}>
-                {/* Пустой слайд без контента */}
-              </div>
-            ) : (
-              <AdvantageBlock title={slide.title} description={slide.description} backgroundImage={slide.image} />
-            )}
+          <div className={styles.slide} key={index}>
+            <AdvantageBlock 
+              title={slide.title}
+              description={slide.description}
+              backgroundImage={slide.image}
+            />
           </div>
         ))}
-      </Slider>
+      </motion.div>
     </div>
   );
 };
