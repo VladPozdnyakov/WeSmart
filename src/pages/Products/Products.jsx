@@ -11,7 +11,7 @@ import TrueFooter from "../../components/TrueFooter/TrueFooter";
 import { useMotionValueEvent } from "framer-motion";
 
 const startPosition = 0;
-const firstSlideTopStart = startPosition + 0.1;
+const firstSlideTopStart = startPosition + 0.02;
 const firstSlideTopEnd = firstSlideTopStart + 0.1;
 const secondSlideTopStart = firstSlideTopEnd;
 const secondSlideTopEnd = secondSlideTopStart + 0.1;
@@ -45,13 +45,16 @@ const Products = () => {
     sixth: false,
   });
   useEffect(() => {
+    window.scrollTo(0, 0);
     const scroll = new LocomotiveScroll({
       el: scrollRef.current,
       smooth: true,
       smoothMobile: true,
       inertia: 0.8,
     });
-
+    
+      
+    
     return () => {
       if (scroll) scroll.destroy();
     };

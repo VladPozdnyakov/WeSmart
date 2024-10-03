@@ -16,6 +16,8 @@ import AdvantagesSlider from "../../components/homePage/AdvantagesSlider/Advanta
 import AboutUsSlider from "../../components/homePage/AboutUsSlider/AboutUsSlider";
 
 const startPosition = 0;
+const slideStart = startPosition+0.32;
+const slideEnd = slideStart + 0.08;
 const rotateStart = startPosition;
 const rotateEnd = rotateStart + 0.11;
 const endPosition = 1;
@@ -62,8 +64,8 @@ const HomeV2 = () => {
 
   const anim = useTransform(
     scrollYProgress,
-    [rotateEnd + 0.02, endPosition],
-    ["100vh", "-444vh"]
+    [rotateEnd + 0.02,slideStart, slideEnd, endPosition],
+    ["100vh","-20vh","-20vh", "-444vh"]
   );
 
   const rotate = useTransform(
@@ -71,13 +73,19 @@ const HomeV2 = () => {
     [rotateStart, rotateEnd],
     [0, 360]
   );
-  const circleOpacity = useTransform(scrollYProgress, [0.09, 0.11], [1, 0]);
+  const circleOpacity = useTransform(scrollYProgress, [0, 0.11], [1, 0]);
 
   const clipPath = useTransform(
     scrollYProgress,
     [0, 0.2],
     ["circle(0% at 62.5% 34%)", "circle(150% at 62.5% 34%)"]
   );
+
+  const slideLeft = useTransform(
+    scrollYProgress,
+    [0.32, 0.4],
+    ['0vw', "-80vw"]
+  )
 
   return (
     <div className={styles.bigContainer} data-scroll-container ref={scrollRef}>
@@ -87,7 +95,7 @@ const HomeV2 = () => {
           <div className={styles.bigCircle} />
           <div className={styles.midCircle}>
             <motion.img
-              style={{ rotate }}
+              style={{ rotate, opacity: circleOpacity }}
               className={styles.midCircleImage}
               src="/images/loader.svg"
               alt="no-image"
@@ -186,7 +194,7 @@ const HomeV2 = () => {
             </div>
           </motion.div>
 
-          <AdvantagesSlider />
+          <AdvantagesSlider left={slideLeft}/>
           <Map />
           <motion.div
             className={styles.safety}

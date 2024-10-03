@@ -57,7 +57,7 @@ const TitleSection = ({ top }) => {
         </div>
         <div
           className={styles.videoButton}
-          onClick={() => handleClickAllProducts}
+          onClick={handleClickAllProducts}
         >
           Explore our products
         </div>
