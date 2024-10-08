@@ -9,6 +9,7 @@ import styles from "./Products.module.scss";
 import Form from "../../components/Form/Form";
 import TrueFooter from "../../components/TrueFooter/TrueFooter";
 import { useMotionValueEvent } from "framer-motion";
+import useDeviceDetection from "../../hooks/useDeviceDetection";
 
 const startPosition = 0;
 const firstSlideTopStart = startPosition + 0.02;
@@ -30,7 +31,7 @@ const footerSlideTopEnd = footerSlideTopStart + 0.1;
 
 const Products = () => {
   const navigate = useNavigate();
-
+  const device = useDeviceDetection();
   const handleClickAllProducts = () => {
     navigate("/product");
   };
@@ -52,9 +53,7 @@ const Products = () => {
       smoothMobile: true,
       inertia: 0.8,
     });
-    
-      
-    
+
     return () => {
       if (scroll) scroll.destroy();
     };
@@ -160,12 +159,12 @@ const Products = () => {
         footerSlideTopStart,
         footerSlideTopEnd,
       ],
-      ["100vh", "13vh", "13vh", "-44vh"]
+      device==='Mobile' ? ["100vh", "5vh", "5vh", "-30vh"] : ["100vh", "13vh", "13vh", "-44vh"]
     ),
     trueFooter: useTransform(
       scrollYProgress,
       [footerSlideTopStart, footerSlideTopEnd],
-      ["100vh", "46vh"]
+      device==='Mobile' ? ['100vh', '63vh'] : ["100vh", "46vh"]
     ),
   };
 
@@ -255,8 +254,6 @@ const Products = () => {
   return (
     <div className={styles.bigContainer} data-scroll-container ref={scrollRef}>
       <div className={styles.stickyBlock} data-scroll-section>
-        <Footer />
-
         <motion.div
           className={styles.productsScreenFirst}
           style={{ opacity: transforms.zero }}
@@ -275,53 +272,44 @@ const Products = () => {
         {visibleScreens.first && (
           <motion.div
             className={styles.productsScreen}
-            style={{ top: "15vh", opacity: transforms.firstOpacity }}
+            style={{ top: "12vh", opacity: transforms.firstOpacity }}
           >
             <motion.div
               className={styles.wrapper}
               style={{ top: transforms.first }}
             >
-              <div className={styles.cardContent}>
-                <div className={styles.pageNum}> /01</div>
-                <div className={styles.subtitle}>SECURITY</div>
-                <div className={styles.defaultText}>
-                  We understand that in times of uncertainty,
-                  <br /> a sense of security is a vital necessity
-                </div>
-                <div className={styles.button} onClick={handleClickAllProducts}>
-                  Learn more
-                </div>
-              </div>
-              <img
-                className={styles.imgBackground}
-                src={`images/products2.svg`}
-                alt="no-image"
-              ></img>
-            </motion.div>
-          </motion.div>
-        )}
-        {screensData.slice(1, 3).map(
-          (screen) =>
-            screen.appear && (
-              <motion.div
-                key={screen.id}
-                className={styles.productsScreen}
-                style={{ top: "15vh", opacity: screen.styleOpacity }}
-              >
-                <motion.div
-                  className={styles.wrapper}
-                  style={{ top: screen.styleTop }}
-                >
+              {device === "Mobile" ? (
+                // Мобильная версия
+                <>
+                  <img
+                    className={styles.imgBackground}
+                    src={`images/products2.svg`}
+                    alt="no-image"
+                  />
+                  <div className={styles.numDiv}>
+                    <div className={styles.subtitle}>SECURITY</div>
+                    <div className={styles.pageNum}> /01</div>
+                  </div>
+                  <div className={styles.defaultText}>
+                    We understand that in times of uncertainty,
+                    <br /> a sense of security is a vital necessity
+                  </div>
+                  <div
+                    className={styles.button}
+                    onClick={handleClickAllProducts}
+                  >
+                    Learn more
+                  </div>
+                </>
+              ) : (
+                // Десктопная версия
+                <>
                   <div className={styles.cardContent}>
-                    <div className={styles.pageNum}> /0{screen.id}</div>
-                    <div className={styles.subtitle}>{screen.subtitle}</div>
+                    <div className={styles.pageNum}> /01</div>
+                    <div className={styles.subtitle}>SECURITY</div>
                     <div className={styles.defaultText}>
-                      {screen.text.split("\n").map((line, index) => (
-                        <React.Fragment key={index}>
-                          {line}
-                          <br />
-                        </React.Fragment>
-                      ))}
+                      We understand that in times of uncertainty,
+                      <br /> a sense of security is a vital necessity
                     </div>
                     <div
                       className={styles.button}
@@ -332,56 +320,93 @@ const Products = () => {
                   </div>
                   <img
                     className={styles.imgBackground}
-                    src={`images/${screen.img}`}
+                    src={`images/products2.svg`}
                     alt="no-image"
-                  ></img>
+                  />
+                </>
+              )}
+            </motion.div>
+          </motion.div>
+        )}
+        {screensData.slice(1, 6).map(
+          (screen) =>
+            screen.appear && (
+              <motion.div
+                key={screen.id}
+                className={styles.productsScreen}
+                style={{ top: "12vh", opacity: screen.styleOpacity }}
+              >
+                <motion.div
+                  className={styles.wrapper}
+                  style={{ top: screen.styleTop }}
+                >
+                  {device === "Mobile" ? (
+                    <>
+                      <img
+                        className={styles.imgBackground}
+                        src={`images/${screen.img}`}
+                        alt="no-image"
+                      />
+                      <div className={styles.numDiv}>
+                        <div className={styles.subtitle}>{screen.subtitle}</div>
+                        <div className={styles.pageNum}> /0{screen.id}</div>
+                      </div>
+                      <div className={styles.defaultText}>
+                      {screen.text.split("\n").map((line, index) => (
+                            <React.Fragment key={index}>
+                              {line}
+                              <br />
+                            </React.Fragment>
+                          ))}
+                      </div>
+                      <div
+                        className={styles.button}
+                        onClick={handleClickAllProducts}
+                      >
+                        Learn more
+                      </div>
+                    </>
+                  ) : (
+                    <>
+                      <div className={styles.cardContent}>
+                        <div className={styles.pageNum}> /0{screen.id}</div>
+                        <div className={styles.subtitle}>{screen.subtitle}</div>
+                        <div className={styles.defaultText}>
+                          {screen.text.split("\n").map((line, index) => (
+                            <React.Fragment key={index}>
+                              {line}
+                              <br />
+                            </React.Fragment>
+                          ))}
+                        </div>
+                        <div
+                          className={styles.button}
+                          onClick={handleClickAllProducts}
+                        >
+                          Learn more
+                        </div>
+                      </div>
+                      <img
+                        className={styles.imgBackground}
+                        src={`images/${screen.img}`}
+                        alt="no-image"
+                      ></img>
+                    </>
+                  )}
                 </motion.div>
               </motion.div>
             )
         )}
 
-        {screensData.slice(3).map(
-          (screen) =>
-            screen.appear && (
-              <motion.div
-                key={screen.id}
-                className={styles.productsScreen}
-                style={{ top: "15vh", opacity: screen.styleOpacity }}
-              >
-                <motion.div
-                  className={styles.wrapper}
-                  style={{ top: screen.styleTop }}
-                >
-                  <div className={styles.cardContent}>
-                    <div className={styles.pageNum}> /0{screen.id}</div>
-                    <div className={styles.subtitle}>{screen.subtitle}</div>
-                    <div className={styles.defaultText}>
-                      {screen.text.split("\n").map((line, index) => (
-                        <React.Fragment key={index}>
-                          {line}
-                          <br />
-                        </React.Fragment>
-                      ))}
-                    </div>
-                    <div
-                      className={styles.button}
-                      onClick={handleClickAllProducts}
-                    >
-                      Learn more
-                    </div>
-                  </div>
-                  <img
-                    className={styles.imgBackground}
-                    src={`images/${screen.img}`}
-                    alt="no-image"
-                  ></img>
-                </motion.div>
-              </motion.div>
-            )
-        )}
+       
+        
         <Form top={transforms.form} />
+        
         <TrueFooter top={transforms.trueFooter} />
+        
+        
       </div>
+      <Footer />
     </div>
   );
 };

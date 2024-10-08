@@ -47,7 +47,7 @@ const Form = ({ top, isShadow = true }) => {
             />
           </div>
           <div className={styles.checkBoxContainer}>
-            <input type="checkbox" />
+            <input type="checkbox" className={styles.checkBox} />
             <p className={styles.checkBoxText}>
               I HAVE READ AND AGREE TO THE TERMS OF USE AND PRIVACY POLICY
             </p>

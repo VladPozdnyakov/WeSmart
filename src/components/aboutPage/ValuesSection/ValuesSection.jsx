@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import styles from '../../../pages/About/About.module.scss'
+import useDeviceDetection from "../../../hooks/useDeviceDetection";
 
 const ValueSection = ({ top, opacity1, opacity2, opacity3, opacity4, opacity5 }) => {
   const [hoveredIndex, setHoveredIndex] = useState(null); // Хранит индекс карточки, на которую наведена мышь
-
+  const device = useDeviceDetection()
   const worths = [
     {
       title: "INNOVATION",
@@ -93,7 +94,15 @@ const ValueSection = ({ top, opacity1, opacity2, opacity3, opacity4, opacity5 })
               />
             </div>
             <div>
-              <span className={styles.worthTitle}>{worth.title}</span>
+              {device ==='Mobile' ? (
+                <div className={styles.worthTitleMobile}>
+                  <span className={styles.worthTitle}>{worth.title}</span>
+                  <span className={styles.worthTitle}>/{worth.id + 1}</span>
+                </div>
+              ):(
+                <span className={styles.worthTitle}>{worth.title}</span>
+              )}
+              
               <div className={styles.worthText}>
                 {worth.text.split('\n').map((line, idx) => (
                   <React.Fragment key={idx}>
@@ -103,7 +112,7 @@ const ValueSection = ({ top, opacity1, opacity2, opacity3, opacity4, opacity5 })
                 ))}
               </div>
             </div>
-            <div className={styles.worthTitle}>/{worth.id + 1}</div>
+            <div className={styles.worthTitle} style={device==='Mobile' ? {display: 'none'}:{}}>/{worth.id + 1}</div>
           </motion.div>
         ))}
       </div>

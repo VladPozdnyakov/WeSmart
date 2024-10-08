@@ -5,7 +5,7 @@ import styles from '../../../pages/About/About.module.scss'
 const BackgroundAnimation = ({backgroundOpacity}) =>{
 
     return (
-        <motion.div style={{ opacity: backgroundOpacity }}>
+        <motion.div className={styles.BackgroundAnim} style={{ opacity: backgroundOpacity }}>
             <div className={styles.littleCircle} />
             <div className={styles.midCircle} />
             <div className={styles.bigCircle} />

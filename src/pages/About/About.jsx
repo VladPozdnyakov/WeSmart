@@ -9,6 +9,7 @@ import TitleSection from "../../components/aboutPage/TitleSection/TitleSection";
 import ValueSection from "../../components/aboutPage/ValuesSection/ValuesSection";
 import BackgroundAnimation from "../../components/aboutPage/BackgroundAnimation/BackgroundAnimation";
 import TeamCarousel from "../../components/aboutPage/TeamCarousel/TeamCarousel";
+import useDeviceDetection from "../../hooks/useDeviceDetection";
 
 const startPosition = 0;
 const firstSlideTopStart = startPosition;
@@ -40,8 +41,20 @@ const fourthWorthAppearEnd = fourthWorthAppearStart + 0.03;
 const fifthWorthAppearStart = fourthWorthAppearEnd;
 const fifthWorthAppearEnd = fifthWorthAppearStart + 0.03;
 
+const MobilefirstWorthAppearStart = secondSlideTopStart;
+const MobilefirstWorthAppearEnd = MobilefirstWorthAppearStart + 0.03;
+const MobilesecondWorthAppearStart = MobilefirstWorthAppearEnd;
+const MobilesecondWorthAppearEnd = MobilesecondWorthAppearStart + 0.03;
+const MobilethirdWorthAppearStart = MobilesecondWorthAppearEnd;
+const MobilethirdWorthAppearEnd = MobilethirdWorthAppearStart + 0.04;
+const MobilefourthWorthAppearStart = MobilethirdWorthAppearEnd;
+const MobilefourthWorthAppearEnd = MobilefourthWorthAppearStart + 0.03;
+const MobilefifthWorthAppearStart = MobilefourthWorthAppearEnd;
+const MobilefifthWorthAppearEnd = MobilefifthWorthAppearStart + 0.03;
+
 const About = () => {
   const scrollRef = useRef(null);
+  const device = useDeviceDetection();
   const { scrollYProgress } = useScroll();
   useEffect(() => {
     const scroll = new LocomotiveScroll({
@@ -64,27 +77,45 @@ const About = () => {
     first: useTransform(
       scrollYProgress,
       [firstSlideTopStart, firstSlideTopEnd],
-      ["0vh", "-250vh"]
+      device === "Mobile" ? ["0vw", "-540vw"] : ["0vh", "-250vh"]
     ),
     second: useTransform(
       scrollYProgress,
-      [
-        secondSlideTopStart,
-        secondSlideTopEnd,
-        thirdSlideTopStart,
-        thirdSlideTopEnd,
-      ],
-      ["100vh", "-150vh", "-150vh", "-250vh"]
+      device === "Mobile"
+        ? [
+            secondSlideTopStart - 0.03,
+            secondSlideTopEnd,
+            thirdSlideTopStart,
+            thirdSlideTopEnd,
+          ]
+        : [
+            secondSlideTopStart,
+            secondSlideTopEnd,
+            thirdSlideTopStart,
+            thirdSlideTopEnd,
+          ],
+      device === "Mobile"
+        ? ["220vw", "-400vw", "-400vw", "-600vw"]
+        : ["100vh", "-150vh", "-150vh", "-250vh"]
     ),
     third: useTransform(
       scrollYProgress,
-      [
+      device === "Mobile"
+        ? [
+          thirdSlideTopStart-0.05,
+          thirdSlideTopEnd-0.05,
+          fourthSlideTopStart-0.05,
+          fifthSlideTopEnd-0.05,
+          ]
+        :[
         thirdSlideTopStart,
         thirdSlideTopEnd,
         fourthSlideTopStart,
         fifthSlideTopEnd,
       ],
-      ["100vh", "0vh", "0vh", "-100vh"]
+      device === "Mobile"
+        ? ["220vw", "0vw", "0vw", "-220vw"]
+        : ["100vh", "0vh", "0vh", "-100vh"]
     ),
     fourth: useTransform(
       scrollYProgress,
@@ -115,32 +146,44 @@ const About = () => {
     ),
     backgroundOpacity: useTransform(
       scrollYProgress,
-      [secondSlideTopStart, secondSlideTopStart + 0.02],
+      device === "Mobile"
+        ? [secondSlideTopStart - 0.1, secondSlideTopStart]
+        : [secondSlideTopStart, secondSlideTopStart + 0.02],
       [1, 0]
     ),
     firstWorth: useTransform(
       scrollYProgress,
-      [firstWorthAppearStart, firstWorthAppearEnd],
+      device === "Mobile"
+        ? [MobilefirstWorthAppearStart, MobilefirstWorthAppearEnd]
+        : [firstWorthAppearStart, firstWorthAppearEnd],
       [0, 1]
     ),
     secondWorth: useTransform(
       scrollYProgress,
-      [secondWorthAppearStart, secondWorthAppearEnd],
+      device === "Mobile"
+        ? [MobilesecondWorthAppearStart, MobilesecondWorthAppearEnd]
+        : [secondWorthAppearStart, secondWorthAppearEnd],
       [0, 1]
     ),
     thirdWorth: useTransform(
       scrollYProgress,
-      [thirdWorthAppearStart, thirdWorthAppearEnd],
+      device === "Mobile"
+        ? [MobilethirdWorthAppearStart, MobilethirdWorthAppearEnd]
+        : [thirdWorthAppearStart, thirdWorthAppearEnd],
       [0, 1]
     ),
     fourthWorth: useTransform(
       scrollYProgress,
-      [fourthWorthAppearStart, fourthWorthAppearEnd],
+      device === "Mobile"
+        ? [MobilefourthWorthAppearStart, MobilefourthWorthAppearEnd]
+        : [fourthWorthAppearStart, fourthWorthAppearEnd],
       [0, 1]
     ),
     fifthWorth: useTransform(
       scrollYProgress,
-      [fifthWorthAppearStart, fifthWorthAppearEnd],
+      device === "Mobile"
+        ? [MobilefifthWorthAppearStart, MobilefifthWorthAppearEnd]
+        : [fifthWorthAppearStart, fifthWorthAppearEnd],
       [0, 1]
     ),
     form: useTransform(
@@ -163,7 +206,6 @@ const About = () => {
   return (
     <div className={styles.bigContainer} data-scroll-container ref={scrollRef}>
       <div className={styles.stickyBlock} data-scroll-section>
-        <Footer />
         <motion.div className={styles.mainAbout}>
           <TitleSection top={transforms.first} />
           <ValueSection
@@ -181,32 +223,67 @@ const About = () => {
             className={styles.writtenAboutUs}
             style={{ top: transforms.third }}
           >
-            <div className={styles.blockName}>Customized solutions</div>
-            <div>
-              <div className={styles.blockTitle}>
-                WE BELIEVE THAT EVERY ORGANIZATION
-                <br />
-                HAS UNIQUE TECHNOLOGICAL NEEDS
-                <br />
-                AND CHALLENGES. THEREFORE,
-                <br />
-                OUR APPROACH IS FLEXIBLE AND ADAPTED <br />
-                TO EACH CLIENT PERSONALLY
-                <br />
-              </div>
-              <div className={styles.blockName}>
-                We build the solutions taking into account <br />
-                the existing infrastructures and systems.
-                <br />
-                <br />
-                Our team of experts studies and deeply <br />
-                understands the specific challenges, and then <br />
-                adapts dedicated solutions to the client. <br />
-                The result is an innovative and advanced <br />
-                technology that provides an accurate answer <br />
-                to the customer's needs.
-              </div>
-            </div>
+            {device === "Mobile" ? (
+              <>
+                <div className={styles.blockName}>Customized solutions</div>
+                <div>
+                  <div className={styles.blockTitle}>
+                    WE BELIEVE THAT EVERY
+                    <br /> ORGANIZATION HAS
+                    <br /> UNIQUE TECHNOLOGICAL
+                    <br /> NEEDS AND CHALLENGES.
+                    <br /> THEREFORE, OUR
+                    <br /> APPROACH IS FLEXIBLE
+                    <br /> AND ADAPTED TO EACH
+                    <br /> CLIENT PERSONALLY
+                    <br />
+                  </div>
+                  <div className={styles.blockNameMobile}>
+                    We build the solutions taking into
+                    <br /> account the existing infrastructures<br /> and systems.
+                    <br />
+                    <br />
+                    Our team of experts studies and deeply <br />
+                    understands the specific challenges,
+                    <br /> and then adapts dedicated solutions
+                    <br /> to the client. The result is an innovative
+                    <br /> and advanced technology that provides
+                    <br /> an accurate answer to the customer's
+                    <br /> needs.
+                  </div>
+                </div>
+              </>
+            ) : (
+              <>
+                <div className={styles.blockName}>Customized solutions</div>
+                <div>
+                  <div className={styles.blockTitle}>
+                    WE BELIEVE THAT EVERY ORGANIZATION
+                    <br />
+                    HAS UNIQUE TECHNOLOGICAL NEEDS
+                    <br />
+                    AND CHALLENGES. THEREFORE,
+                    <br />
+                    OUR APPROACH IS FLEXIBLE AND ADAPTED <br />
+                    TO EACH CLIENT PERSONALLY
+                    <br />
+                  </div>
+                  <div className={styles.blockName}>
+                    We build the solutions taking into account <br />
+                    the existing infrastructures and systems.
+                    <br />
+                    <br />
+                    Our team of experts studies and deeply <br />
+                    understands the specific challenges, and then <br />
+                    adapts dedicated solutions to the client. <br />
+                    The result is an innovative and advanced <br />
+                    technology that provides an accurate answer <br />
+                    to the customer's needs.
+                  </div>
+                </div>
+              </>
+            )}
+
             <div className={styles.bgImage}>
               <img src="/images/aboutWrittenAboutUs.svg" alt="no-image" />
             </div>
@@ -293,6 +370,7 @@ const About = () => {
         <Form top={transforms.form} />
         <TrueFooter top={transforms.trueFooter} />
       </div>
+      <Footer />
     </div>
   );
 };

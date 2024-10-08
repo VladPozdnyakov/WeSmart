@@ -37,7 +37,7 @@
 }
 .titleText {
   width: 83.33%;
-  font-size: 8.6vw;
+  font-size: 8.6vw; 
   font-weight: 400;
   z-index: 4;
   position: relative;
@@ -98,4 +98,128 @@
   top: -10vh;
   right: 3vw;
   z-index: 3;
+}
+
+
+
+
+
+
+
+//375 * 812
+@media  screen and (max-width: 768px) {
+  .bigContainer {
+    width: 100%;
+    height: 1000vh;
+  }
+  .stickyBlock {
+    position: sticky;
+    top: 0;
+    user-select: none;
+  }
+  
+  .productsScreenFirst {
+    width: auto;
+    height: 88vh;
+    padding-top: 11.1vh;
+    position: absolute;
+    background-color: white;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    padding-right: 5.7%;
+    margin-top: 12.3vh;
+  }
+  .productsScreen {
+    width: 88vw;
+
+    padding-left: 5.7%;
+    padding-right: 5.7%;
+
+
+
+    border-radius: 0;
+  }
+  .wrapper {
+    width: 94.3%;
+    height: 88vh;
+  
+    position: absolute;
+    z-index: 3;
+  }
+  .titleText {
+    width: 83.33%;
+    font-size: 44px; 
+    font-weight: 400;
+    z-index: 4;
+    position: relative;
+    color: rgba(54, 59, 97, 1);
+  }
+  .subtitle {
+    font-size: 32px;
+    color: rgba(54, 59, 97, 1);
+    z-index: 4;
+    position: relative;
+  }
+  .orange {
+    color: #f77f1e;
+  }
+  .defaultText {
+    font-size: 18px;
+    margin-top: 12px;
+    z-index: 4;
+    position: relative;
+    color: rgba(67, 74, 83, 1);
+  }
+  .imgBackgroundFirst {
+
+    width: 80vw;
+    height: 27vh;
+    background-image: url("../../../public/images/products1.png");
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    z-index: 3;
+
+    top: 5vh;
+  }
+  .cardContent {
+    display: flex;
+    flex-direction: column;
+    gap: 1.1vh;
+  }
+  .button {
+    width: 88vw;
+    height: 2vh;
+    color: white;
+    margin-top: 1.5vh;
+    background-color: #f77f1e;
+    border-radius: 4.4vw;
+    padding: 1vh 0;
+    text-align: center;
+    cursor: pointer;
+  }
+  .pageNum {
+    color: rgba(170, 178, 189, 1);
+    font-size: 16px;
+    font-weight: 400;
+    margin-right: 24px;
+  }
+  .imgBackground {
+    position: relative;
+    width: 80vw;
+    height: 27vh;
+    background-size: cover;
+    background-position: center;
+    top: 0;
+    right: 0;
+    z-index: 3;
+  }
+  .numDiv{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
+
 }

@@ -9,7 +9,7 @@
   position: absolute;
   z-index: 4;
   color: white;
-
+ 
   .row1 {
     display: flex;
     gap: 12vw;
@@ -57,4 +57,32 @@
     font-size: 0.8vw;
     white-space: pre;
   }
+}
+
+
+@media screen and (max-width: 768px) {
+  .trueFooter {
+    height: 23vh;
+    .iconDiv{
+      gap: 26px;
+    }
+    .row2 {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 21px;
+      margin-top: 10vh;
+    }
+    .row2 :first-child{
+      order: 3;
+    }
+    .infoDiv {
+
+      gap: 5px;
+
+      font-size: 12px;
+
+    }
+  }
+
 }
