@@ -175,3 +175,82 @@
   position: relative;
   z-index: 2; /* Текст остается на переднем плане */
 }
+
+@media screen and (max-width: 768px) {
+  .formContainerWithShadow {
+    flex-direction: column;
+    gap: 2vw;
+
+    padding-top: 48px;
+    .form {
+      width: 87.2vw;
+
+      .input {
+        width: 95%;
+        padding: 13px;
+        font-size: 16px;
+        &::placeholder {
+          font-size: 20px;
+        }
+      }
+      .input:focus {
+        font-size: 16px;
+      }
+    }
+  }
+
+  .formContainer {
+    flex-direction: column;
+    gap: 2vw;
+    padding-left: 24px;
+    .form {
+      width: 87.2vw;
+      .input {
+        width: 95%;
+        padding: 13px;
+        font-size: 16px;
+        &::placeholder {
+          font-size: 20px;
+        }
+      }
+      .input:focus {
+        font-size: 16px;
+      }
+    }
+  }
+
+  .subtitle {
+    font-size: 44px;
+    display: block;
+    width: 56%;
+  }
+
+  .pageNum {
+    font-size: 16px;
+  }
+
+  .flexColumn {
+    gap: 30px;
+    margin-bottom: 24px;
+    input {
+    }
+  }
+  .checkBox {
+    transform: scale(1.4);
+  }
+  .checkBoxContainer {
+    gap: 13px;
+  }
+
+  .checkBoxText {
+    font-size: 16px;
+  }
+  .button {
+
+    width: 88.2vw;
+    color: white;
+    margin-top: 1.5vh;
+    background-color: #f77f1e; /* Основной цвет кнопки */
+    border-radius: 64px;
+  }
+}

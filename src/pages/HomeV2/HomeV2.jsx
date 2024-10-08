@@ -14,6 +14,7 @@ import Modal from "../../components/homePage/ModalForm/ModalForm";
 import Map from "../../components/Map/Map";
 import AdvantagesSlider from "../../components/homePage/AdvantagesSlider/AdvantagesSlider";
 import AboutUsSlider from "../../components/homePage/AboutUsSlider/AboutUsSlider";
+import useDeviceDetection from "../../hooks/useDeviceDetection";
 
 const startPosition = 0;
 const slideStart = startPosition+0.32;
@@ -24,7 +25,8 @@ const endPosition = 1;
 
 const HomeV2 = () => {
   const [isModalVisible, setIsModalVisible] = useState(false);
-  const [color, setColor] = useState("white");
+  const device = useDeviceDetection();
+
   const handleModalOpen = () => {
     console.log("Click");
     setIsModalVisible(true);
@@ -56,11 +58,12 @@ const HomeV2 = () => {
     scrollYProgress.onChange((latest) => {
       const scrollPercentage = latest * 100;
       console.log(`Page scrolled: ${scrollPercentage}%`);
+      
     });
     return () => {
       if (scroll) scroll.destroy();
     };
-  }, [scrollYProgress]);
+  }, [scrollYProgress, device]);
 
   const anim = useTransform(
     scrollYProgress,
@@ -78,7 +81,7 @@ const HomeV2 = () => {
   const clipPath = useTransform(
     scrollYProgress,
     [0, 0.2],
-    ["circle(0% at 62.5% 34%)", "circle(150% at 62.5% 34%)"]
+    ["circle(0% at 62.5vw 48vh)", "circle(150% at 62.5vw 48vh)"]
   );
 
   const slideLeft = useTransform(
@@ -89,6 +92,7 @@ const HomeV2 = () => {
 
   return (
     <div className={styles.bigContainer} data-scroll-container ref={scrollRef}>
+      {console.log(device)}
       <div className={styles.stickyBlock} data-scroll-section>
         <Footer transparent={false} />
         <div className={styles.headSection} style={{ zIndex: 1 }}>
@@ -204,8 +208,8 @@ const HomeV2 = () => {
           </motion.div>
           <AboutUsSlider />
 
-          <Form top={"408vh"} />
-          <TrueFooter top={"496vh"} />
+          <Form top={"400vh"} />
+          <TrueFooter top={"490vh"} />
         </motion.div>
       </div>
       <Modal isVisible={isModalVisible} onClose={handleModalClose} />

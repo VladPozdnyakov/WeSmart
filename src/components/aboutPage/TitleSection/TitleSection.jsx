@@ -2,10 +2,11 @@ import React from "react";
 import { motion } from "framer-motion";
 import styles from "../../../pages/About/About.module.scss";
 import { useNavigate } from "react-router-dom";
+import useDeviceDetection from "../../../hooks/useDeviceDetection";
 
 const TitleSection = ({ top }) => {
   const navigate = useNavigate();
-
+  const device = useDeviceDetection();
   const handleClickAllProducts = () => {
     navigate("/products");
   };
@@ -46,19 +47,32 @@ const TitleSection = ({ top }) => {
         </div>
       </div>
       <div className={styles.videoContainer}>
-        <img src="/images/aboutVideo.svg" alt="no-image" />
-        <div className={styles.wrapper}></div>
-        <div className={styles.videoTitle}>
-          MAKING THE WORLD A SAFER, MORE RELIABLE
-          <br />
-          AND MORE EFFICIENT PLACE THROUGH INNOVATIVE
-          <br />
-          DATA-DRIVEN VIDEO TECHNOLOGY
+        <div className={styles.imageMobileDiv}>
+          <img src="/images/aboutVideo.svg" alt="no-image" />
         </div>
-        <div
-          className={styles.videoButton}
-          onClick={handleClickAllProducts}
-        >
+        <div className={styles.wrapper}></div>
+        {device === "Mobile" ? (
+          <div className={styles.videoTitleContainer}>
+            <div className={styles.ourVision}>OUR VISION</div>
+            <div className={styles.videoTitle}>
+              MAKING THE WORLD A SAFER,
+              <br /> MORE RELIABLE AND MORE
+              <br /> EFFICIENT PLACE THROUGH
+              <br /> INNOVATIVE DATA-DRIVEN VIDEO
+              <br /> TECHNOLOGY
+            </div>
+          </div>
+        ) : (
+          <div className={styles.videoTitle}>
+            MAKING THE WORLD A SAFER, MORE RELIABLE
+            <br />
+            AND MORE EFFICIENT PLACE THROUGH INNOVATIVE
+            <br />
+            DATA-DRIVEN VIDEO TECHNOLOGY
+          </div>
+        )}
+        
+        <div className={styles.videoButton} onClick={handleClickAllProducts}>
           Explore our products
         </div>
         <div className={styles.maskedMan}>
