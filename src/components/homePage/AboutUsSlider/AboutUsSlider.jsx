@@ -1,72 +1,76 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
+
 import styles from "../../../pages/HomeV2/HomeV2.module.scss";
 import { GoArrowLeft, GoArrowRight } from "react-icons/go";
 
 const AboutUsSlider = () => {
+  const { t } = useTranslation();
+
   // Массив данных для разных блоков контента
   const contentData = [
     {
       text: (
         <>
-          WORKING WITH THE WESMART TEAM LED
+          {t("working_with")}
           <br />
-          BY OR WAS A SMOOTH, ENJOYABLE, AND PRODUCTIVE
+          {t("by_or_was")}
           <br />
-          PROCESS. OR IS A PROFESSIONAL WITH EXTENSIVE
+          {t("process")}
           <br />
-          EXPERIENCE IN THE FIELD OF SECURITY, WHO HAS
+          {t("experience")}
           <br />
-          IMPROVED THE SECURITY OF THE SETTLEMENT.
+          {t("improved_the_security")}
           <br />
         </>
       ),
       logoAuthor: (
         <div className={styles.logoAuthor}>
           <img src="/images/homeWrittenAboutUs1.png" alt="no-images" />
-          <span>Maariv</span>
+          <span>{t("Maariv")}</span>
         </div>
       ),
     },
     {
       text: (
         <>
-          THE NEXT GENERATION OF ANALYTICS SYSTEMS - FAR
+          {t("the_next_generation")}
           <br />
-          FEWER FALSE ALERTS WESMART PROVIDED
+          {t("fewer_false")}
           <br />
-          INNOVATIVE SOLUTIONS AND RAPID DEVELOPMENTS,
+          {t("innovation_solutions")}
           <br />
-          DELIVERED OUTSTANDING PERFORMANCE IN THE FIELD
+          {t("delivered")}
           <br />
-          OF PEOPLE COUNTING IN CROWDED AREAS,
+          {t("of_people_counting")}
           <br />
-          IDENTIFICATION AND DIAGNOSIS IN COMPLEX PROJECTS.
+          {t("identification")}
         </>
       ),
       logoAuthor: (
         <div className={styles.logoAuthor}>
           <img src="/images/homeWrittenAboutUs2.png" alt="no-images" />
-          <span>Metzuda Magazine</span>
+          <span>{t("metzuda")}</span>
         </div>
       ),
     },
     {
       text: (
         <>
-          WORKING WITH THE WESMART TEAM LED BY OR WAS
+          {t("working")}
           <br />
-          A SMOOTH, ENJOYABLE, AND PRODUCTIVE PROCESS.
+          {t("smooth")}
           <br />
-          OR IS A PROFESSIONAL WITH EXTENSIVE EXPERIENCE
+          {t("professional")}
           <br />
-          IN THE FIELD OF SECURITY, WHO HAS IMPROVED THE
+          {t("in_the_field")}
           <br />
-          SECURITY OF THE SETTLEMENT. THE AVAILABILITY WAS
+          {t("security_of_the_settlement")}
           <br />
-          AROUND THE CLOCK, AND THEIR SYSTEM SOLVED
+          {t("around_the_clock")}
           <br />
-          MANY PROBLEMS FOR US WITHOUT FALSE ALARMS.
+          {t("many_problems")}
         </>
       ),
       logoAuthor: (
@@ -76,7 +80,7 @@ const AboutUsSlider = () => {
             alt="no-images"
             style={{ width: "5vw" }}
           />
-          <span>TechCrunch</span>
+          <span>{t("TechCrunch")}</span>
         </div>
       ),
     },
@@ -104,18 +108,18 @@ const AboutUsSlider = () => {
 
   return (
     <motion.div className={styles.writtenAboutUs} style={{ top: "314vh" }}>
-      <div className={styles.blockName}>WRITTEN ABOUT US</div>
+      <div className={styles.blockName}>{t("written_about_us")}</div>
       <div>
         <div className={styles.blockTitle}>
           {contentData[currentIndex].text}
         </div>
 
         <div className={styles.blockName}>
-          The availability was around the clock,
+          {t("the_availability")}
           <br />
-          and their system solved many problems
+          {t("their_system_solved")}
           <br />
-          for us without false alarms.
+          {t("for_us_without")}
           {contentData[currentIndex].logoAuthor}
         </div>
       </div>{" "}

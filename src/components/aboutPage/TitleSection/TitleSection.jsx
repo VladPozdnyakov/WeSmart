@@ -2,8 +2,10 @@ import React from "react";
 import { motion } from "framer-motion";
 import styles from "../../../pages/About/About.module.scss";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 const TitleSection = ({ top }) => {
+  const { t } = useTranslation();
   const navigate = useNavigate();
 
   const handleClickAllProducts = () => {
@@ -12,60 +14,57 @@ const TitleSection = ({ top }) => {
   return (
     <motion.div className={styles.titleBlock} style={{ top: top }}>
       <div className={styles.title}>
-        WE BELIEVE THAT TECHNOLOGY
+        {t("WE_BELIEVE_THAT_TECHNOLOGY")}
         <br />
-        IS MEANT TO IMPROVE
+        {t("IS_MEANT_TO_IMPROVE")}
         <br />
-        <span className={styles.orange}>THE QUALITY OF LIFE</span>
+        <span className={styles.orange}>{t("THE_QUALITY_OF_LIFE")}</span>
         <br />
-        AND STREAMLINE PROCESSES
+        {t("AND_STREAMLINE_PROCESSES")}
       </div>
       <div className={styles.descriptionBlock}>
-        <div className={styles.subtitle}>ABOUT US</div>
+        <div className={styles.subtitle}>{t("ABOUT_US")}</div>
         <div className={styles.text}>
-          Our company, founded by experts in the
+          {t("Our_company")}
           <br />
-          field of analytics and artificial intelligence,
+          {t("field_of_analytics")}
           <br />
-          specializes in the development of smart
+          {t("specializes_in_the_development")}
           <br />
-          and innovative solutions that combine
+          {t("and_innovative_solutions_that _combine")}
           <br />
-          different visual systems to deal
+          {t("different_visual_systems")}
           <br />
-          with challenges in a variety of fields.
+          {t("with_challenges")}
           <br />
           <br />
-          We are proud to cooperate with leading
+          {t("We_are_proud")}
           <br />
-          customers in the economy and provide
+          {t("customers_in_the_economy")}
           <br />
-          them with advanced tools that lead
+          {t("them_with_advanced")}
           <br />
-          to saving time and precious resources.
+          {t("to_saving_time")}
         </div>
       </div>
       <div className={styles.videoContainer}>
         <img src="/images/aboutVideo.svg" alt="no-image" />
         <div className={styles.wrapper}></div>
         <div className={styles.videoTitle}>
-          MAKING THE WORLD A SAFER, MORE RELIABLE
+          {t("MAKING_THE_WORLD_A_SAFER")}
           <br />
-          AND MORE EFFICIENT PLACE THROUGH INNOVATIVE
+          {t("AND_MORE_EFFICIENT")}
           <br />
-          DATA-DRIVEN VIDEO TECHNOLOGY
+          {t("DATA-DRIVEN_VIDEO_TECHNOLOGY")}
         </div>
-        <div
-          className={styles.videoButton}
-          onClick={handleClickAllProducts}
-        >
-          Explore our products
+        <div className={styles.videoButton} onClick={handleClickAllProducts}>
+          {t("Explore_our_products")}
         </div>
         <div className={styles.maskedMan}>
-          <div className={styles.naz}>MASKED MAN</div>
+          <div className={styles.naz}>{t("MASKED_MAN")}</div>
         </div>
         <div className={styles.gun}>
-          <div className={styles.naz}>GUN</div>
+          <div className={styles.naz}>{t("GUN")}</div>
         </div>
       </div>
     </motion.div>

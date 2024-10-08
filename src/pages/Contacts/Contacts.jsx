@@ -1,4 +1,4 @@
-import React,{useRef, useState, useEffect} from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { useScroll, useTransform, motion } from "framer-motion";
 import LocomotiveScroll from "locomotive-scroll";
 import "locomotive-scroll/dist/locomotive-scroll.css";
@@ -6,10 +6,12 @@ import Footer from "../../components/footer/Footer";
 import Form from "../../components/Form/Form";
 import TrueFooter from "../../components/TrueFooter/TrueFooter";
 import { IoCopy } from "react-icons/io5";
+import { useTranslation } from "react-i18next";
 
 import styles from "./Contacts.module.scss";
 
 export default function Contacts() {
+  const { t } = useTranslation();
   const copyToClipboard = () => {
     const emailText = document.getElementById("email").textContent;
     navigator.clipboard.writeText(emailText).catch((err) => {
@@ -43,15 +45,15 @@ export default function Contacts() {
           <Footer />
           <div className={styles.contactContainer}>
             <div className={styles.title}>
-              Contacts us
+              {t("Contacts_us")}
               <p className={styles.subtitle}>
-                We are looking forward to hearing from you.
+                {t("We_are_looking")}
                 <br />
-                Please select how we can help you below.
+                {t("Please_select_how")}
               </p>
             </div>
             <div className={styles.baseContainer}>
-              <div className={styles.topicTitle}>EMAIL</div>
+              <div className={styles.topicTitle}>{t("EMAIL")}</div>
               <div className={styles.buttonContainer}>
                 <span className={styles.emailText} id="email">
                   Info@wesmart.co.il
@@ -62,11 +64,11 @@ export default function Contacts() {
               </div>
             </div>
             <div className={styles.baseContainer}>
-              <div className={styles.topicTitle}>PHONE</div>
+              <div className={styles.topicTitle}>{t("PHONE")}</div>
               <div className={styles.phoneText}>+972 50 502 5094</div>
             </div>
             <div className={styles.baseContainer}>
-              <div className={styles.topicTitle}>FOLLOW US</div>
+              <div className={styles.topicTitle}>{t("FOLLOW_US")}</div>
               <div className={styles.networkContainer}>
                 <img src="/images/facebook.png" alt="no-image" />
                 <img src="/images/instagram.png" alt="no-image" />
@@ -78,7 +80,7 @@ export default function Contacts() {
           <div className={styles.divider}></div>
           <div className={styles.addressContainer}>
             <div className={styles.streetContainer}>
-              <div className={styles.topicTitle}>ADDRESS</div>
+              <div className={styles.topicTitle}>{t("ADDRESS")}</div>
               <div className={styles.addressText}>
                 Gazit 10 St, Karmiel. 2165379
               </div>

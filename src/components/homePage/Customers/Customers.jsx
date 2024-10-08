@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { useTranslation } from "react-i18next";
+
 import styles from "./Customers.module.scss";
 
 const customerLogos = [
@@ -83,6 +85,7 @@ const partnerLogos = [
 ];
 
 const Customers = () => {
+  const { t } = useTranslation();
   const [hoveredLogo, setHoveredLogo] = useState(null);
 
   const handleMouseEnter = (id) => setHoveredLogo(id);
@@ -97,10 +100,10 @@ const Customers = () => {
       {/* Customers Section */}
       <div className={styles.textContainer}>
         <div className={styles.title}>
-          Customers
+          {t("customers")}
           <span className={styles.orange}>WESMART</span>
         </div>
-        <div className={styles.subTitle}>Let's work together</div>
+        <div className={styles.subTitle}> {t("work_together")}</div>
       </div>
 
       {/* Первая строка логотипов */}
@@ -138,7 +141,7 @@ const Customers = () => {
       </div>
 
       {/* Partners Section */}
-      <div className={styles.titlePartner}>Partners</div>
+      <div className={styles.titlePartner}>{t("partners")}</div>
       <div className={styles.logoContainerPartner}>
         {partnerLogos.map((logo) => (
           <div
