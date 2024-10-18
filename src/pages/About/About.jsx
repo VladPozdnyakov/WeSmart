@@ -269,29 +269,29 @@ const About = () => {
         <motion.div className={styles.weInvite} style={{ top: transforms.six }}>
           <div className={styles.textBlock}>
             <div className={styles.textTitle}>
-              WE INVITE YOU
-              <br /> TO TALK TO US!
+              {t("WE_INVITE_YOU")}
+              <br /> {t("TO_TALK_TO_US")}!
             </div>
             <div className={styles.textContent}>
-              At WeSmart we are always available to answer
+              {t("At_WeSmart")}
               <br />
-              your questions and help realize your technological
+              {t("your_questions")}
               <br />
-              vision. If you are interested in learning how our
+              {t("vision")}
               <br />
-              advanced video analytics solutions can accelerate
+              {t("advanced_video_analytics")}
               <br />
-              your organization's growth, contact us today.
-              <br />
-              <br />
-              Our team of experts is here for you — to listen,
-              <br />
-              understand your unique challenges and provide
-              <br />
-              customized technological solutions.
+              {t("your_organization's_growth")}
               <br />
               <br />
-              Together we will lead the digital revolution!
+              {t("Our_team_of")}
+              <br />
+              {t("understand_your_unique")}
+              <br />
+              {t("customized_technological")}
+              <br />
+              <br />
+              {t("Together_we_will")}
             </div>
           </div>
         </motion.div>

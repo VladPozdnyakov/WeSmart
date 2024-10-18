@@ -6,44 +6,34 @@ import "slick-carousel/slick/slick-theme.css";
 import styles from "./TeamCarousel.module.scss";
 import { useTranslation } from "react-i18next";
 
-const teamMembers = [
-  {
-    name: "EHUD LAVIE",
-    description:
-      "Former deputy head\n of the Mossad and\n board member\n of several companies",
-    image: "/images/ava.jpg",
-    load: "/images/aboutCarousel.svg",
-  },
-  {
-    name: "DANNY COHEN",
-    description:
-      "CEO of Leumi Card\n and former VP of Bank\n Leumi, an expert\n in banking investments\n in Israel and around\n the world",
-    image: "/images/aboutCarousel.svg",
-    load: "/images/aboutCarousel.svg",
-  },
-  {
-    name: "OR LABAN",
-    description:
-      "VP and entrepreneur\n with impressive\n achievements in the\n field of innovation\n and strategy",
-    image: "/images/aboutCarousel.svg",
-    load: "/images/aboutCarousel.svg",
-  },
-  {
-    name: "LIOR EINAV",
-    description: "VP of Technology and\n an expert in AI and data\n analysis",
-    image: "/images/aboutCarousel.svg",
-    load: "/images/aboutCarousel.svg",
-  },
-  {
-    name: "EHUD LAVIE",
-    description:
-      "Former deputy head\n of the Mossad and\n board member\n of several companies",
-    image: "/images/aboutCarousel.svg",
-    load: "/images/aboutCarousel.svg",
-  },
-];
-
 const TeamCarousel = () => {
+  const { t } = useTranslation();
+  const teamMembers = [
+    {
+      name: t("EHUD_LAVIE"),
+      description: t("Former_deputy"),
+      image: "/images/ava.jpg",
+      load: "/images/aboutCarousel.svg",
+    },
+    {
+      name: t("DANNY_COHEN"),
+      description: t("CEO_of_Leumi"),
+      image: "/images/aboutCarousel.svg",
+      load: "/images/aboutCarousel.svg",
+    },
+    {
+      name: t("OR_LABAN"),
+      description: t("VP_and_entrepreneur"),
+      image: "/images/aboutCarousel.svg",
+      load: "/images/aboutCarousel.svg",
+    },
+    {
+      name: t("LIOR_EINAV"),
+      description: t("VP_of_Technology"),
+      image: "/images/aboutCarousel.svg",
+      load: "/images/aboutCarousel.svg",
+    },
+  ];
   const settings = {
     dots: true,
     infinite: true,

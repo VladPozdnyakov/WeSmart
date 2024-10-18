@@ -9,26 +9,22 @@ const AdvantagesSlider = ({ left }) => {
   const slides = [
     {
       title: t("security"),
-      description:
-        "We understand that in times of uncertainty, a sense of security is a vital necessity",
+      description: t("security_description"),
       image: "/images/securitySlidegBG.svg",
     },
     {
       title: t("safety"),
-      description:
-        "The solutions include alarm systems, security cameras, access control and more",
+      description: t("safety_security_description"),
       image: "/images/safetySliderBG.svg",
     },
     {
       title: t("smart_cities"),
-      description:
-        "We provide smart security solutions based on data analysis and artificial intelligence, suitable for cities and towns of all sizes",
+      description: t("smart_cities_description"),
       image: "/images/smartCitiesSliderBG.svg",
     },
     {
       title: t("logistics_and_industries"),
-      description:
-        "Ai-solutions provide our customers with strategic insights and real-time monitoring of critical logistics data",
+      description: t("logistics_and_industries__description"),
       image: "/images/logisticSliderBG.svg",
     },
     {

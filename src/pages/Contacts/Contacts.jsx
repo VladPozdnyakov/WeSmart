@@ -11,7 +11,13 @@ import { useTranslation } from "react-i18next";
 import styles from "./Contacts.module.scss";
 
 export default function Contacts() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+
+  // useEffect(() => {
+  //   const direction = i18n.language === "heb" ? "rtl" : "ltr";
+  //   document.documentElement.dir = direction;
+  // }, [i18n.language]);
+
   const copyToClipboard = () => {
     const emailText = document.getElementById("email").textContent;
     navigator.clipboard.writeText(emailText).catch((err) => {

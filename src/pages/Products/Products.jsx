@@ -262,7 +262,6 @@ const Products = () => {
     <div className={styles.bigContainer} data-scroll-container ref={scrollRef}>
       <div className={styles.stickyBlock} data-scroll-section>
         <Footer />
-
         <motion.div
           className={styles.productsScreenFirst}
           style={{ opacity: transforms.zero }}
