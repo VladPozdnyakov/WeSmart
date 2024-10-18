@@ -79,3 +79,59 @@
 .slick-dots li {
   display: none; /* Прячем стандартные точки */
 }
+
+
+@media screen and (max-width: 768px) {
+  .carouselContainer {
+    width: 100%;
+  
+    position: absolute;
+    z-index: 10;
+    top: 95vw;
+    left: 0;
+  }
+  
+  .memberCard {
+    padding-left: 18vw;
+    .imageDiv{
+      width: 64vw;
+      height: 64vw;
+      border-radius: 50%;
+      position: relative;
+      overflow: hidden;
+    }
+    .image {
+      width: 64vw;
+      height: 64vw;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      margin: auto;
+      clip-path: circle(0% at 50% 50%); /* Изначально clip-path установлен на 0 */
+      transition: clip-path 1s ease-in-out; /* Анимация clip-path */
+    }
+    .load{
+      width: 64vw;
+      height: 64vw;
+      transition: transform 1s ease-in-out 0.5s; /* Анимация вращения */
+    }
+   
+    .name {
+      font-size: 36px;
+      font-weight: 600;
+      margin-top: 12.2vw;
+      padding-left: 8.2vw;
+      color: #363b61;
+    }
+  
+    .description {
+      font-family: "Open Sans", sans-serif;
+      font-size: 18px;
+      color: rgba(67, 74, 83, 1);
+      padding-left: 8.2vw;
+    }
+  }
+  
+}

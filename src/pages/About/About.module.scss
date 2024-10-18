@@ -640,4 +640,102 @@
       }
     }
   }
+
+  .ourTeam { 
+    flex-direction: column;  
+    gap: 10px;
+    width: 100vw;
+    height: 230vw;
+    padding: 12.8vw 0;
+    top: 0;
+    left: 0;
+    border-radius: 36px;
+    .blockName {
+      font-family: "Open Sans", sans-serif;
+      color: rgba(67, 74, 83, 1);
+      font-size: 16px;
+      margin-left: 24px;
+    }
+    .blockTitle {
+      font-size: 32px;
+      font-weight: 600;
+      margin-bottom: 10vw;
+      color: #363b61;
+      margin-left: 24px;
+      margin-right: 24px;
+    }
+  }
+  .learnMore {
+    gap: 2vw;
+    width: 100%;
+    height: 195vw;
+    padding: 10.6vw 0 ;
+    color: #363b61;
+    .textContainer {
+      gap: 2.7vh;
+      margin: 0 6.4vw;
+      margin-top: 50vw;
+    }
+    .textContent {
+      font-family: "Open Sans", sans-serif;
+      font-size: 18px;
+      color: rgba(67, 74, 83, 1);
+    }
+    .textTitle {
+      font-size: 44px;
+      font-weight: 600;
+      display: block;
+      box-shadow: 0px 0px 50px 71px rgba(255, 255, 255, 0.95);
+      background-color: rgba(255, 255, 255, 0.95);
+      border: 1px solid rgba(255, 255, 255, 0.95);
+    }
+    .button{
+      width: 75.4vw;
+      height: 6.8vw;
+      background-color: rgba(247, 127, 30, 1);
+      border-radius: 64px;
+      font-size: 18px;
+      font-family: "Open Sans", sans-serif;
+      color: white;
+      text-align: center;
+      padding: 4.2vw 6.4vw;
+    }
+    .bgImage{
+      overflow: hidden;
+      position: absolute;
+      width: 137vw;
+      height: 234vw;
+      top: -21vw;
+      left: -39vw;
+    }
+    img {
+      
+        top: -71vw;
+        left: -38px;
+        width: 110%;
+        height: 100%;
+    }
+  }
+  .weInvite {
+
+    border-radius:  36px 36px 0 0;
+    height: 65vh;
+    .textBlock {
+      align-items: normal ;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin: 0 24px;
+      color: #363b61;
+    }
+    .textTitle {
+      font-size: 44px;
+      font-weight: 600;
+    }
+    .textContent {
+      font-size: 18px;
+      color: rgba(67, 74, 83, 1);
+      font-family: "Open Sans", sans-serif;
+    }
+  }
 }

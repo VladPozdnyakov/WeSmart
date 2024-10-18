@@ -37,6 +37,8 @@ const Products = () => {
   };
 
   const scrollRef = useRef(null);
+  const [scrollInstance, setScrollInstance] = useState(null);
+  const [isMenuOpen, setIsMenuOpen] = useState(false); // Контроль состояния меню
   const [visibleScreens, setVisibleScreens] = useState({
     first: false,
     second: false,
@@ -53,11 +55,21 @@ const Products = () => {
       smoothMobile: true,
       inertia: 0.8,
     });
+    setScrollInstance(scroll);
 
     return () => {
       if (scroll) scroll.destroy();
     };
   }, []);
+  useEffect(() => {
+    if (scrollInstance) {
+      if (isMenuOpen) {
+        scrollInstance.stop(); // Останавливаем скролл при открытом меню
+      } else {
+        scrollInstance.start(); // Включаем скролл при закрытом меню
+      }
+    }
+  }, [isMenuOpen, scrollInstance]);
 
   const { scrollYProgress } = useScroll();
   const transforms = {
@@ -406,7 +418,7 @@ const Products = () => {
         
         
       </div>
-      <Footer />
+      <Footer isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen}/>
     </div>
   );
 };

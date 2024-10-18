@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useScroll, useTransform, motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import LocomotiveScroll from "locomotive-scroll";
@@ -13,6 +13,9 @@ const startPosition = 0;
 const endPosition = 1;
 
 const Product = () => {
+
+  const [scrollInstance, setScrollInstance] = useState(null);
+  const [isMenuOpen, setIsMenuOpen] = useState(false); // Контроль состояния меню
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -32,14 +35,26 @@ const Product = () => {
       smoothMobile: true,
       inertia: 0.8,
     });
+    setScrollInstance(scroll);
     scrollYProgress.onChange((latest) => {
       const scrollPercentage = latest * 100;
       console.log(`Page scrolled: ${scrollPercentage}%`);
     });
+    
     return () => {
       if (scroll) scroll.destroy();
     };
   }, [scrollYProgress]);
+
+  useEffect(() => {
+    if (scrollInstance) {
+      if (isMenuOpen) {
+        scrollInstance.stop(); // Останавливаем скролл при открытом меню
+      } else {
+        scrollInstance.start(); // Включаем скролл при закрытом меню
+      }
+    }
+  }, [isMenuOpen, scrollInstance]);
 
   const anim = useTransform(
     scrollYProgress,
@@ -50,7 +65,7 @@ const Product = () => {
   return (
     <div className={styles.bigContainer} data-scroll-container ref={scrollRef}>
       <div className={styles.stickyBlock} data-scroll-section>
-        <Footer transparent={true} />
+        <Footer  transparent={true} isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
         <div className={styles.headSection}>
           <div className={styles.textTitle}>
             Safety
@@ -101,7 +116,7 @@ const Product = () => {
               alt="no-image"
               className={styles.smallImage}
             />
-            <div>
+            <div style={{order: '2'}}>
               <div className={styles.titleText}>
                 SAFETY AT CONSTRUCTION SITES
               </div>
@@ -122,9 +137,9 @@ const Product = () => {
           </motion.div>
           <motion.div
             className={styles.safety}
-            style={{ backgroundColor: "rgba(255, 255, 255, 1)", top: "147vh" }}
+            style={{ backgroundColor: "rgba(255, 255, 255, 1)", top: "152vh" }}
           >
-            <div style={{ marginLeft: "7vw", marginRight: "10vw" }}>
+            <div style={{ marginLeft: "7vw", marginRight: "10vw", order: '2' }}>
               <div className={styles.titleText}>Safety in factories</div>
               <div
                 className={styles.textContent}
@@ -149,13 +164,13 @@ const Product = () => {
               className={styles.smallImage}
             />
           </motion.div>
-          <motion.div className={styles.safety} style={{ top: "233vh" }}>
+          <motion.div className={styles.safety} style={{ top: "258vh" }}>
             <img
-              src="/images/productImg3.svg"
+              src="/images/productImg2.svg"
               alt="no-image"
               className={styles.smallImage}
             />
-            <div>
+            <div style={{order: '2'}}>
               <div className={styles.titleText}>
                 Advanced fire detection
                 <br />
@@ -173,7 +188,7 @@ const Product = () => {
               </div>
             </div>
           </motion.div>
-          <TrueFooter top={"317vh"} />
+          <TrueFooter top={"336vh"} />
         </motion.div>
       </div>
     </div>

@@ -141,6 +141,9 @@
   position: relative;
   z-index: 2; /* Текст остается на переднем плане */
 }
+.no-scroll {
+  overflow: hidden;
+}
 
 
 @media (max-width: 768px) {

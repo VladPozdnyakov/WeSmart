@@ -5,13 +5,13 @@
  
 .contactContainer {
   padding-left: 39.5vw;
-  margin-top: 5vw;
+  margin-top: 10vw;
 }
 
 .baseContainer {
   margin-top: 0.8vw;
 }
-
+ 
 .title {
   color: #363b61;
   font-size: 3vw;
@@ -106,4 +106,130 @@
 .mapImage img {
   width: 100%;
   height: auto;
+}
+
+
+@media screen and (max-width: 768px) {
+
+   
+  .contactContainer {
+    padding-left: 23px;
+    margin-top: 128px;
+  }
+  
+  .baseContainer {
+    margin-top: 0.8vw;
+  }
+   
+  .title {
+    color: #363b61;
+    font-size: 44px;
+    font-family: unset;
+    font-weight: 600;
+  }
+  
+  .subtitle {
+    margin-top: 8px;
+    font-size: 18px;
+    font-family: "Open Sans", sans-serif;
+    font-weight: 400;
+    color: rgba(67, 74, 83, 1);
+    margin-bottom: 32px;
+  }
+  
+  .topicTitle {
+    font-family: "Open Sans", sans-serif;
+    font-weight: 400;
+    color: rgba(170, 178, 189, 1);
+    font-size: 16px;
+    margin-bottom: 5px;
+  }
+  
+  .emailText {
+    font-family: unset;
+    font-weight: 600;
+    font-size: 24px;
+    padding-left: 0;
+    color: #363b61;
+  }
+  
+  .buttonContainer {
+    display: flex;
+    border-radius: 123px;
+
+    justify-content: space-between;
+    width: 75vw;
+    height: 7.4vw;
+    padding: 4.8vw 6.6vw;
+    margin-bottom: 18px;
+  }
+  
+  .copyButton {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    color: #f77f1e;
+    padding-left: 1.5vw;
+  }
+  
+  .copyButton:hover {
+    color: #007bff;
+  }
+  
+  .phoneText {
+    font-family: unset;
+    font-weight: 600;
+    font-size: 61px;
+    color: #363b61;
+    margin-bottom: 18px;
+  }
+  
+  .networkContainer img {
+    margin-top: 10px;
+    margin-right: 25px;
+    width: 25px;
+    height: 25px;
+  }
+  
+  .divider {
+    width: 87%;
+    margin: 3.5vw auto;
+    border-top: 1px solid #e6e9ed;
+  }
+  
+  .streetContainer {
+    padding-left: 23px;
+  }
+  
+  .addressContainer {
+    margin-top: -2vw;
+  }
+  
+  .addressText {
+    font-family: unset;
+    font-weight: 600;
+    font-size: 24px;
+    color: rgba(54, 59, 97, 1);
+  }
+  
+  .mapImage {
+    padding-left: 0;
+    padding-right: 0;
+    margin-top: 3.5vw;
+    width: 100vw;
+    height: 70.4vw;
+    border-radius: 36px;
+    overflow: hidden;
+    object-fit: cover;
+    position: relative;
+  }
+  
+  .mapImage img {
+    position: absolute;
+    left: -20vw;
+    width: 140vw;
+    height: 70.4vw;
+  }
+  
 }

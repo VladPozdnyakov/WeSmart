@@ -8,7 +8,7 @@ import TrueFooter from "../../components/TrueFooter/TrueFooter";
 import { IoCopy } from "react-icons/io5";
 
 import styles from "./Contacts.module.scss";
-
+ 
 export default function Contacts() {
   const copyToClipboard = () => {
     const emailText = document.getElementById("email").textContent;
@@ -18,6 +18,8 @@ export default function Contacts() {
   };
 
   const scrollRef = useRef(null);
+  const [scrollInstance, setScrollInstance] = useState(null);
+  const [isMenuOpen, setIsMenuOpen] = useState(false); // Контроль состояния меню
   const { scrollYProgress } = useScroll();
   useEffect(() => {
     const scroll = new LocomotiveScroll({
@@ -26,6 +28,7 @@ export default function Contacts() {
       smoothMobile: true,
       inertia: 0.6,
     });
+    setScrollInstance(scroll);
     window.scrollTo(0, 0);
     scrollYProgress.onChange((latest) => {
       const scrollPercentage = latest * 100;
@@ -35,12 +38,21 @@ export default function Contacts() {
       if (scroll) scroll.destroy();
     };
   }, [scrollYProgress]);
+  useEffect(() => {
+    if (scrollInstance) {
+      if (isMenuOpen) {
+        scrollInstance.stop(); // Останавливаем скролл при открытом меню
+      } else {
+        scrollInstance.start(); // Включаем скролл при закрытом меню
+      }
+    }
+  }, [isMenuOpen, scrollInstance]);
 
   return (
     <div className={styles.bigContainer} data-scroll-container ref={scrollRef}>
       <div className={styles.stickyBlock} data-scroll-section>
         <div className={styles.mainContainer}>
-          <Footer />
+          <Footer isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
           <div className={styles.contactContainer}>
             <div className={styles.title}>
               Contacts us
@@ -50,6 +62,7 @@ export default function Contacts() {
                 Please select how we can help you below.
               </p>
             </div>
+            
             <div className={styles.baseContainer}>
               <div className={styles.topicTitle}>EMAIL</div>
               <div className={styles.buttonContainer}>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import styles from "./footer.module.scss";
 import Logotype from "../../assets/images/Logotype.png";
@@ -6,13 +6,14 @@ import useDeviceDetection from "../../hooks/useDeviceDetection";
 import { FiMenu, FiX } from "react-icons/fi";
 import { motion } from "framer-motion"; // Добавляем framer-motion
 
-const Footer = ({ transparent, color }) => {
+const Footer = ({ transparent, color, isMenuOpen,  setIsMenuOpen }) => {
   const device = useDeviceDetection();
-  const [menuOpen, setMenuOpen] = useState(false);
+  
 
   const toggleMenu = () => {
-    setMenuOpen(!menuOpen);
+    setIsMenuOpen(!isMenuOpen); // Меняем состояние меню
   };
+
 
   return (
     <div className={transparent ? styles.footerTransparent : styles.footer}>
@@ -23,12 +24,12 @@ const Footer = ({ transparent, color }) => {
         {device === 'Mobile' ? (
           <div className={styles.burgerMenu}>
             <button onClick={toggleMenu} className={styles.burgerButton}>
-              {menuOpen ? <FiX size={30} /> : <FiMenu size={30} />}
+              {isMenuOpen ? <FiX size={30} /> : <FiMenu size={30} />}
             </button>
             <motion.nav
               className={styles.mobileNav}
               initial={{ x: "100%" }} // Начальная позиция вне экрана
-              animate={{ x: menuOpen ? "0%" : "100%" }} // Анимация выезда
+              animate={{ x: isMenuOpen ? "0%" : "100%" }} // Анимация выезда
               transition={{ type: "spring", stiffness: 300, damping: 30 }} // Плавность движения
             >
               <ul className={styles.mobileLinks}>

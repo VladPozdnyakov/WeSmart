@@ -45,7 +45,8 @@ const HomeV2 = () => {
   const handleClickAllProducts = () => {
     navigate("/products");
   };
-
+  const [scrollInstance, setScrollInstance] = useState(null);
+  const [isMenuOpen, setIsMenuOpen] = useState(false); // Контроль состояния меню
   const scrollRef = useRef(null);
   const { scrollYProgress } = useScroll();
   useEffect(() => {
@@ -55,6 +56,8 @@ const HomeV2 = () => {
       smoothMobile: true,
       inertia: 0.8,
     });
+    setScrollInstance(scroll);
+    window.scrollTo(0, 0);
     scrollYProgress.onChange((latest) => {
       const scrollPercentage = latest * 100;
       console.log(`Page scrolled: ${scrollPercentage}%`);
@@ -64,16 +67,25 @@ const HomeV2 = () => {
       if (scroll) scroll.destroy();
     };
   }, [scrollYProgress, device]);
+  useEffect(() => {
+    if (scrollInstance) {
+      if (isMenuOpen) {
+        scrollInstance.stop(); // Останавливаем скролл при открытом меню
+      } else {
+        scrollInstance.start(); // Включаем скролл при закрытом меню
+      }
+    }
+  }, [isMenuOpen, scrollInstance]);
 
   const anim = useTransform(
     scrollYProgress,
     [rotateEnd + 0.02,slideStart, slideEnd, endPosition],
-    ["100vh","-20vh","-20vh", "-444vh"]
+    device==='Mobile'?["100vh","0vh","0vh", "-315vh"]:["100vh","-20vh","-20vh", "-444vh"]
   );
 
   const rotate = useTransform(
     scrollYProgress,
-    [rotateStart, rotateEnd],
+    [rotateStart, rotateEnd], 
     [0, 360]
   );
   const circleOpacity = useTransform(scrollYProgress, [0, 0.11], [1, 0]);
@@ -87,14 +99,14 @@ const HomeV2 = () => {
   const slideLeft = useTransform(
     scrollYProgress,
     [0.32, 0.4],
-    ['0vw', "-80vw"]
+    device === 'Mobile' ? ['0vw', "-270vw"] : ['0vw', "-80vw"]
   )
 
   return (
     <div className={styles.bigContainer} data-scroll-container ref={scrollRef}>
       {console.log(device)}
       <div className={styles.stickyBlock} data-scroll-section>
-        <Footer transparent={false} />
+        <Footer transparent={false} isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
         <div className={styles.headSection} style={{ zIndex: 1 }}>
           <div className={styles.bigCircle} />
           <div className={styles.midCircle}>
@@ -202,14 +214,14 @@ const HomeV2 = () => {
           <Map />
           <motion.div
             className={styles.safety}
-            style={{ backgroundColor: "rgba(255, 255, 255, 1)", top: "222vh" }}
+            style={{ backgroundColor: "rgba(255, 255, 255, 1)", top:device==='Mobile' ? "131vh" : "222vh"  }}
           >
             <Customers />
           </motion.div>
           <AboutUsSlider />
 
-          <Form top={"400vh"} />
-          <TrueFooter top={"490vh"} />
+          <Form top={device==='Mobile'?"280vh":"400vh"} />
+          <TrueFooter top={device==='Mobile'?"378vh":"490vh"} />
         </motion.div>
       </div>
       <Modal isVisible={isModalVisible} onClose={handleModalClose} />

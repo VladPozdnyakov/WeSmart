@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styles from "./Customers.module.scss";
+import useDeviceDetection from "../../../hooks/useDeviceDetection";
 
 const customerLogos = [
   {
@@ -84,6 +85,7 @@ const partnerLogos = [
 
 const Customers = () => {
   const [hoveredLogo, setHoveredLogo] = useState(null);
+  const device = useDeviceDetection(); // Определяем устройство
 
   const handleMouseEnter = (id) => setHoveredLogo(id);
   const handleMouseLeave = () => setHoveredLogo(null);
@@ -91,6 +93,10 @@ const Customers = () => {
   // Разделим логотипы на 2 части
   const firstRowLogos = customerLogos.slice(0, 5);
   const secondRowLogos = customerLogos.slice(5, 10);
+
+  // Мобильная версия логотипов
+  const mobileFirstRowLogos = firstRowLogos.slice(0, 4);
+  const mobilePartnerLogos = partnerLogos.slice(0, 2);
 
   return (
     <div className={styles.container}>
@@ -103,59 +109,99 @@ const Customers = () => {
         <div className={styles.subTitle}>Let's work together</div>
       </div>
 
-      {/* Первая строка логотипов */}
-      <div className={styles.logoRow}>
-        {firstRowLogos.map((logo) => (
-          <div
-            key={logo.id}
-            className={styles.logo}
-            onMouseEnter={() => handleMouseEnter(logo.id)}
-            onMouseLeave={handleMouseLeave}
-          >
-            <img
-              src={hoveredLogo === logo.id ? logo.hover : logo.default}
-              alt={`logo-${logo.id}`}
-            />
+      {device === 'Mobile' ? (
+        <>
+          {/* Одна строка логотипов для мобильных устройств */}
+          <div className={styles.logoRow}>
+            {mobileFirstRowLogos.map((logo) => (
+              <div
+                key={logo.id}
+                className={styles.logo}
+                onMouseEnter={() => handleMouseEnter(logo.id)}
+                onMouseLeave={handleMouseLeave}
+              >
+                <img
+                  src={hoveredLogo === logo.id ? logo.hover : logo.default}
+                  alt={`logo-${logo.id}`}
+                />
+              </div>
+            ))}
           </div>
-        ))}
-      </div>
 
-      {/* Вторая строка логотипов */}
-      <div className={styles.logoRow}>
-        {secondRowLogos.map((logo) => (
-          <div
-            key={logo.id}
-            className={styles.logo}
-            onMouseEnter={() => handleMouseEnter(logo.id)}
-            onMouseLeave={handleMouseLeave}
-          >
-            <img
-              src={hoveredLogo === logo.id ? logo.hover : logo.default}
-              alt={`logo-${logo.id}`}
-            />
+          {/* Логотипы партнеров для мобильных устройств */}
+          <div className={styles.titlePartner}>Partners</div>
+          <div className={styles.logoContainerPartner}>
+            {mobilePartnerLogos.map((logo) => (
+              <div
+                key={logo.id}
+                className={styles.logo}
+                onMouseEnter={() => handleMouseEnter(logo.id)}
+                onMouseLeave={handleMouseLeave}
+              >
+                <img
+                  src={hoveredLogo === logo.id ? logo.hover : logo.default}
+                  alt={`logo-${logo.id}`}
+                />
+              </div>
+            ))}
           </div>
-        ))}
-      </div>
+        </>
+      ) : (
+        <>
+          {/* Полная версия для десктопа */}
+          <div className={styles.logoRow}>
+            {firstRowLogos.map((logo) => (
+              <div
+                key={logo.id}
+                className={styles.logo}
+                onMouseEnter={() => handleMouseEnter(logo.id)}
+                onMouseLeave={handleMouseLeave}
+              >
+                <img
+                  src={hoveredLogo === logo.id ? logo.hover : logo.default}
+                  alt={`logo-${logo.id}`}
+                />
+              </div>
+            ))}
+          </div>
 
-      {/* Partners Section */}
-      <div className={styles.titlePartner}>Partners</div>
-      <div className={styles.logoContainerPartner}>
-        {partnerLogos.map((logo) => (
-          <div
-            key={logo.id}
-            className={styles.logo}
-            onMouseEnter={() => handleMouseEnter(logo.id)}
-            onMouseLeave={handleMouseLeave}
-          >
-            <img
-              src={hoveredLogo === logo.id ? logo.hover : logo.default}
-              alt={`logo-${logo.id}`}
-            />
+          <div className={styles.logoRow}>
+            {secondRowLogos.map((logo) => (
+              <div
+                key={logo.id}
+                className={styles.logo}
+                onMouseEnter={() => handleMouseEnter(logo.id)}
+                onMouseLeave={handleMouseLeave}
+              >
+                <img
+                  src={hoveredLogo === logo.id ? logo.hover : logo.default}
+                  alt={`logo-${logo.id}`}
+                />
+              </div>
+            ))}
           </div>
-        ))}
-      </div>
+
+          <div className={styles.titlePartner}>Partners</div>
+          <div className={styles.logoContainerPartner}>
+            {partnerLogos.map((logo) => (
+              <div
+                key={logo.id}
+                className={styles.logo}
+                onMouseEnter={() => handleMouseEnter(logo.id)}
+                onMouseLeave={handleMouseLeave}
+              >
+                <img
+                  src={hoveredLogo === logo.id ? logo.hover : logo.default}
+                  alt={`logo-${logo.id}`}
+                />
+              </div>
+            ))}
+          </div>
+        </>
+      )}
     </div>
   );
 };
+
 
 export default Customers;

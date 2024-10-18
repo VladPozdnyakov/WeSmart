@@ -6,6 +6,7 @@
     top: 66vh;
     z-index: 5;
     background-color: white;
+    overflow: hidden;
   }
    
   .sliderWrapper {
@@ -33,3 +34,9 @@
     cursor: grabbing;
   }
   
+
+  @media screen and (max-width:768px) {
+    .slide{
+      min-width: 85.3vw;
+    }
+  }

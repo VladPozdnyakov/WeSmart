@@ -278,13 +278,13 @@
 
   .rightArrow {
     position: absolute;
-    margin-left: 85vw;
-    margin-top: 15vw;
+    right: 2vw;
+    top: 50%;
   }
   .leftArrow {
     position: absolute;
-    margin-left: -6vw;
-    margin-top: 15vw;
+    left: 2vw;
+    top: 50%;
   }
 }
 .dotsContainer {
@@ -310,7 +310,7 @@
 .dot.active {
   background-color: rgba(247, 127, 30, 1); /* Активная точка будет черной */
 }
-
+ 
 .bigCircle {
   width: 75vw;
   height: 75vw;
@@ -389,4 +389,220 @@
   flex-direction: row;
   width: 100%;
   border: solid green;
+}
+
+
+@media screen and (max-width: 768px) {
+  .headSection1 {
+    width: 88vw;
+    height: 64vh;
+    padding: 28vh 6vw 8vh 6vw;
+    gap: 25px;
+    overflow: hidden;
+  }
+  .headSection {
+    width: 88vw;
+    height: 64vh;
+    padding: 28vh 6vw 8vh 6vw;
+    gap: 25px;
+    overflow: hidden; 
+    .textTitle {
+      font-weight: 600;
+      font-size: 44px;
+    }
+    .textContent {
+      font-size: 18px;
+      margin-top: 0;
+    }
+    .button {
+      font-size: 18px;
+      width: 75.4vw;
+      margin-top: 0;
+      border-radius: 64px;
+      padding: 4.2vw 6.4vw;
+    } 
+    .wrapper {
+      width: 100vw;
+      height: 130vh;  
+    }
+    .homeBG {
+      position: absolute;
+      top: -30vh;
+      left: -50vw;
+      z-index: 1;
+      width: 271vw;
+      height: 182vh;
+    }
+    
+  }
+  .arrow {
+    margin-top: 1vw;
+    margin-left: 6vw;
+  }
+  .bigCircle {
+    width: 208vw;
+    height: 208vw;
+    top: 0;
+    left: -43.7vw;
+  }
+  .midCircle {
+    width: 123vw;
+    height: 123vw;
+    top: 43vw;
+    left: 1.2vw;
+
+  }
+  .whiteCircle {
+    width: 123vw;
+    height: 123vw;
+    top: 43vw;
+    left: 1.2vw;
+    border: none;
+  }
+  .smallCircle {
+    width: 60vw;
+    height: 60vw;
+    top: 74.6vw;
+    left: 33vw;
+  }
+
+
+
+  .contentBlock {
+    width: 88vw;
+    height: 143.5vw;
+    border-radius: 36px 36px 0 0;
+    background-color: white;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 4;
+    padding: 12.5vw 6vw;
+    display: flex;
+    flex-direction: column;
+    gap: 10.6vh;
+  }
+  .ourMission {
+    gap: 0;
+    margin-left: 0;
+  }
+  
+  .advantages {
+    display: flex;
+    gap: 5px;
+    overflow-x: auto;
+    padding: 10px;
+    width: 100vw;
+    scroll-snap-type: x mandatory;
+    box-sizing: border-box;
+  }
+  
+  .titleText {
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 600;
+    font-size: 32px;
+    color: #363b61;
+  }
+  .textContent {
+    font-weight: 400;
+    font-family: "Open Sans", sans-serif;
+    margin-top: 12px;
+    font-size: 18px;
+    color: #434a53;
+  }
+  
+  .title {
+    font-size: 4.4vw;
+    color: rgba(34, 34, 34, 1);
+  }
+  .subtitle {
+    font-size: 2.5vw;
+    color: rgba(34, 34, 34, 1);
+  }
+
+  .safety {
+    width: 100vw;
+    height: 140vw;
+    gap: 50px;
+    padding: 0;
+  }
+  .writtenAboutUs {
+    flex-direction: column;
+    gap: 8px;
+    width: 87.2vw;
+    height: 175vw;
+    padding: 21.3vw 6.4vw 10vw 6.4vw;
+    border-radius: 36px;
+    .blockName {
+      font-size: 16px;
+      font-family: "Open Sans", sans-serif;
+      color: rgba(67, 74, 83, 1);
+    }
+    .blockTitle {
+      font-size: 32px;
+      font-weight: 600;
+      margin-bottom: 2vh;
+    }
+  
+    .bgImage {
+      position: absolute;
+      top: 11.5vh;
+      left: 28.6vw;
+      img {
+        width: 19.2vw;
+        height: 21.4vh;
+      }
+    }
+    .logoAuthor {
+      display: flex;
+      align-items: center;
+      margin-top: 24px;
+      gap: 100px;
+      img {
+        max-width: 37.4vw;
+      }
+    }
+  
+    .rightArrow {
+      position: absolute;
+      right: 2vw;
+      top: 50%;
+      svg{
+        width: 15px;
+        height: 15px;
+      }
+    }
+    .leftArrow {
+      position: absolute;
+      left: 2vw;
+      top: 50%;
+      svg{
+        width: 15px;
+        height: 15px;
+      }
+    }
+  }
+  .dotsContainer {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    margin: auto;
+    bottom: 70px;
+    z-index: 5;
+    left: 0;
+    right: 0;
+  }
+  
+  .dot {
+    width: 10px;
+    height: 10px;
+    margin: 0 5px;
+    background-color: rgba(204, 209, 217, 1);
+    border-radius: 50%;
+    cursor: pointer;
+  }
+  
+  .dot.active {
+    background-color: rgba(247, 127, 30, 1); /* Активная точка будет черной */
+  }
 }

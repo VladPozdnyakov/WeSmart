@@ -2,6 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import styles from "./Map.module.scss";
+import useDeviceDetection from "../../hooks/useDeviceDetection";
 
 const MapPoint = ({ top, left, name, delay }) => (
   <motion.div
@@ -54,7 +55,7 @@ const Map = () => {
     threshold: 0.2, // Процент видимости карты в viewport
     triggerOnce: false, // Анимация сработает только один раз
   });
-
+  const device = useDeviceDetection()
   return (
     <motion.div className={styles.mapContainer} ref={ref}>
       <img src="/images/mapHome.png" alt="Map" className={styles.mapImage} />
@@ -70,36 +71,38 @@ const Map = () => {
 
           {/* Списки стран появляются после точек */}
           <CountryList
-            top="10%"
+            top={device==='Mobile' ? "8%": "10%"}
             left="55%"
             countries={["Germany", "Portugal"]}
             delay={1.5}
           />
           <CountryList
-            top="20%"
+            top={device==='Mobile' ? "14%": "20%"}
             left="73%"
             countries={["Vietnam", "Cambodia"]}
             delay={1.7}
           />
           <CountryList
-            top="18%"
-            left="18%"
+            top={device==='Mobile' ? "5%": "18%"}
+            left={device==='Mobile' ? "8%": "18%"}
             countries={["New York", "Florida", "California"]}
             delay={1.9}
           />
           <CountryList
-            top="65%"
-            left="55%"
+            top={device==='Mobile' ? "68%": "65%"}
+            left={device==='Mobile' ? "48%": "55%"}
             countries={["Senegal", "Congo"]}
             delay={2.1}
           />
-
-          <NewOffice
-            top="40%"
-            left="50%"
+          
+            <NewOffice
+            top={device==='Mobile' ? "42%": "40%"}
+            left={device==='Mobile' ? "38%": "50%"}
             places={["CYPRUS", "GREECE"]}
             delay={2.3}
           />
+          
+          
           <div className={styles.button}>
             <span className={styles.buttonText}>Request a demo</span>
           </div>

@@ -174,3 +174,136 @@
   height: 361vh;
   top: 0;
 }
+
+
+@media screen and (max-width: 768px) {
+
+  .headSection {
+    position: absolute;
+    width: 88vw;
+    height: 64vh;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    padding: 34vh 6vw;
+    display: flex;
+    flex-direction: column;
+    gap: 2vh;
+    overflow: hidden;
+    .textTitle {
+      font-size: 44px;
+      font-weight: 500;
+    }
+    .textContent {
+      font-family: "Open Sans", sans-serif;
+      font-size: 18px;
+      font-weight: 400;
+    }
+    .button {
+      width: 75.4vw;
+      border-radius: 64px;
+      padding: 4.2vw 6.4vw;
+    }
+  
+    .wrapper {
+      top: 0vh;
+      height: 100vh;
+      background: linear-gradient(
+        90.26deg,
+        #29232f 0.19%,
+        rgba(130, 111, 149, 0) 99.74%
+      );
+    }
+    img {
+        top: -3vh;
+        left: -123vw;
+        width: 433vw;
+        height: 111vh;
+    }
+  }
+  .contentBlock {
+    width: 88vw;
+    height: 50vh;
+    border-radius: 3.3vw 3.3vw 0 0;
+
+  }
+  .ourMission {
+    display: flex;
+    gap: 12px;
+    flex-direction: column;
+  }
+  .descText {
+    color: #434a53;
+    font-size: 16px;
+    font-family: "Open Sans", sans-serif;
+    font-weight: 400;
+  }
+  .backButton {
+    justify-content: unset;
+  }
+  .titleText {
+    font-family: unset;
+    font-weight: 400;
+    font-size: 32px;
+  }
+  .textContent {
+    font-size: 18px;
+  }
+  .smallImage {
+    width: 100vw;
+    height: 76  .6vw; /* Ширина изображения */
+    order: 1;
+  }
+  .separator {
+    background-color: rgba(230, 233, 237, 1);
+    width: 88.2vw;
+    height: 1px;
+    border: 1px solid rgba(230, 233, 237, 1);
+    margin: 0 auto;
+  }
+  .benefits {
+    display: flex;
+    flex-direction: column;
+    gap: 7.1vh;
+    margin-left: 30vw;
+  }
+  .title {
+    font-size: 4.4vw;
+    color: rgba(34, 34, 34, 1);
+  }
+  .subtitle {
+    font-size: 2.5vw;
+    color: rgba(34, 34, 34, 1);
+  }
+  .flexRow {
+    display: flex;
+    gap: 5.7vw;
+  }
+  .flexCol {
+    display: flex;
+    flex-direction: column;
+    gap: 7.1vh;
+  }
+  
+  .safety {
+    position: absolute;
+    top: 0;
+    z-index: 4;
+    width: 88vw;
+    height: 130vh;
+    background-color: rgba(245, 247, 250, 1);
+    display: flex;
+    flex-direction: column;
+    gap: 7.2vw;
+    align-items: center;
+    border-radius: 3vw 3vw 0 0;
+    padding: 0 6vw;
+    box-shadow: 0px -2px 10px -2px rgba(0, 0, 0, 0.1);
+  }
+  .pageContainer {
+    position: absolute;
+    width: 100%;
+    height: 361vh;
+    top: 0;
+  }
+}

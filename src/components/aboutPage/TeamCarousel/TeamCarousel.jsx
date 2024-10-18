@@ -66,6 +66,7 @@ const TeamCarousel = () => {
                 position: "absolute",
                 bottom: "-5.5vh",
                 width: "100%",
+                left: '23vw',
               }}
             >
               <div

@@ -2,8 +2,10 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import styles from "../../../pages/HomeV2/HomeV2.module.scss";
 import { GoArrowLeft, GoArrowRight } from "react-icons/go";
+import useDeviceDetection from "../../../hooks/useDeviceDetection";
 
 const AboutUsSlider = () => {
+  const device = useDeviceDetection()
   // Массив данных для разных блоков контента
   const contentData = [
     {
@@ -103,7 +105,7 @@ const AboutUsSlider = () => {
   };
 
   return (
-    <motion.div className={styles.writtenAboutUs} style={{ top: "314vh" }}>
+    <motion.div className={styles.writtenAboutUs} style={{ top: device==='Mobile'?"190vh":"314vh" }}>
       <div className={styles.blockName}>WRITTEN ABOUT US</div>
       <div>
         <div className={styles.blockTitle}>

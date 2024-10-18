@@ -180,7 +180,7 @@
   .formContainerWithShadow {
     flex-direction: column;
     gap: 2vw;
-
+    height: 95vh;
     padding-top: 48px;
     .form {
       width: 87.2vw;
@@ -200,6 +200,7 @@
   }
 
   .formContainer {
+    height: 95vh;
     flex-direction: column;
     gap: 2vw;
     padding-left: 24px;

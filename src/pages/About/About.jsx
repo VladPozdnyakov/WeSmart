@@ -2,7 +2,7 @@ import Footer from "../../components/footer/Footer";
 import Form from "../../components/Form/Form";
 import TrueFooter from "../../components/TrueFooter/TrueFooter";
 import styles from "./About.module.scss";
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
 import LocomotiveScroll from "locomotive-scroll";
 import { useScroll, motion, useTransform } from "framer-motion";
 import TitleSection from "../../components/aboutPage/TitleSection/TitleSection";
@@ -56,6 +56,8 @@ const About = () => {
   const scrollRef = useRef(null);
   const device = useDeviceDetection();
   const { scrollYProgress } = useScroll();
+  const [scrollInstance, setScrollInstance] = useState(null);
+  const [isMenuOpen, setIsMenuOpen] = useState(false); // Контроль состояния меню
   useEffect(() => {
     const scroll = new LocomotiveScroll({
       el: scrollRef.current,
@@ -63,6 +65,7 @@ const About = () => {
       smoothMobile: true,
       inertia: 0.8,
     });
+    setScrollInstance(scroll);
     window.scrollTo(0, 0);
     scrollYProgress.onChange((latest) => {
       const scrollPercentage = latest * 100; // Преобразуем в проценты
@@ -72,6 +75,15 @@ const About = () => {
       if (scroll) scroll.destroy();
     };
   }, [scrollYProgress]);
+  useEffect(() => {
+    if (scrollInstance) {
+      if (isMenuOpen) {
+        scrollInstance.stop(); // Останавливаем скролл при открытом меню
+      } else {
+        scrollInstance.start(); // Включаем скролл при закрытом меню
+      }
+    }
+  }, [isMenuOpen, scrollInstance]);
 
   const transforms = {
     first: useTransform(
@@ -95,14 +107,14 @@ const About = () => {
             thirdSlideTopEnd,
           ],
       device === "Mobile"
-        ? ["220vw", "-400vw", "-400vw", "-600vw"]
+        ? ["220vw", "-400vw", "-400vw", "-620vw"]
         : ["100vh", "-150vh", "-150vh", "-250vh"]
     ),
     third: useTransform(
       scrollYProgress,
       device === "Mobile"
         ? [
-          thirdSlideTopStart-0.05,
+          thirdSlideTopStart-0.04,
           thirdSlideTopEnd-0.05,
           fourthSlideTopStart-0.05,
           fifthSlideTopEnd-0.05,
@@ -114,12 +126,17 @@ const About = () => {
         fifthSlideTopEnd,
       ],
       device === "Mobile"
-        ? ["220vw", "0vw", "0vw", "-220vw"]
+        ? ["220vw", "0vw", "0vw", "-230vw"]
         : ["100vh", "0vh", "0vh", "-100vh"]
     ),
     fourth: useTransform(
       scrollYProgress,
-      [
+      device==='Mobile'?[
+        fourthSlideTopStart-0.05,
+        fourthSlideTopEnd,
+        fifthSlideTopStart,
+        fifthSlideTopEnd,
+      ]:[
         fourthSlideTopStart,
         fourthSlideTopEnd,
         fifthSlideTopStart,
@@ -129,8 +146,8 @@ const About = () => {
     ),
     fifth: useTransform(
       scrollYProgress,
-      [fourthSlideTopStart, fifthSlideTopEnd],
-      ["100vh", "0vh"]
+      device === 'Mobile'?[fourthSlideTopStart-0.05, fifthSlideTopEnd-0.02]:[fourthSlideTopStart, fifthSlideTopEnd],
+      device==='Mobile'?['300vw', '0vw']:["100vh", "0vh"]
     ),
     six: useTransform(
       scrollYProgress,
@@ -188,18 +205,24 @@ const About = () => {
     ),
     form: useTransform(
       scrollYProgress,
+      device==='Mobile'?[
+        formSlideTopStart-0.02,
+        formSlideTopEnd-0.02,
+        footerSlideTopStart-0.02,
+        footerSlideTopEnd-0.03,
+      ]:
       [
         formSlideTopStart,
         formSlideTopEnd,
         footerSlideTopStart,
         footerSlideTopEnd,
       ],
-      ["100vh", "13vh", "13vh", "-44vh"]
+      device==='Mobile'?["100vh", "13vh", "13vh", "-35vh"]:["100vh", "13vh", "13vh", "-44vh"]
     ),
     trueFooter: useTransform(
       scrollYProgress,
-      [footerSlideTopStart, footerSlideTopEnd],
-      ["100vh", "46vh"]
+      device==='Mobile'?[footerSlideTopStart, footerSlideTopEnd-0.03]:[footerSlideTopStart, footerSlideTopEnd],
+      device==='Mobile'?["100vh", "65vh"]:["100vh", "46vh"]
     ),
   };
 
@@ -370,7 +393,7 @@ const About = () => {
         <Form top={transforms.form} />
         <TrueFooter top={transforms.trueFooter} />
       </div>
-      <Footer />
+      <Footer isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen}/>
     </div>
   );
 };
