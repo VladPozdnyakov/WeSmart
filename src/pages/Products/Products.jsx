@@ -4,6 +4,7 @@ import LocomotiveScroll from "locomotive-scroll";
 import "locomotive-scroll/dist/locomotive-scroll.css";
 import Footer from "../../components/footer/Footer";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 import styles from "./Products.module.scss";
 import Form from "../../components/Form/Form";
@@ -29,6 +30,7 @@ const footerSlideTopStart = formSlideTopEnd;
 const footerSlideTopEnd = footerSlideTopStart + 0.1;
 
 const Products = () => {
+  const { t } = useTranslation();
   const navigate = useNavigate();
 
   const handleClickAllProducts = () => {
@@ -52,9 +54,7 @@ const Products = () => {
       smoothMobile: true,
       inertia: 0.8,
     });
-    
-      
-    
+
     return () => {
       if (scroll) scroll.destroy();
     };
@@ -197,8 +197,8 @@ const Products = () => {
   const screensData = [
     {
       id: 1,
-      subtitle: "SECURITY",
-      text: `We understand that in times of uncertainty,\n a sense of security is a vital necessity`,
+      subtitle: t("SECURITY"),
+      text: `${t("We_understand")}\n${t("sense_of_security")}`,
       img: "products2.svg",
       styleTop: transforms.first,
       styleOpacity: transforms.firstOpacity,
@@ -206,8 +206,8 @@ const Products = () => {
     },
     {
       id: 2,
-      subtitle: "SAFETY",
-      text: `The solutions include alarm systems, security\n cameras, access control and more`,
+      subtitle: t("SAFETY"),
+      text: `${t("The_solutions")}\n${t("cameras_access_control")}`,
       img: "products3.svg",
       styleTop: transforms.second,
       styleOpacity: transforms.secondOpacity,
@@ -215,8 +215,10 @@ const Products = () => {
     },
     {
       id: 3,
-      subtitle: "SMART CITIES",
-      text: `We provide smart security solutions\n based on data analysis and artificial intelligence,\n suitable for cities and towns of all sizes`,
+      subtitle: t("SMART_CITIES"),
+      text: `${t("We_provide")}\n${t("based_on_data")}\n${t(
+        "suitable_for_cities"
+      )}`,
       img: "products4.svg",
       styleTop: transforms.third,
       styleOpacity: transforms.thirdOpacity,
@@ -224,8 +226,10 @@ const Products = () => {
     },
     {
       id: 4,
-      subtitle: "LOGISTICS AND INDUSTRY",
-      text: `AI-solutions provide our customers with\n strategic insights and real-time monitoring\n of critical logistics data`,
+      subtitle: t("LOGISTICS_AND_INDUSTRY"),
+      text: `${t("AI_solutions_provide")}\n${t("strategic_insights")}\n${t(
+        "critical_logistics"
+      )}`,
       img: "products6.svg",
       styleTop: transforms.fourth,
       styleOpacity: transforms.fourthOpacity,
@@ -233,8 +237,10 @@ const Products = () => {
     },
     {
       id: 5,
-      subtitle: "PUBLIC TRANSPORTATION",
-      text: `The WeSmart system monitors bus and train\n traffic in real time, provides accurate predictions\n of arrival times and analyzes usage patterns`,
+      subtitle: t("PUBLIC_TRANSPORTATION"),
+      text: `${t("The_WeSmart_system")}\n${t("traffic_in_real_time")}\n${t(
+        "analyzes_usage_patterns"
+      )}`,
       img: "products7.svg",
       styleTop: transforms.fifth,
       styleOpacity: transforms.fifthOpacity,
@@ -243,8 +249,8 @@ const Products = () => {
 
     {
       id: 6,
-      subtitle: "FULL CONTROL",
-      text: ` We understand that in times of uncertainty, \n a sense of security is a vital necessity`,
+      subtitle: t("FULL_CONTROL"),
+      text: `${t("We_understand_that_in_times")}\n${t("a_sense_of_security")}`,
       img: "products5.svg",
       styleTop: transforms.sixth,
       styleOpacity: transforms.sixthOpacity,
@@ -256,19 +262,19 @@ const Products = () => {
     <div className={styles.bigContainer} data-scroll-container ref={scrollRef}>
       <div className={styles.stickyBlock} data-scroll-section>
         <Footer />
-
         <motion.div
           className={styles.productsScreenFirst}
           style={{ opacity: transforms.zero }}
         >
           <div className={styles.titleText}>
-            EMPOWER YOURSELF TO FOCUS
+            {t("EMPOWER_YOURSELF_TO_FOCUS")}
             <br />
-            ON WHAT <span className={styles.orange}>MATTERS MOST</span>
+            {t("ON_WHAT")}
+            <span className={styles.orange}> {t("MATTERS_MOST")}</span>
           </div>
           <div className={styles.defaultText}>
-            Explore our personalized solutions designed to address <br />
-            your unique needs and bring you peace of mind
+            {t("Explore_our_personalized")} <br />
+            {t("your_unique_needs")}
           </div>
           <div className={styles.imgBackgroundFirst}></div>
         </motion.div>
@@ -283,13 +289,13 @@ const Products = () => {
             >
               <div className={styles.cardContent}>
                 <div className={styles.pageNum}> /01</div>
-                <div className={styles.subtitle}>SECURITY</div>
+                <div className={styles.subtitle}> {t("SECURITY")}</div>
                 <div className={styles.defaultText}>
-                  We understand that in times of uncertainty,
-                  <br /> a sense of security is a vital necessity
+                  {t("We_understand")}
+                  <br /> {t("sense_of_security")}
                 </div>
                 <div className={styles.button} onClick={handleClickAllProducts}>
-                  Learn more
+                  {t("button_home")}
                 </div>
               </div>
               <img
@@ -327,7 +333,7 @@ const Products = () => {
                       className={styles.button}
                       onClick={handleClickAllProducts}
                     >
-                      Learn more
+                      {t("button_home")}
                     </div>
                   </div>
                   <img
@@ -367,7 +373,7 @@ const Products = () => {
                       className={styles.button}
                       onClick={handleClickAllProducts}
                     >
-                      Learn more
+                      {t("button_home")}
                     </div>
                   </div>
                   <img

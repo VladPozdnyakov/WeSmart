@@ -2,8 +2,10 @@
 import React from "react";
 import { motion } from "framer-motion";
 import styles from "./Form.module.scss"; // Путь к вашим стилям
+import { useTranslation } from "react-i18next";
 
 const Form = ({ top, isShadow = true }) => {
+  const { t } = useTranslation();
   return (
     <motion.div
       className={
@@ -11,13 +13,13 @@ const Form = ({ top, isShadow = true }) => {
       }
       style={{ top }}
     >
-      <div className={styles.pageNum}>LET'S TALK</div>
+      <div className={styles.pageNum}>{t("LET'S_ALK")}</div>
       <div>
         <div className={styles.subtitle}>
-          FILL IN THE FORM
-          <span className={styles.blue}> AND WE WILL</span>
+          {t("FILL_IN_THE_FORM")}
+          <span className={styles.blue}> {t("AND_WE_WILL")}</span>
           <br />
-          <span className={styles.blue}> GET BACK TO YOU</span>
+          <span className={styles.blue}> {t("GET_BACK_TO_YOU")}</span>
         </div>
         <form className={styles.form}>
           <div className={styles.flexColumn}>
@@ -25,35 +27,33 @@ const Form = ({ top, isShadow = true }) => {
               className={styles.input}
               type="text"
               name="firstName"
-              placeholder="Name"
+              placeholder={t("Name")}
             />
             <input
               className={styles.input}
               type="text"
               name="company"
-              placeholder="Company"
+              placeholder={t("Company")}
             />
             <input
               className={styles.input}
               type="text"
               name="jobTitle"
-              placeholder="Job title"
+              placeholder={t("Job_title")}
             />
             <input
               className={styles.input}
               type="email"
               name="email"
-              placeholder="Email"
+              placeholder={t("Email")}
             />
           </div>
           <div className={styles.checkBoxContainer}>
             <input type="checkbox" />
-            <p className={styles.checkBoxText}>
-              I HAVE READ AND AGREE TO THE TERMS OF USE AND PRIVACY POLICY
-            </p>
+            <p className={styles.checkBoxText}>{t("I_HAVE_READ_AND_AGREE")}</p>
           </div>
           <div className={styles.button}>
-            <p className={styles.buttonText}>Submit</p>
+            <p className={styles.buttonText}>{t("submit")}</p>
           </div>
         </form>
       </div>

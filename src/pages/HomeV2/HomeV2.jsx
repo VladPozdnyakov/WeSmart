@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import LocomotiveScroll from "locomotive-scroll";
 import "locomotive-scroll/dist/locomotive-scroll.css";
 import Footer from "../../components/footer/Footer";
+import { useTranslation } from "react-i18next";
 import styles from "./HomeV2.module.scss";
 import Form from "../../components/Form/Form";
 import TrueFooter from "../../components/TrueFooter/TrueFooter";
@@ -16,13 +17,14 @@ import AdvantagesSlider from "../../components/homePage/AdvantagesSlider/Advanta
 import AboutUsSlider from "../../components/homePage/AboutUsSlider/AboutUsSlider";
 
 const startPosition = 0;
-const slideStart = startPosition+0.32;
+const slideStart = startPosition + 0.32;
 const slideEnd = slideStart + 0.08;
 const rotateStart = startPosition;
 const rotateEnd = rotateStart + 0.11;
 const endPosition = 1;
 
 const HomeV2 = () => {
+  const { t } = useTranslation();
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [color, setColor] = useState("white");
   const handleModalOpen = () => {
@@ -64,8 +66,8 @@ const HomeV2 = () => {
 
   const anim = useTransform(
     scrollYProgress,
-    [rotateEnd + 0.02,slideStart, slideEnd, endPosition],
-    ["100vh","-20vh","-20vh", "-444vh"]
+    [rotateEnd + 0.02, slideStart, slideEnd, endPosition],
+    ["100vh", "-20vh", "-20vh", "-444vh"]
   );
 
   const rotate = useTransform(
@@ -84,8 +86,8 @@ const HomeV2 = () => {
   const slideLeft = useTransform(
     scrollYProgress,
     [0.32, 0.4],
-    ['0vw', "-80vw"]
-  )
+    ["0vw", "-80vw"]
+  );
 
   return (
     <div className={styles.bigContainer} data-scroll-container ref={scrollRef}>
@@ -106,24 +108,24 @@ const HomeV2 = () => {
             className={styles.textTitle}
             style={{ color: "rgba(54, 59, 97, 1)" }}
           >
-            Step into a magical world,
+            {t("title_home_1")}
             <br />
-            where cameras
+            {t("title_home_2")}
             <br />
-            see beyond the visible
+            {t("title_home_3")}
           </div>
           <div
             className={styles.textContent}
             style={{ color: "rgba(54, 59, 97, 1)" }}
           >
-            Discover the true power of WeSmart's video analytics
+            {t("title_description")}
           </div>
           <div
             className={styles.button}
             onClick={handleModalOpen}
             onClose={handleModalClose}
           >
-            <span className={styles.buttonText}>Learn more</span>
+            <span className={styles.buttonText}> {t("button_home")}</span>
           </div>
           <div className={styles.arrow}>
             <GoArrowDown style={{ color: "#363B61" }} size={20} />
@@ -143,21 +145,19 @@ const HomeV2 = () => {
             />
           </div>
           <div className={styles.textTitle}>
-            Step into a magical world,
+            {t("title_home_1")}
             <br />
-            where cameras
+            {t("title_home_2")}
             <br />
-            see beyond the visible
+            {t("title_home_3")}
           </div>
-          <div className={styles.textContent}>
-            Discover the true power of WeSmart's video analytics
-          </div>
+          <div className={styles.textContent}>{t("title_description")} </div>
           <div
             className={styles.button}
             onClick={handleModalOpen}
             onClose={handleModalClose}
           >
-            <span className={styles.buttonText}>Learn more</span>
+            <span className={styles.buttonText}>{t("button_home")}</span>
           </div>
 
           <img
@@ -173,28 +173,22 @@ const HomeV2 = () => {
             <div className={styles.ourMission}>
               <div>
                 <div className={styles.titleText}>
-                  WESMART IS LEADING A QUIET REVOLUTION
-                  <br />
-                  IN THE FIELD OF ARTIFICIAL INTELLIGENCE, GIVING
-                  <br />
-                  ORDINARY CAMERAS AND SENSORS ADVANCED ANALYSIS,
-                  <br />
-                  UNDERSTANDING AND INSIGHT CAPABILITIES.
+                  {t("subtitle_home_1")} <br />
+                  {t("subtitle_home_2")} <br />
+                  {t("subtitle_home_3")} <br />
+                  {t("subtitle_home_4")}
                 </div>
                 <div className={styles.textContent}>
-                  We provide customized solutions in the fields
-                  <br />
-                  of security, safety, logistics, industry and smart
-                  <br />
-                  cities, enabling our customers to get the most
-                  <br />
-                  out of their video data.
+                  {t("subtitle_home_desc_1")} <br />
+                  {t("subtitle_home_desc_2")} <br />
+                  {t("subtitle_home_desc_3")} <br />
+                  {t("subtitle_home_desc_4")}
                 </div>
               </div>
             </div>
           </motion.div>
 
-          <AdvantagesSlider left={slideLeft}/>
+          <AdvantagesSlider left={slideLeft} />
           <Map />
           <motion.div
             className={styles.safety}

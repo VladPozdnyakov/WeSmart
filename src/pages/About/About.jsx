@@ -3,6 +3,8 @@ import Form from "../../components/Form/Form";
 import TrueFooter from "../../components/TrueFooter/TrueFooter";
 import styles from "./About.module.scss";
 import { useRef, useEffect } from "react";
+import { useTranslation } from "react-i18next";
+
 import LocomotiveScroll from "locomotive-scroll";
 import { useScroll, motion, useTransform } from "framer-motion";
 import TitleSection from "../../components/aboutPage/TitleSection/TitleSection";
@@ -41,6 +43,7 @@ const fifthWorthAppearStart = fourthWorthAppearEnd;
 const fifthWorthAppearEnd = fifthWorthAppearStart + 0.03;
 
 const About = () => {
+  const { t } = useTranslation();
   const scrollRef = useRef(null);
   const { scrollYProgress } = useScroll();
   useEffect(() => {
@@ -181,30 +184,32 @@ const About = () => {
             className={styles.writtenAboutUs}
             style={{ top: transforms.third }}
           >
-            <div className={styles.blockName}>Customized solutions</div>
+            <div className={styles.blockName}>{t("Customized_solutions")}</div>
             <div>
               <div className={styles.blockTitle}>
-                WE BELIEVE THAT EVERY ORGANIZATION
+                {t("WE_BELIEVE_THAT_EVERY_ORGANIZATION")}
                 <br />
-                HAS UNIQUE TECHNOLOGICAL NEEDS
+                {t("HAS_UNIQUE_TECHNOLOGICAL_NEEDS")}
                 <br />
-                AND CHALLENGES. THEREFORE,
+                {t("AND_CHALLENGES_THEREFORE")}
                 <br />
-                OUR APPROACH IS FLEXIBLE AND ADAPTED <br />
-                TO EACH CLIENT PERSONALLY
+                {t("OUR_APPROACH_IS_FLEXIBLE_AND_ADAPTED")} <br />
+                {t("TO_EACH_CLIENT_PERSONALLY")}
                 <br />
               </div>
               <div className={styles.blockName}>
-                We build the solutions taking into account <br />
-                the existing infrastructures and systems.
+                {t("We_build_the_solutions")} <br />
+                {t("the_existing_infrastructures")}
                 <br />
                 <br />
-                Our team of experts studies and deeply <br />
-                understands the specific challenges, and then <br />
-                adapts dedicated solutions to the client. <br />
-                The result is an innovative and advanced <br />
-                technology that provides an accurate answer <br />
-                to the customer's needs.
+                {t("Our_team_of_experts")} <br />
+                {t("understands_the_specific")}
+                <br />
+                {t("adapts_dedicated")} <br />
+                {t("The_result_is_an_innovative")} <br />
+                {t("technology_that_provides")}
+                <br />
+                {t("to_the_customer's_needs")}
               </div>
             </div>
             <div className={styles.bgImage}>
@@ -215,18 +220,18 @@ const About = () => {
             className={styles.ourTeam}
             style={{ top: transforms.fourth }}
           >
-            <div className={styles.blockName}>OUR TEAM</div>
+            <div className={styles.blockName}>{t("OUR_TEAM")}</div>
             <div>
               <div className={styles.blockTitle}>
-                WE BELIEVE THAT THE MOST
+                {t("WE_BELIEVE_THAT_THE_MOST")}
                 <br />
-                IMPORTANT ASSET IS HUMAN CAPITAL,
+                {t("IMPORTANT_ASSET_IS_HUMAN_CAPITAL")}
                 <br />
-                THE PROFESSIONAL TEAM THAT LEADS
+                {t("THE_PROFESSIONAL_TEAM_THAT_LEADS")}
                 <br />
-                TECHNOLOGICAL INNOVATION
+                {t("TECHNOLOGICAL_INNOVATION")}
                 <br />
-                IN THE ORGANIZATION
+                {t("IN_THE_ORGANIZATION")}
               </div>
               <TeamCarousel />
             </div>
@@ -237,24 +242,24 @@ const About = () => {
           >
             <div className={styles.textContainer}>
               <div className={styles.textTitle}>
-                <span className={styles.orange}>LEARN MORE </span>
+                <span className={styles.orange}>{t("LEARN_MORE")} </span>
                 <br />
-                ABOUT OUR PRODUCTS <br />
-                AND SERVICES
+                {t("ABOUT_OUR_PRODUCTS")} <br />
+                {t("AND_SERVICES")}
               </div>
               <div className={styles.textContent}>
-                WeSmart's advanced technologies are already
+                {t("WeSmart's_advanced")}
                 <br />
-                successfully implemented by hundreds <br />
-                of customers around the world and contribute <br />
-                real value to businesses in a variety of fields. <br />
+                {t("successfully_implemented")} <br />
+                {t("of_customers_around")} <br />
+                {t("real_value_to_businesses")} <br />
                 <br />
-                If you are interested in learning more about <br />
-                the unique products and solutions we offer <br />
-                and how they can help you, contact us
+                {t("If_you_are_interested")} <br />
+                {t("the_unique_products")} <br />
+                {t("and_how_they_can_help")}
                 <br />
               </div>
-              <div className={styles.button}>EXPLORE OUR PRODUCTS</div>
+              <div className={styles.button}>{t("EXPLORE_OUR_PRODUCTS")}</div>
             </div>
             <div className={styles.bgImage}>
               <img src="/images/aboutLearnMoreBG.svg" alt="no-image" />
@@ -264,29 +269,29 @@ const About = () => {
         <motion.div className={styles.weInvite} style={{ top: transforms.six }}>
           <div className={styles.textBlock}>
             <div className={styles.textTitle}>
-              WE INVITE YOU
-              <br /> TO TALK TO US!
+              {t("WE_INVITE_YOU")}
+              <br /> {t("TO_TALK_TO_US")}!
             </div>
             <div className={styles.textContent}>
-              At WeSmart we are always available to answer
+              {t("At_WeSmart")}
               <br />
-              your questions and help realize your technological
+              {t("your_questions")}
               <br />
-              vision. If you are interested in learning how our
+              {t("vision")}
               <br />
-              advanced video analytics solutions can accelerate
+              {t("advanced_video_analytics")}
               <br />
-              your organization's growth, contact us today.
-              <br />
-              <br />
-              Our team of experts is here for you — to listen,
-              <br />
-              understand your unique challenges and provide
-              <br />
-              customized technological solutions.
+              {t("your_organization's_growth")}
               <br />
               <br />
-              Together we will lead the digital revolution!
+              {t("Our_team_of")}
+              <br />
+              {t("understand_your_unique")}
+              <br />
+              {t("customized_technological")}
+              <br />
+              <br />
+              {t("Together_we_will")}
             </div>
           </div>
         </motion.div>
