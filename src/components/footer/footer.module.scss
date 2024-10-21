@@ -28,14 +28,23 @@
   align-items: center;
 }
 
+.footerLogo {
+  flex: 2;
+}
+
 .footerLogo img {
   height: 50px;
   cursor: pointer;
 }
 
+.footerNav {
+  flex: 2;
+}
+
 .footerNav .footerLinks {
   list-style: none;
   display: flex;
+  justify-content: space-between; /* Равномерное распределение элементов */
   gap: 30px;
   padding: 0;
   margin: 0;
@@ -65,7 +74,7 @@
   font-weight: 400;
   width: 12vw;
   color: white;
-  margin-top: 1.5vh;
+  margin-left: 10vw;
   background-color: #f77f1e; /* Основной цвет кнопки */
   border-radius: 4.4vw;
   padding: 2vh 1vh;
@@ -79,14 +88,14 @@
 
 /* Первый фон (фон ближе к тексту) */
 .button::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: -100%; /* Начальная позиция за кнопкой */
   width: 100%;
   height: 100%;
   border-radius: 4.4vw;
-  background-color: rgb(253,140,48); /* Первый фон (темный) */
+  background-color: rgb(253, 140, 48); /* Первый фон (темный) */
   z-index: 1;
   transition: all 0.5s ease-in-out; /* Плавная анимация для первого фона */
   transition-delay: 0s; /* Задержка при возврате фона */
@@ -94,7 +103,7 @@
 
 /* Второй фон (фон дальше от текста) */
 .button::after {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   border-radius: 4.4vw;
@@ -135,7 +144,6 @@
   position: relative;
   z-index: 2; /* Текст остается на переднем плане */
 }
-
 
 /* Адаптивность для мобильных устройств */
 @media (max-width: 768px) {
