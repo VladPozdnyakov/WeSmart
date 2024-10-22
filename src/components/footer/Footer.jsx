@@ -1,27 +1,35 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom"; // Импортируем Link из react-router-dom
-import { useTranslation } from "react-i18next"; // Импортируем useTranslation
+import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import styles from "./footer.module.scss";
 import Logotype from "../../assets/images/Logotype.png";
 
 const Footer = ({ transparent, color }) => {
-  const [language, setLanguage] = useState("en");
   const { t, i18n } = useTranslation();
+  const [language, setLanguage] = useState(i18n.language);
 
   useEffect(() => {
+    setLanguage(i18n.language);
+
     const direction = i18n.language === "heb" ? "rtl" : "ltr";
     document.documentElement.dir = direction;
   }, [i18n.language]);
 
   const switchLanguage = (lng) => {
-    setLanguage(lng);
-    i18n.changeLanguage(lng); // Переключение языка с помощью i18n
+    i18n.changeLanguage(lng);
+  };
+
+  const navigate = useNavigate();
+
+  const handleClickOnHome = () => {
+    navigate("/");
   };
 
   return (
     <div className={transparent ? styles.footerTransparent : styles.footer}>
       <div className={styles.footerContainer}>
-        <div className={styles.footerLogo}>
+        <div className={styles.footerLogo} onClick={handleClickOnHome}>
           {transparent ? (
             <img src="/images/logoBlueBG.svg" alt="Company Logo" />
           ) : (
@@ -77,18 +85,10 @@ const Footer = ({ transparent, color }) => {
           <select
             value={language}
             onChange={(e) => switchLanguage(e.target.value)}
-            style={{
-              border: "none",
-              background: "none", // Убираем фон
-              fontSize: "16px", // Размер шрифта
-              outline: "none", // Убираем активный бордер
-              textAlignLast: "right", // Выравниваем текст и стрелку справа
-              color: "#363B61", // Цвет текста (белый для темного фона)
-              flex: "1.5",
-            }}
+            className={styles.selectLang}
           >
             <option value="en">EN</option>
-            <option value="heb">בקש הדגמה</option>
+            <option value="heb">עב</option>
           </select>
         </div>
       </div>

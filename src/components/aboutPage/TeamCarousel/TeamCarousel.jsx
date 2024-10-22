@@ -84,7 +84,7 @@ const TeamCarousel = () => {
               }%`,
               width: `${50 / dots.length}%`,
               height: "5px",
-              backgroundColor: "orange", // Оранжевая полоска
+              backgroundColor: "orange",
               transition: "left 0.5s ease-in-out",
             }}
           />

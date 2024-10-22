@@ -28,7 +28,6 @@ const HomeV2 = () => {
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [color, setColor] = useState("white");
   const handleModalOpen = () => {
-    console.log("Click");
     setIsModalVisible(true);
   };
 
